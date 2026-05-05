@@ -26,5 +26,19 @@
     "result": null,
     "exit_price": null,
     "pnl_pct": null
+  },
+  {
+    "time_utc": "2026-05-05T21:06:32.210403+00:00",
+    "time_tr": "06/05/2026 00:06",
+    "signal": "BUY",
+    "price": 2384.79,
+    "score_buy": 5.75,
+    "score_sell": 0.0,
+    "delta": 12.75,
+    "cvd": 178.83,
+    "imbalance": 65.0,
+    "result": null,
+    "exit_price": null,
+    "pnl_pct": null
   }
 ]
