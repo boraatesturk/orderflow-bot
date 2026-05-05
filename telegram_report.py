@@ -105,11 +105,23 @@ def build_daily_report(signals: list, target_date: str = None) -> str:
 
         exit_p = f"→ {s['exit_price']}" if s.get("exit_price") else ""
 
+        sl   = f"{s['sl']}" if s.get("sl") else "—"
+        tp1  = f"{s['tp1']}" if s.get("tp1") else "—"
+        tp2  = f"{s['tp2']}" if s.get("tp2") else "—"
+        lev  = f"{s['leverage']}x" if s.get("leverage") else "—"
+        rusd = f"${s['risk_usd']}" if s.get("risk_usd") else "—"
+
         lines.append(
-            f"{emoji} <b>{sig}</b> | {time} | {s['price']} {exit_p}"
+            f"{emoji} <b>{sig}</b> | {time} | Giris: {s['price']} {exit_p}"
         )
         lines.append(
-            f"   Skor: {score:.1f}/10 | P&L: {pnl} | {result}"
+            f"   🎯 TP1: {tp1}  TP2: {tp2}"
+        )
+        lines.append(
+            f"   🛑 SL: {sl} (-%{s.get('sl_pct','—')})  Kaldirac: {lev}"
+        )
+        lines.append(
+            f"   Skor: {score:.1f}/10 | Risk: {rusd} | P&L: {pnl} | {result}"
         )
 
     # BUY/SELL dagılımı
