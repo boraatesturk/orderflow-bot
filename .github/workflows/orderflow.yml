@@ -42,7 +42,7 @@ jobs:
 
   daily_report:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 9 * * *'
+    if: github.event.schedule == '0 9 * * *'
 
     steps:
       - name: Repo'yu cek
