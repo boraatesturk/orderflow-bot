@@ -23,8 +23,24 @@ SIGNALS_FILE = "signals.json"
 
 def fetch_bars(limit=288):
     params = {"symbol": SYMBOL, "interval": "5m", "limit": limit}
-    r = requests.get("https://api.binance.com/api/v3/klines", params=params, timeout=15)
-    r.raise_for_status()
+    
+    # Binance mirror'lari dene (GitHub sunucusu ABD'de, binance.com engelliyor)
+    mirrors = [
+        "https://api1.binance.com/api/v3/klines",
+        "https://api2.binance.com/api/v3/klines",
+        "https://api3.binance.com/api/v3/klines",
+        "https://api4.binance.com/api/v3/klines",
+    ]
+    r = None
+    for mirror in mirrors:
+        try:
+            r = requests.get(mirror, params=params, timeout=15)
+            if r.status_code == 200:
+                break
+        except Exception:
+            continue
+    if r is None or r.status_code != 200:
+        raise Exception(f"Tum Binance mirror'lari basarisiz oldu!")
     data = r.json()
 
     cols = ["open_time","open","high","low","close","volume","close_time",
