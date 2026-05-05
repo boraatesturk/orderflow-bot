@@ -220,10 +220,14 @@ MAX_LEV  = 15
 def compute_risk(signal, score, row):
     if signal == "FLAT":
         return {}
+    try:
+        _ = float(row["high"])
+    except Exception:
+        return {}
 
     close     = float(row["close"])
-    high      = float(row["high"])
-    low       = float(row["low"])
+   high  = float(row.get("high", close * 1.001))
+    low   = float(row.get("low",  close * 0.999))
     direction = 1 if signal == "BUY" else -1
 
     # ATR tahmini
