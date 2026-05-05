@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "time_utc": "2026-05-05T20:59:30.178451+00:00",
+    "time_tr": "05/05/2026 23:59",
+    "signal": "BUY",
+    "price": 2382.73,
+    "score_buy": 6.75,
+    "score_sell": 0.0,
+    "delta": 170.67,
+    "cvd": 148.16,
+    "imbalance": 65.0,
+    "result": null,
+    "exit_price": null,
+    "pnl_pct": null
+  }
+]
