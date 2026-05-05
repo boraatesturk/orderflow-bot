@@ -2,14 +2,20 @@ name: Orderflow Bot
 
 on:
   schedule:
-    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
-    - cron: "0 9 * * *"
-  workflow_dispatch:
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"   # Her 5 dakika - sinyal
+    - cron: "0 9 * * *"                                      # 09:00 UTC (12:00 TR) - gunluk rapor
+    - cron: "0 0 * * 0"                                      # Her Pazar gece - keepalive commit
+  workflow_dispatch:                                          # Manuel tetikleme
 
 jobs:
+
+  # ─── SİNYAL JOB ─────────────────────────────────────────────────────────────
   signal:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule != '0 9 * * *')
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' &&
+       github.event.schedule == '0,5,10,15,20,25,30,35,40,45,50,55 * * * *')
 
     steps:
       - name: Repo'yu cek
@@ -23,30 +29,35 @@ jobs:
           python-version: "3.11"
 
       - name: Kutuphaneleri yukle
-        run: pip install pandas numpy requests pyarrow colorama python-dateutil tqdm
+        run: pip install pandas numpy requests pyarrow colorama python-dateutil
 
-      - name: signals.json'u cek (onceki veriler)
+      - name: signals.json'u guncelle
         run: |
           git config user.name "orderflow-bot"
           git config user.email "bot@orderflow.local"
           git pull --rebase origin main || true
 
-      - name: Sinyal uret ve kaydet
+      - name: Sinyal uret
         run: python signal_logger.py
 
-      - name: signals.json'u commit et
+      - name: Degisiklikleri kaydet
         run: |
           git add signals.json
           git diff --staged --quiet || git commit -m "sinyal: $(date -u '+%Y-%m-%d %H:%M') UTC"
           git push origin main || true
 
+  # ─── GÜNLÜK RAPOR JOB ───────────────────────────────────────────────────────
   daily_report:
     runs-on: ubuntu-latest
-    if: github.event.schedule == '0 9 * * *'
+    if: |
+      github.event_name == 'schedule' &&
+      github.event.schedule == '0 9 * * *'
 
     steps:
       - name: Repo'yu cek
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Python kur
         uses: actions/setup-python@v5
@@ -57,10 +68,44 @@ jobs:
         run: pip install requests
 
       - name: signals.json'u cek
-        run: git pull --rebase origin main || true
+        run: |
+          git config user.name "orderflow-bot"
+          git config user.email "bot@orderflow.local"
+          git pull --rebase origin main || true
 
-      - name: Gunluk raporu Telegram'a gonder
+      - name: Gunluk raporu gonder ve signals.json'u sifirla
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python telegram_report.py
+
+      - name: Arsivenin commitini kaydet
+        run: |
+          git add signals.json signals_archive.json || true
+          git diff --staged --quiet || git commit -m "rapor: $(date -u '+%Y-%m-%d') gunluk arsiv"
+          git push origin main || true
+
+  # ─── KEEPALIVE JOB ──────────────────────────────────────────────────────────
+  # GitHub inaktif repolarda schedule'i durdurur.
+  # Her Pazar bos bir commit atarak repoyu aktif tutar.
+  keepalive:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'schedule' &&
+      github.event.schedule == '0 0 * * 0'
+
+    steps:
+      - name: Repo'yu cek
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Keepalive commit
+        run: |
+          git config user.name "orderflow-bot"
+          git config user.email "bot@orderflow.local"
+          git pull --rebase origin main || true
+          echo "keepalive: $(date -u '+%Y-%m-%d')" >> .keepalive
+          git add .keepalive
+          git commit -m "keepalive: $(date -u '+%Y-%m-%d')"
+          git push origin main
