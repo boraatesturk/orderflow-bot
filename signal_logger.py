@@ -295,7 +295,6 @@ def main():
     now_tr    = datetime.now(TZ_TR)
 
     print(f"Sinyal: {signal} | BUY: {sb} | SELL: {ss} | Fiyat: {price}")
-    print(f"DEBUG high={last.get('high')} low={last.get('low')} risk={risk}")
 
     # Onceki sinyalleri yukle ve sonuclari guncelle
     signals = load_signals()
@@ -304,7 +303,6 @@ def main():
     # Yeni sinyali ekle (FLAT da kaydet, rapor icin)
     active_score = sb if signal == "BUY" else ss
     risk = compute_risk(signal, active_score, last)
-    print(f"DEBUG risk={risk}")
 
     new_entry = {
         "time_utc":   now_utc.isoformat(),
@@ -330,7 +328,6 @@ def main():
     signals.append(new_entry)
     save_signals(signals)
 
-    print(f"DEBUG risk={risk}")
     print(f"Kaydedildi. Toplam sinyal: {len(signals)}")
     return signal, sb, ss, price
 
