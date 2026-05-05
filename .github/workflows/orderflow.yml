@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     
     # Sadece sinyal cron'unda calis (09:00 UTC degil)
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && !contains('0 9 * * *', github.event.schedule))
+    if: always()
 
     steps:
       - name: Repo'yu cek
