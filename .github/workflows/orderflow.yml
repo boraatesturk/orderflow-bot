@@ -2,20 +2,14 @@ name: Orderflow Bot
 
 on:
   schedule:
-    # Her 5 dakikada bir sinyal uret (UTC cinsinden)
     - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
-    # Her gun oglen 12:00 TR = 09:00 UTC (yaz saati) / 10:00 UTC (kis)
     - cron: "0 9 * * *"
-  
-  # Elle de calistirabilmek icin
   workflow_dispatch:
 
 jobs:
   signal:
     runs-on: ubuntu-latest
-    
-    # Sadece sinyal cron'unda calis (09:00 UTC degil)
-    if: always()
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && github.event.schedule != '0 9 * * *')
 
     steps:
       - name: Repo'yu cek
@@ -48,9 +42,7 @@ jobs:
 
   daily_report:
     runs-on: ubuntu-latest
-    
-    # Sadece 09:00 UTC cron'unda calis (oglen 12 TR)
-    if: github.event_name == 'schedule' && github.event.schedule == '0 9 * * *'
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 9 * * *'
 
     steps:
       - name: Repo'yu cek
@@ -72,4 +64,3 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python telegram_report.py
-
