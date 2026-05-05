@@ -1,1 +1,75 @@
+name: Orderflow Bot
+
+on:
+  schedule:
+    # Her 5 dakikada bir sinyal uret (UTC cinsinden)
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"
+    # Her gun oglen 12:00 TR = 09:00 UTC (yaz saati) / 10:00 UTC (kis)
+    - cron: "0 9 * * *"
+  
+  # Elle de calistirabilmek icin
+  workflow_dispatch:
+
+jobs:
+  signal:
+    runs-on: ubuntu-latest
+    
+    # Sadece sinyal cron'unda calis (09:00 UTC degil)
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && !contains('0 9 * * *', github.event.schedule))
+
+    steps:
+      - name: Repo'yu cek
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Kutuphaneleri yukle
+        run: pip install pandas numpy requests pyarrow colorama python-dateutil tqdm
+
+      - name: signals.json'u cek (onceki veriler)
+        run: |
+          git config user.name "orderflow-bot"
+          git config user.email "bot@orderflow.local"
+          git pull --rebase origin main || true
+
+      - name: Sinyal uret ve kaydet
+        run: python signal_logger.py
+
+      - name: signals.json'u commit et
+        run: |
+          git add signals.json
+          git diff --staged --quiet || git commit -m "sinyal: $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push origin main || true
+
+  daily_report:
+    runs-on: ubuntu-latest
+    
+    # Sadece 09:00 UTC cron'unda calis (oglen 12 TR)
+    if: github.event_name == 'schedule' && github.event.schedule == '0 9 * * *'
+
+    steps:
+      - name: Repo'yu cek
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Kutuphaneleri yukle
+        run: pip install requests
+
+      - name: signals.json'u cek
+        run: git pull --rebase origin main || true
+
+      - name: Gunluk raporu Telegram'a gonder
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python telegram_report.py
 
