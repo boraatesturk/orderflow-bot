@@ -12,6 +12,8 @@ import pandas as pd
 import numpy as np
 import json
 import os
+import pickle
+from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from zoneinfo import ZoneInfo
 
@@ -88,6 +90,82 @@ def fetch_bars(limit=288):
 
     return df
 
+
+# ─── ML MODEL ───────────────────────────────────────────────────
+
+_BASE_DIR         = Path(__file__).parent
+ML_MODEL_B_PATH   = _BASE_DIR / "data" / "xgb_binary.pkl"
+ML_MODEL_W_PATH   = _BASE_DIR / "data" / "xgb_weighted.pkl"
+ML_CONF_THRESHOLD = 0.60
+_ML_LABEL         = {-1: "DOWN", 0: "FLAT", 1: "UP"}
+
+def _build_ml_features(df):
+    feat = df.copy()
+    for col in ["delta", "imbalance_ratio", "cvd", "volume", "close"]:
+        if col not in feat.columns:
+            continue
+        for lag in [1, 3, 6, 12]:
+            feat[f"{col}_lag{lag}"] = feat[col].shift(lag)
+    for window in [5, 10, 20]:
+        feat[f"close_roc_{window}"]    = feat["close"].pct_change(window)
+        feat[f"volume_mean_{window}"]  = feat["volume"].rolling(window).mean()
+        feat[f"delta_mean_{window}"]   = feat["delta"].rolling(window).mean()
+        feat[f"delta_std_{window}"]    = feat["delta"].rolling(window).std()
+        feat[f"imbalance_ma_{window}"] = feat["imbalance_ratio"].rolling(window).mean()
+    if "vwap" in feat.columns:
+        feat["price_vs_vwap"] = (feat["close"] - feat["vwap"]) / feat["vwap"]
+    if "volume" in feat.columns and "delta" in feat.columns:
+        feat["delta_norm"] = feat["delta"] / (feat["volume"] + 1e-9)
+    if "cvd" in feat.columns:
+        feat["cvd_roc5"]  = feat["cvd"].diff(5)
+        feat["cvd_roc10"] = feat["cvd"].diff(10)
+    feat["bar_direction"] = np.sign(feat["close"] - feat["open"])
+    feat["hl_range"]      = (feat["high"] - feat["low"]) / feat["close"]
+    bool_cols = feat.select_dtypes(include="bool").columns
+    feat[bool_cols] = feat[bool_cols].astype(int)
+    return feat
+
+def get_ml_prediction(df):
+    if not ML_MODEL_B_PATH.exists():
+        return {"available": False}
+    try:
+        with open(ML_MODEL_B_PATH, "rb") as f:
+            pb = pickle.load(f)
+        model_b, le_b, feat_cols = pb["model"], pb["le"], pb["feature_cols"]
+
+        feat = _build_ml_features(df)
+        for col in feat_cols:
+            if col not in feat.columns:
+                feat[col] = 0
+        last = feat[feat_cols].iloc[[-1]].fillna(0)
+
+        prob_b     = model_b.predict_proba(last)[0]
+        pred_b_raw = le_b.inverse_transform([model_b.predict(last)[0]])[0]
+        conf_b     = float(max(prob_b))
+        binary_signal = ("BUY" if pred_b_raw == 1 else "SELL") if conf_b >= ML_CONF_THRESHOLD else "FLAT"
+
+        result = {
+            "available":     True,
+            "binary_signal": binary_signal,
+            "binary_conf":   round(conf_b, 3),
+            "prob_down":     round(float(prob_b[0]), 3),
+            "prob_up":       round(float(prob_b[1]), 3),
+        }
+
+        if ML_MODEL_W_PATH.exists():
+            with open(ML_MODEL_W_PATH, "rb") as f:
+                pw = pickle.load(f)
+            prob_w     = pw["model"].predict_proba(last)[0]
+            pred_w_raw = pw["le"].inverse_transform([pw["model"].predict(last)[0]])[0]
+            result["weighted_signal"] = _ML_LABEL[pred_w_raw]
+            result["prob_down_w"]     = round(float(prob_w[0]), 3)
+            result["prob_flat_w"]     = round(float(prob_w[1]), 3)
+            result["prob_up_w"]       = round(float(prob_w[2]), 3)
+
+        return result
+    except Exception as e:
+        print(f"[ML] Tahmin hatasi: {e}")
+        return {"available": False}
 
 # ─── SİNYAL ÜRETİCİ (signal_engine'den kopyalanmis) ─────────────
 
@@ -294,7 +372,22 @@ def main():
     now_utc   = datetime.now(timezone.utc)
     now_tr    = datetime.now(TZ_TR)
 
+    # ML tahmini
+    ml = get_ml_prediction(df)
+    ml_signal  = ml.get("binary_signal", "N/A") if ml.get("available") else "N/A"
+    ml_conf    = ml.get("binary_conf", 0) if ml.get("available") else 0
+    ml_w       = ml.get("weighted_signal", "N/A") if ml.get("available") else "N/A"
+
+    # Uyum kontrolu
+    if ml_signal != "N/A" and ml_signal != "FLAT" and signal != "FLAT":
+        uyum = "UYUM" if signal == ml_signal else "CAKISMA"
+    elif ml_signal != "FLAT" and ml_signal != "N/A" and signal == "FLAT":
+        uyum = "ML_ONCU"
+    else:
+        uyum = "FLAT"
+
     print(f"Sinyal: {signal} | BUY: {sb} | SELL: {ss} | Fiyat: {price}")
+    print(f"ML    : {ml_signal} (guven: %{ml_conf*100:.0f}) | Weighted: {ml_w} | Uyum: {uyum}")
 
     # Onceki sinyalleri yukle ve sonuclari guncelle
     signals = load_signals()
@@ -324,6 +417,10 @@ def main():
         "result":     None if signal != "FLAT" else "—",
         "exit_price": None,
         "pnl_pct":    None,
+        "ml_signal":  ml_signal,
+        "ml_conf":    round(ml_conf * 100, 1),
+        "ml_weighted": ml_w,
+        "ml_uyum":    uyum,
     }
     signals.append(new_entry)
     save_signals(signals)
