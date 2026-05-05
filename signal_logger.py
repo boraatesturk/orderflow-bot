@@ -22,45 +22,52 @@ SIGNALS_FILE = "signals.json"
 # ─── VERİ ÇEK ────────────────────────────────────────────────────
 
 def fetch_bars(limit=288):
-    params = {"symbol": SYMBOL, "interval": "5m", "limit": limit}
-    
-    # Binance mirror'lari dene (GitHub sunucusu ABD'de, binance.com engelliyor)
-    mirrors = [
-        "https://api1.binance.com/api/v3/klines",
-        "https://api2.binance.com/api/v3/klines",
-        "https://api3.binance.com/api/v3/klines",
-        "https://api4.binance.com/api/v3/klines",
-    ]
-    r = None
-    for mirror in mirrors:
-        try:
-            r = requests.get(mirror, params=params, timeout=15)
-            if r.status_code == 200:
-                break
-        except Exception:
-            continue
-    if r is None or r.status_code != 200:
-        raise Exception(f"Tum Binance mirror'lari basarisiz oldu!")
+    """
+    Kraken API'den OHLCV ceker (GitHub Actions icin - Binance ABD'yi engelliyor)
+    Kraken ETHUSDT = XETHZUSD pairi, 5dk = 5 (dakika cinsinden)
+    """
+    # Kraken 5dk mum: interval=5, since=simdi-limit*300sn
+    since = int((datetime.now(timezone.utc).timestamp())) - (limit * 300)
+    params = {"pair": "ETHUSD", "interval": 5, "since": since}
+    r = requests.get("https://api.kraken.com/0/public/OHLC", params=params, timeout=15)
+    r.raise_for_status()
     data = r.json()
 
-    cols = ["open_time","open","high","low","close","volume","close_time",
-            "quote_volume","trade_count","taker_buy_volume","taker_buy_quote_volume","_"]
-    df = pd.DataFrame(data, columns=cols)
-    df["open_time"] = pd.to_datetime(df["open_time"], unit="ms", utc=True)
-    for c in ["open","high","low","close","volume","taker_buy_volume"]:
-        df[c] = df[c].astype(float)
-    df["trade_count"] = df["trade_count"].astype(int)
-    df.set_index("open_time", inplace=True)
-    df.drop(columns=["_","close_time","quote_volume","taker_buy_quote_volume"], inplace=True, errors="ignore")
+    if data.get("error"):
+        raise Exception(f"Kraken hatasi: {data['error']}")
 
+    # Kraken response: {"result": {"XETHZUSD": [[time, open, high, low, close, vwap, volume, count]]}}
+    pair_key = list(data["result"].keys())[0]  # "XETHZUSD" veya "ETHUSD"
+    ohlcv    = data["result"][pair_key]
+
+    df = pd.DataFrame(ohlcv, columns=["time","open","high","low","close","vwap","volume","count"])
+    df["open_time"] = pd.to_datetime(df["time"].astype(int), unit="s", utc=True)
+    for c in ["open","high","low","close","volume","vwap"]:
+        df[c] = df[c].astype(float)
+    df["count"] = df["count"].astype(int)
+    df.set_index("open_time", inplace=True)
+    df.drop(columns=["time","vwap"], inplace=True, errors="ignore")
+    df.sort_index(inplace=True)
+
+    # Kraken'de taker buy/sell ayirimi yok, volume'u %50/%50 tahmin et
+    # Delta icin RSI-benzeri momentum kullanacagiz
+    df["trade_count"]      = df["count"]
+    df["taker_buy_volume"] = df["volume"] * 0.5  # tahmini
     df["buy_volume"]       = df["taker_buy_volume"]
-    df["sell_volume"]      = df["volume"] - df["taker_buy_volume"]
-    df["delta"]            = df["buy_volume"] - df["sell_volume"]
-    df["min_delta"]        = df["delta"]
-    df["max_delta"]        = df["delta"]
-    df["bid_trades"]       = 0
-    df["ask_trades"]       = df["trade_count"]
+    df["sell_volume"]      = df["volume"] - df["buy_volume"]
+
+    # Fiyat hareketi ile delta tahmini (yukari bar = net buy, asagi bar = net sell)
+    df["open"] = df["open"].astype(float)
+    price_up   = df["close"] > df["open"]
+    df["buy_volume"]  = np.where(price_up, df["volume"] * 0.65, df["volume"] * 0.35)
+    df["sell_volume"] = df["volume"] - df["buy_volume"]
+    df["delta"]       = df["buy_volume"] - df["sell_volume"]
+    df["min_delta"]   = df["delta"]
+    df["max_delta"]   = df["delta"]
+    df["bid_trades"]  = 0
+    df["ask_trades"]  = df["count"]
     df["imbalance_ratio"]  = df["buy_volume"] / (df["volume"] + 1e-9)
+
     df["date"]             = df.index.date
     df["session_delta"]    = df.groupby("date")["delta"].cumsum()
     df["session_volume"]   = df.groupby("date")["volume"].cumsum()
@@ -69,8 +76,8 @@ def fetch_bars(limit=288):
     df["typical_price"]    = (df["high"] + df["low"] + df["close"]) / 3
     df["vwap"]             = (df["typical_price"] * df["volume"]).cumsum() / df["volume"].cumsum()
     df["poc_price"]        = df["close"]
-    df["stacked_imbalance_up"] = (df["imbalance_ratio"] > 0.7).rolling(3).sum() == 3
-    df["stacked_imbalance_dn"] = (df["imbalance_ratio"] < 0.3).rolling(3).sum() == 3
+    df["stacked_imbalance_up"] = (df["imbalance_ratio"] > 0.65).rolling(3).sum() == 3
+    df["stacked_imbalance_dn"] = (df["imbalance_ratio"] < 0.35).rolling(3).sum() == 3
     df.drop(columns=["date"], inplace=True, errors="ignore")
 
     # Kapanmamis son bari cikar
