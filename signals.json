@@ -170,5 +170,30 @@
     "ml_conf": 0,
     "ml_weighted": "N/A",
     "ml_uyum": "FLAT"
+  },
+  {
+    "time_utc": "2026-05-05T22:37:40.960527+00:00",
+    "time_tr": "06/05/2026 01:37",
+    "signal": "FLAT",
+    "price": 2367.94,
+    "score_buy": 0.75,
+    "score_sell": 6.5,
+    "delta": -22.96,
+    "cvd": 127.86,
+    "imbalance": 35.0,
+    "leverage": null,
+    "sl": null,
+    "tp1": null,
+    "tp2": null,
+    "tp3": null,
+    "sl_pct": null,
+    "risk_usd": null,
+    "result": "—",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "N/A",
+    "ml_conf": 0,
+    "ml_weighted": "N/A",
+    "ml_uyum": "FLAT"
   }
 ]
