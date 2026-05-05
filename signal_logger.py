@@ -295,6 +295,7 @@ def main():
     now_tr    = datetime.now(TZ_TR)
 
     print(f"Sinyal: {signal} | BUY: {sb} | SELL: {ss} | Fiyat: {price}")
+    print(f"DEBUG high={last.get('high')} low={last.get('low')} risk={risk}")
 
     # Onceki sinyalleri yukle ve sonuclari guncelle
     signals = load_signals()
