@@ -211,6 +211,54 @@ def evaluate_previous(signals: list, current_price: float) -> list:
     return updated
 
 
+# ─── TP/SL HESABI ────────────────────────────────────────────────
+
+BALANCE  = 2500.0
+MIN_LEV  = 2
+MAX_LEV  = 15
+
+def compute_risk(signal, score, row):
+    if signal == "FLAT":
+        return {}
+
+    close     = float(row["close"])
+    high      = float(row["high"])
+    low       = float(row["low"])
+    direction = 1 if signal == "BUY" else -1
+
+    # ATR tahmini
+    atr = max(high - low, close * 0.002)
+
+    # Kaldirac: skor 5=2x, 10=10x
+    score_norm = max(0, score - 5.0) / 5.0
+    leverage   = min(round(MIN_LEV + score_norm * (10 - MIN_LEV)), MAX_LEV)
+    leverage   = max(leverage, MIN_LEV)
+
+    # SL/TP
+    sl_dist = max(atr * 1.5, close * 0.003)
+    sl      = round(close - direction * sl_dist, 2)
+    tp1     = round(close + direction * sl_dist * 1.5, 2)
+    tp2     = round(close + direction * sl_dist * 3.0, 2)
+    tp3     = round(close + direction * sl_dist * 5.0, 2)
+
+    sl_pct      = round(abs(close - sl) / close * 100, 2)
+    position    = round(BALANCE * leverage, 2)
+    risk_usd    = round(BALANCE * (sl_pct / 100) * leverage, 2)
+    reward_usd  = round(BALANCE * (abs(tp2 - close) / close) * leverage, 2)
+
+    return {
+        "leverage":   leverage,
+        "sl":         sl,
+        "tp1":        tp1,
+        "tp2":        tp2,
+        "tp3":        tp3,
+        "sl_pct":     sl_pct,
+        "position":   position,
+        "risk_usd":   risk_usd,
+        "reward_usd": reward_usd,
+    }
+
+
 # ─── SİNYAL KAYDET ───────────────────────────────────────────────
 
 def load_signals() -> list:
@@ -253,19 +301,29 @@ def main():
     signals = evaluate_previous(signals, price)
 
     # Yeni sinyali ekle (FLAT da kaydet, rapor icin)
+    active_score = sb if signal == "BUY" else ss
+    risk = compute_risk(signal, active_score, last)
+
     new_entry = {
-        "time_utc":  now_utc.isoformat(),
-        "time_tr":   now_tr.strftime("%d/%m/%Y %H:%M"),
-        "signal":    signal,
-        "price":     price,
-        "score_buy": sb,
+        "time_utc":   now_utc.isoformat(),
+        "time_tr":    now_tr.strftime("%d/%m/%Y %H:%M"),
+        "signal":     signal,
+        "price":      price,
+        "score_buy":  sb,
         "score_sell": ss,
-        "delta":     round(float(last["delta"]), 2),
-        "cvd":       round(float(last["cvd"]), 2),
-        "imbalance": round(float(last["imbalance_ratio"]) * 100, 1),
-        "result":    None if signal != "FLAT" else "—",
+        "delta":      round(float(last["delta"]), 2),
+        "cvd":        round(float(last["cvd"]), 2),
+        "imbalance":  round(float(last["imbalance_ratio"]) * 100, 1),
+        "leverage":   risk.get("leverage"),
+        "sl":         risk.get("sl"),
+        "tp1":        risk.get("tp1"),
+        "tp2":        risk.get("tp2"),
+        "tp3":        risk.get("tp3"),
+        "sl_pct":     risk.get("sl_pct"),
+        "risk_usd":   risk.get("risk_usd"),
+        "result":     None if signal != "FLAT" else "—",
         "exit_price": None,
-        "pnl_pct":   None,
+        "pnl_pct":    None,
     }
     signals.append(new_entry)
     save_signals(signals)
