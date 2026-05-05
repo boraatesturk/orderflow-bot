@@ -304,6 +304,7 @@ def main():
     # Yeni sinyali ekle (FLAT da kaydet, rapor icin)
     active_score = sb if signal == "BUY" else ss
     risk = compute_risk(signal, active_score, last)
+    print(f"DEBUG risk={risk}")
 
     new_entry = {
         "time_utc":   now_utc.isoformat(),
