@@ -329,6 +329,7 @@ def main():
     signals.append(new_entry)
     save_signals(signals)
 
+    print(f"DEBUG risk={risk}")
     print(f"Kaydedildi. Toplam sinyal: {len(signals)}")
     return signal, sb, ss, price
 
