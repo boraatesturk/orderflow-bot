@@ -87,5 +87,30 @@
     "ml_conf": 66.4,
     "ml_weighted": "FLAT",
     "ml_uyum": "ML_ONCU"
+  },
+  {
+    "time_utc": "2026-05-06T12:44:02.396583+00:00",
+    "time_tr": "06/05/2026 15:44",
+    "signal": "FLAT",
+    "price": 2408.79,
+    "score_buy": 2.25,
+    "score_sell": 4.0,
+    "delta": -6.28,
+    "cvd": 168.36,
+    "imbalance": 35.0,
+    "leverage": null,
+    "sl": null,
+    "tp1": null,
+    "tp2": null,
+    "tp3": null,
+    "sl_pct": null,
+    "risk_usd": null,
+    "result": "—",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "SELL",
+    "ml_conf": 66.4,
+    "ml_weighted": "FLAT",
+    "ml_uyum": "ML_ONCU"
   }
 ]
