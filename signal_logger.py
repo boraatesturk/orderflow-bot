@@ -492,8 +492,12 @@ def main():
     signals = evaluate_previous(signals, price)
 
     # Yeni sinyali ekle (FLAT da kaydet, rapor icin)
-    active_score = sb if signal == "BUY" else ss
-    risk = compute_risk(signal, active_score, last)
+    # ML ONCU durumunda da risk hesapla (OF=FLAT ama ML aktif)
+    effective_signal = signal if signal in ("BUY","SELL") else ml_signal if ml_signal in ("BUY","SELL") else "FLAT"
+    active_score = sb if effective_signal == "BUY" else ss if effective_signal == "SELL" else 0
+    if active_score == 0 and effective_signal in ("BUY","SELL"):
+        active_score = ml_conf * 10  # ML guvenini skor olarak kullan
+    risk = compute_risk(effective_signal, active_score, last)
 
     new_entry = {
         "time_utc":   now_utc.isoformat(),
