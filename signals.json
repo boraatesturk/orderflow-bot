@@ -12,5 +12,30 @@
     "result": "❌ KAYBETTİ",
     "exit_price": 2378.33,
     "pnl_pct": -0.185
+  },
+  {
+    "time_utc": "2026-05-06T11:12:35.340409+00:00",
+    "time_tr": "06/05/2026 14:12",
+    "signal": "FLAT",
+    "price": 2409.89,
+    "score_buy": 2.75,
+    "score_sell": 3.5,
+    "delta": -8.66,
+    "cvd": 179.98,
+    "imbalance": 35.0,
+    "leverage": null,
+    "sl": null,
+    "tp1": null,
+    "tp2": null,
+    "tp3": null,
+    "sl_pct": null,
+    "risk_usd": null,
+    "result": "—",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "N/A",
+    "ml_conf": 0,
+    "ml_weighted": "N/A",
+    "ml_uyum": "FLAT"
   }
 ]
