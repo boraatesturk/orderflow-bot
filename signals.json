@@ -37,5 +37,30 @@
     "ml_conf": 0,
     "ml_weighted": "N/A",
     "ml_uyum": "FLAT"
+  },
+  {
+    "time_utc": "2026-05-06T12:37:48.869190+00:00",
+    "time_tr": "06/05/2026 15:37",
+    "signal": "BUY",
+    "price": 2411.42,
+    "score_buy": 5.75,
+    "score_sell": 0.0,
+    "delta": 2.8,
+    "cvd": 184.19,
+    "imbalance": 65.0,
+    "leverage": 3,
+    "sl": 2404.19,
+    "tp1": 2422.27,
+    "tp2": 2433.12,
+    "tp3": 2447.59,
+    "sl_pct": 0.3,
+    "risk_usd": 22.5,
+    "result": null,
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "N/A",
+    "ml_conf": 0,
+    "ml_weighted": "N/A",
+    "ml_uyum": "FLAT"
   }
 ]
