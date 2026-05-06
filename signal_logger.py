@@ -23,71 +23,98 @@ SIGNALS_FILE = "signals.json"
 
 # ─── VERİ ÇEK ────────────────────────────────────────────────────
 
-def fetch_bars(limit=288):
+def fetch_bars(limit=300):
     """
-    Kraken API'den OHLCV ceker (GitHub Actions icin - Binance ABD'yi engelliyor)
-    Kraken ETHUSDT = XETHZUSD pairi, 5dk = 5 (dakika cinsinden)
+    Bybit API'den OHLCV + taker buy/sell hacmi ceker.
+    Bybit linear USDT perpetual, 5dk mumlar.
+    Binance ve Kraken'in aksine gercek taker buy/sell verisi var.
     """
-    # Kraken 5dk mum: interval=5, since=simdi-limit*300sn
-    since = int((datetime.now(timezone.utc).timestamp())) - (limit * 300)
-    params = {"pair": "ETHUSD", "interval": 5, "since": since}
-    r = requests.get("https://api.kraken.com/0/public/OHLC", params=params, timeout=15)
+    # ── OHLCV ────────────────────────────────────────────────────
+    url    = "https://api.bybit.com/v5/market/kline"
+    params = {"category": "linear", "symbol": "ETHUSDT", "interval": "5", "limit": limit}
+    r      = requests.get(url, params=params, timeout=15)
     r.raise_for_status()
-    data = r.json()
+    data   = r.json()
 
-    if data.get("error"):
-        raise Exception(f"Kraken hatasi: {data['error']}")
+    if data.get("retCode") != 0:
+        raise Exception(f"Bybit OHLCV hatasi: {data.get('retMsg')}")
 
-    # Kraken response: {"result": {"XETHZUSD": [[time, open, high, low, close, vwap, volume, count]]}}
-    pair_key = list(data["result"].keys())[0]  # "XETHZUSD" veya "ETHUSD"
-    ohlcv    = data["result"][pair_key]
-
-    df = pd.DataFrame(ohlcv, columns=["time","open","high","low","close","vwap","volume","count"])
-    df["open_time"] = pd.to_datetime(df["time"].astype(int), unit="s", utc=True)
-    for c in ["open","high","low","close","volume","vwap"]:
+    # Bybit: [timestamp_ms, open, high, low, close, volume, turnover] — yeniden eskiye
+    rows = data["result"]["list"]
+    df   = pd.DataFrame(rows, columns=["ts","open","high","low","close","volume","turnover"])
+    df["open_time"] = pd.to_datetime(df["ts"].astype(np.int64), unit="ms", utc=True)
+    for c in ["open","high","low","close","volume","turnover"]:
         df[c] = df[c].astype(float)
-    df["count"] = df["count"].astype(int)
     df.set_index("open_time", inplace=True)
-    df.drop(columns=["time","vwap"], inplace=True, errors="ignore")
+    df.drop(columns=["ts"], inplace=True)
     df.sort_index(inplace=True)
 
-    # Kraken'de taker buy/sell ayirimi yok, volume'u %50/%50 tahmin et
-    # Delta icin RSI-benzeri momentum kullanacagiz
-    df["trade_count"]      = df["count"]
-    df["taker_buy_volume"] = df["volume"] * 0.5  # tahmini
-    df["buy_volume"]       = df["taker_buy_volume"]
-    df["sell_volume"]      = df["volume"] - df["buy_volume"]
+    # ── TAKER BUY HACMI ──────────────────────────────────────────
+    # Bybit /v5/market/recent-trade: son 1000 trade, side=Buy/Sell
+    # Her 5dk bari icin taker buy oranini hesapla
+    try:
+        t_url    = "https://api.bybit.com/v5/market/recent-trade"
+        t_params = {"category": "linear", "symbol": "ETHUSDT", "limit": 1000}
+        t_r      = requests.get(t_url, params=t_params, timeout=10)
+        t_data   = t_r.json()
 
-    # Fiyat hareketi ile delta tahmini (yukari bar = net buy, asagi bar = net sell)
-    df["open"] = df["open"].astype(float)
-    price_up   = df["close"] > df["open"]
-    df["buy_volume"]  = np.where(price_up, df["volume"] * 0.65, df["volume"] * 0.35)
-    df["sell_volume"] = df["volume"] - df["buy_volume"]
-    df["delta"]       = df["buy_volume"] - df["sell_volume"]
-    df["min_delta"]   = df["delta"]
-    df["max_delta"]   = df["delta"]
-    df["bid_trades"]  = 0
-    df["ask_trades"]  = df["count"]
-    df["imbalance_ratio"]  = df["buy_volume"] / (df["volume"] + 1e-9)
+        if t_data.get("retCode") == 0:
+            trades = t_data["result"]["list"]
+            tdf    = pd.DataFrame(trades)
+            tdf["ts"]     = pd.to_datetime(tdf["time"].astype(np.int64), unit="ms", utc=True)
+            tdf["volume"] = tdf["size"].astype(float)
+            tdf["is_buy"] = tdf["side"] == "Buy"
 
-    df["date"]             = df.index.date
-    df["session_delta"]    = df.groupby("date")["delta"].cumsum()
-    df["session_volume"]   = df.groupby("date")["volume"].cumsum()
-    df["cvd"]              = df["delta"].cumsum()
+            # 5dk bar'a yuvarla
+            tdf["bar"] = tdf["ts"].dt.floor("5min")
+            grp = tdf.groupby("bar").agg(
+                buy_vol  = ("volume", lambda x: x[tdf.loc[x.index,"is_buy"]].sum()),
+                sell_vol = ("volume", lambda x: x[~tdf.loc[x.index,"is_buy"]].sum()),
+                count    = ("volume", "count")
+            )
+            df = df.join(grp, how="left")
+            df["buy_volume"]  = df["buy_vol"].fillna(df["volume"] * 0.5)
+            df["sell_volume"] = df["sell_vol"].fillna(df["volume"] * 0.5)
+            df["trade_count"] = df["count"].fillna(0).astype(int)
+            df.drop(columns=["buy_vol","sell_vol","count"], inplace=True, errors="ignore")
+        else:
+            raise Exception("trade verisi alinamadi")
+
+    except Exception as e:
+        print(f"[!] Taker trade fallback (fiyat tahmini): {e}")
+        price_up          = df["close"] > df["open"]
+        df["buy_volume"]  = np.where(price_up, df["volume"] * 0.65, df["volume"] * 0.35)
+        df["sell_volume"] = df["volume"] - df["buy_volume"]
+        df["trade_count"] = 0
+
+    # ── TUREMIS KOLONLAR ─────────────────────────────────────────
+    df["taker_buy_volume"]  = df["buy_volume"]
+    df["delta"]             = df["buy_volume"] - df["sell_volume"]
+    df["min_delta"]         = df["delta"]
+    df["max_delta"]         = df["delta"]
+    df["bid_trades"]        = 0
+    df["ask_trades"]        = df["trade_count"]
+    df["imbalance_ratio"]   = df["buy_volume"] / (df["volume"] + 1e-9)
+
+    df["date"]              = df.index.date
+    df["session_delta"]     = df.groupby("date")["delta"].cumsum()
+    df["session_volume"]    = df.groupby("date")["volume"].cumsum()
+    df["cvd"]               = df["delta"].cumsum()
     df["volume_per_second"] = df["volume"] / 300.0
-    df["typical_price"]    = (df["high"] + df["low"] + df["close"]) / 3
-    df["vwap"]             = (df["typical_price"] * df["volume"]).cumsum() / df["volume"].cumsum()
-    df["poc_price"]        = df["close"]
+    df["typical_price"]     = (df["high"] + df["low"] + df["close"]) / 3
+    df["vwap"]              = (df["typical_price"] * df["volume"]).cumsum() / df["volume"].cumsum()
+    df["poc_price"]         = df["close"]
     df["stacked_imbalance_up"] = (df["imbalance_ratio"] > 0.65).rolling(3).sum() == 3
     df["stacked_imbalance_dn"] = (df["imbalance_ratio"] < 0.35).rolling(3).sum() == 3
-    df.drop(columns=["date"], inplace=True, errors="ignore")
+    df.drop(columns=["date","turnover"], inplace=True, errors="ignore")
 
     # Kapanmamis son bari cikar
-    now = datetime.now(timezone.utc)
-    bar_min = (now.minute // 5) * 5
+    now         = datetime.now(timezone.utc)
+    bar_min     = (now.minute // 5) * 5
     current_bar = now.replace(minute=bar_min, second=0, microsecond=0)
-    df = df[df.index < current_bar]
+    df          = df[df.index < current_bar]
 
+    print(f"[+] Bybit: {len(df)} bar | son fiyat: {df['close'].iloc[-1]:.2f}")
     return df
 
 
@@ -337,74 +364,6 @@ def compute_risk(signal, score, row):
     }
 
 
-# ─── TELEGRAM ───────────────────────────────────────────────────
-
-TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
-TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-
-# Spam koruma: ayni yonde son kac dakikada sinyal atildi?
-SPAM_MINUTES = 30
-
-def son_sinyal_ne_zaman(signals: list, direction: str) -> float:
-    """Ayni yonde en son kac dakika once sinyal atilmis. 9999 = hic atilmamis."""
-    now = datetime.now(timezone.utc)
-    for s in reversed(signals):
-        if s.get("signal") == direction and s.get("ml_uyum") == "UYUM":
-            try:
-                t = datetime.fromisoformat(s["time_utc"])
-                return (now - t).total_seconds() / 60
-            except:
-                pass
-    return 9999
-
-def send_telegram_signal(entry: dict) -> bool:
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("[TG] Token/Chat ID eksik, gonderilemiyor.")
-        return False
-
-    sig    = entry["signal"]
-    emoji  = "🟢" if sig == "BUY" else "🔴"
-    ml_sig = entry.get("ml_signal", "—")
-    ml_conf= entry.get("ml_conf", 0)
-    uyum   = entry.get("ml_uyum", "—")
-    lev    = entry.get("leverage", "—")
-    sl     = entry.get("sl", "—")
-    tp1    = entry.get("tp1", "—")
-    tp2    = entry.get("tp2", "—")
-    tp3    = entry.get("tp3")
-    score  = entry["score_buy"] if sig == "BUY" else entry["score_sell"]
-
-    uyum_emoji = "🟰 UYUM" if uyum == "UYUM" else "👀 ML ÖNCÜ"
-
-    lines = [
-        f"{emoji} <b>{sig} — {SYMBOL}</b>",
-        f"",
-        f"💰 Giriş : <b>{entry['price']}</b> USDT",
-        f"🛑 SL    : {sl}  (-%{entry.get('sl_pct','—')})",
-        f"🎯 TP1   : {tp1}",
-        f"🎯 TP2   : {tp2}",
-    ]
-    if tp3:
-        lines.append(f"🎯 TP3   : {tp3}  (MSS/BOS)")
-    lines += [
-        f"",
-        f"⚡ Kaldirac : {lev}x",
-        f"📊 OF Skoru : {score:.1f}/10",
-        f"🤖 ML       : {ml_sig} (%{ml_conf})  {uyum_emoji}",
-        f"",
-        f"🕐 {entry['time_tr']} (TR)",
-    ]
-
-    msg = "\n".join(lines)
-    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    r   = requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML"}, timeout=10)
-    if r.status_code == 200:
-        print("[TG] Sinyal gonderildi!")
-        return True
-    else:
-        print(f"[TG] Hata: {r.text}")
-        return False
-
 # ─── SİNYAL KAYDET ───────────────────────────────────────────────
 
 def load_signals() -> list:
@@ -461,60 +420,39 @@ def main():
     signals = load_signals()
     signals = evaluate_previous(signals, price)
 
+    # Yeni sinyali ekle (FLAT da kaydet, rapor icin)
     active_score = sb if signal == "BUY" else ss
     risk = compute_risk(signal, active_score, last)
 
     new_entry = {
-        "time_utc":    now_utc.isoformat(),
-        "time_tr":     now_tr.strftime("%d/%m/%Y %H:%M"),
-        "signal":      signal,
-        "price":       price,
-        "score_buy":   sb,
-        "score_sell":  ss,
-        "delta":       round(float(last["delta"]), 2),
-        "cvd":         round(float(last["cvd"]), 2),
-        "imbalance":   round(float(last["imbalance_ratio"]) * 100, 1),
-        "leverage":    risk.get("leverage"),
-        "sl":          risk.get("sl"),
-        "tp1":         risk.get("tp1"),
-        "tp2":         risk.get("tp2"),
-        "tp3":         risk.get("tp3"),
-        "sl_pct":      risk.get("sl_pct"),
-        "risk_usd":    risk.get("risk_usd"),
-        "result":      None if signal != "FLAT" else "—",
-        "exit_price":  None,
-        "pnl_pct":     None,
-        "ml_signal":   ml_signal,
-        "ml_conf":     round(ml_conf * 100, 1),
+        "time_utc":   now_utc.isoformat(),
+        "time_tr":    now_tr.strftime("%d/%m/%Y %H:%M"),
+        "signal":     signal,
+        "price":      price,
+        "score_buy":  sb,
+        "score_sell": ss,
+        "delta":      round(float(last["delta"]), 2),
+        "cvd":        round(float(last["cvd"]), 2),
+        "imbalance":  round(float(last["imbalance_ratio"]) * 100, 1),
+        "leverage":   risk.get("leverage"),
+        "sl":         risk.get("sl"),
+        "tp1":        risk.get("tp1"),
+        "tp2":        risk.get("tp2"),
+        "tp3":        risk.get("tp3"),
+        "sl_pct":     risk.get("sl_pct"),
+        "risk_usd":   risk.get("risk_usd"),
+        "result":     None if signal != "FLAT" else "—",
+        "exit_price": None,
+        "pnl_pct":    None,
+        "ml_signal":  ml_signal,
+        "ml_conf":    round(ml_conf * 100, 1),
         "ml_weighted": ml_w,
-        "ml_uyum":     uyum,
+        "ml_uyum":    uyum,
     }
     signals.append(new_entry)
     save_signals(signals)
+
     print(f"Kaydedildi. Toplam sinyal: {len(signals)}")
-
-    # ── Telegram: sadece guvenilir sinyal varsa gonder ────────────
-    # Kosullar:
-    #   1. Orderflow BUY veya SELL olmali
-    #   2. ML uyumu UYUM olmali (ML de ayni yonu gosteriyor)
-    #   3. Son 30 dakikada ayni yonde UYUM sinyali atilmamis olmali
-    should_send = (
-        signal in ("BUY", "SELL") and
-        uyum == "UYUM" and
-        son_sinyal_ne_zaman(signals[:-1], signal) >= SPAM_MINUTES
-    )
-
-    if should_send:
-        print(f"[TG] Guvenilir sinyal bulundu ({signal}, ML uyumu var), gonderiliyor...")
-        send_telegram_signal(new_entry)
-    else:
-        reasons = []
-        if signal == "FLAT":             reasons.append("OF=FLAT")
-        if uyum != "UYUM":               reasons.append(f"ML uyumsuz ({uyum})")
-        if son_sinyal_ne_zaman(signals[:-1], signal) < SPAM_MINUTES:
-            reasons.append(f"spam ({SPAM_MINUTES}dk icinde ayni yon)")
-        print(f"[TG] Sinyal gonderilmedi: {', '.join(reasons) if reasons else 'kosul saglanmadi'}")
-
     return signal, sb, ss, price
 
 
