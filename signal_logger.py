@@ -368,7 +368,7 @@ def compute_risk(signal, score, row):
 
 TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-SPAM_MINUTES     = 30
+SPAM_MINUTES     = 5
 
 def son_sinyal_ne_zaman(signals: list, direction: str) -> float:
     now = datetime.now(timezone.utc)
