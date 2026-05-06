@@ -3,7 +3,7 @@ name: Orderflow Bot
 on:
   schedule:
     - cron: "0,5,10,15,20,25,30,35,40,45,50,55 * * * *"   # Her 5 dakika - sinyal
-    - cron: "0 9 * * *"                                      # 09:00 UTC (12:00 TR) - gunluk rapor
+    - cron: "58 20 * * *"                                     # 20:58 UTC (23:58 TR) - gunluk rapor
     - cron: "0 0 * * 0"                                      # Her Pazar gece - keepalive commit
   workflow_dispatch:                                          # Manuel tetikleme
 
@@ -29,7 +29,7 @@ jobs:
           python-version: "3.11"
 
       - name: Kutuphaneleri yukle
-        run: pip install pandas numpy requests pyarrow colorama python-dateutil
+        run: pip install pandas numpy requests pyarrow colorama python-dateutil xgboost scikit-learn
 
       - name: signals.json'u guncelle
         run: |
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.event_name == 'schedule' &&
-      github.event.schedule == '0 9 * * *'
+      github.event.schedule == '58 20 * * *'
 
     steps:
       - name: Repo'yu cek
