@@ -535,20 +535,22 @@ def main():
     ml_dir = ml_signal if ml_signal in ("BUY","SELL") else None
     active_dir = of_dir or ml_dir
 
+    # ML gecici olarak devre disi — sadece orderflow skoru ile sinyal at
+    # (Walk-forward test: ML accuracy %50.9, rastgele tahmin seviyesinde)
+    # ML verisi signals.json'a ve Telegram mesajina yazilmaya devam ediyor
+    # Bybit gercek taker data birikince ML yeniden aktif edilecek
     should_send = (
-        active_dir is not None and
-        (uyum == "UYUM" or (ml_dir and ml_conf >= 0.60)) and
-        son_sinyal_ne_zaman(signals[:-1], active_dir) >= SPAM_MINUTES
+        signal in ("BUY", "SELL") and
+        son_sinyal_ne_zaman(signals[:-1], signal) >= SPAM_MINUTES
     )
 
     if should_send:
-        print(f"[TG] Sinyal gonderiliyor: {active_dir} | uyum={uyum} | ml_conf=%{ml_conf*100:.0f}")
+        print(f"[TG] Sinyal gonderiliyor: {signal} | skor={'BUY:'+str(sb) if signal=='BUY' else 'SELL:'+str(ss)}")
         send_telegram_signal(new_entry)
     else:
         reasons = []
-        if not active_dir:                                    reasons.append("OF=FLAT ve ML=FLAT")
-        elif uyum != "UYUM" and ml_conf < 0.60:             reasons.append(f"uyumsuz ve dusuk guven (%{ml_conf*100:.0f})")
-        elif son_sinyal_ne_zaman(signals[:-1], active_dir) < SPAM_MINUTES:
+        if signal not in ("BUY", "SELL"):                    reasons.append("OF=FLAT")
+        elif son_sinyal_ne_zaman(signals[:-1], signal) < SPAM_MINUTES:
                                                               reasons.append(f"spam koruma ({SPAM_MINUTES}dk)")
         print(f"[TG] Gonderilmedi: {', '.join(reasons)}")
 
