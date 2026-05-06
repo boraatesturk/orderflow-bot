@@ -364,6 +364,77 @@ def compute_risk(signal, score, row):
     }
 
 
+# ─── TELEGRAM ───────────────────────────────────────────────────
+
+TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+SPAM_MINUTES     = 30
+
+def son_sinyal_ne_zaman(signals: list, direction: str) -> float:
+    now = datetime.now(timezone.utc)
+    for s in reversed(signals):
+        if s.get("signal") == direction or s.get("ml_signal") == direction:
+            try:
+                t = datetime.fromisoformat(s["time_utc"])
+                return (now - t).total_seconds() / 60
+            except:
+                pass
+    return 9999
+
+def send_telegram_signal(entry: dict) -> bool:
+    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
+        print("[TG] Token eksik!")
+        return False
+
+    sig     = entry.get("signal", "FLAT")
+    ml_sig  = entry.get("ml_signal", "N/A")
+    ml_conf = entry.get("ml_conf", 0)
+    uyum    = entry.get("ml_uyum", "—")
+
+    # Gercek sinyal yonu: OF veya ML'den hangisi aktifse
+    active_sig = sig if sig in ("BUY","SELL") else ml_sig
+    emoji      = "🟢" if active_sig == "BUY" else "🔴"
+
+    if uyum == "UYUM":       uyum_str = "🟰 UYUM (OF+ML)"
+    elif uyum == "ML_ONCU":  uyum_str = "🤖 ML ÖNCÜ"
+    else:                     uyum_str = "➖"
+
+    lev  = entry.get("leverage", "—")
+    sl   = entry.get("sl", "—")
+    tp1  = entry.get("tp1", "—")
+    tp2  = entry.get("tp2", "—")
+    tp3  = entry.get("tp3")
+    score = entry["score_buy"] if sig == "BUY" else entry["score_sell"]
+
+    lines = [
+        f"{emoji} <b>{active_sig} — ETHUSDT</b>  {uyum_str}",
+        f"",
+        f"💰 Giriş : <b>{entry['price']}</b> USDT",
+        f"🛑 SL    : {sl}  (-%{entry.get('sl_pct','—')})",
+        f"🎯 TP1   : {tp1}",
+        f"🎯 TP2   : {tp2}",
+    ]
+    if tp3:
+        lines.append(f"🎯 TP3   : {tp3}  (MSS/BOS)")
+    lines += [
+        f"",
+        f"⚡ Kaldirac : {lev}x",
+        f"📊 OF Skoru : {score:.1f}/10",
+        f"🤖 ML       : {ml_sig} (%{ml_conf})",
+        f"",
+        f"🕐 {entry['time_tr']} (TR)",
+    ]
+
+    msg = "\n".join(lines)
+    url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+    r   = requests.post(url, data={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML"}, timeout=10)
+    if r.status_code == 200:
+        print("[TG] Sinyal gonderildi!")
+        return True
+    else:
+        print(f"[TG] Hata: {r.text}")
+        return False
+
 # ─── SİNYAL KAYDET ───────────────────────────────────────────────
 
 def load_signals() -> list:
@@ -451,8 +522,32 @@ def main():
     }
     signals.append(new_entry)
     save_signals(signals)
-
     print(f"Kaydedildi. Toplam sinyal: {len(signals)}")
+
+    # ── Telegram gonder ──────────────────────────────────────────
+    # Kosul 1: Orderflow + ML ayni yonde (UYUM)
+    # Kosul 2: ML tek basina %60+ guven veriyorsa (ML_ONCU dahil)
+    of_dir = signal if signal in ("BUY","SELL") else None
+    ml_dir = ml_signal if ml_signal in ("BUY","SELL") else None
+    active_dir = of_dir or ml_dir
+
+    should_send = (
+        active_dir is not None and
+        (uyum == "UYUM" or (ml_dir and ml_conf >= 0.60)) and
+        son_sinyal_ne_zaman(signals[:-1], active_dir) >= SPAM_MINUTES
+    )
+
+    if should_send:
+        print(f"[TG] Sinyal gonderiliyor: {active_dir} | uyum={uyum} | ml_conf=%{ml_conf*100:.0f}")
+        send_telegram_signal(new_entry)
+    else:
+        reasons = []
+        if not active_dir:                                    reasons.append("OF=FLAT ve ML=FLAT")
+        elif uyum != "UYUM" and ml_conf < 0.60:             reasons.append(f"uyumsuz ve dusuk guven (%{ml_conf*100:.0f})")
+        elif son_sinyal_ne_zaman(signals[:-1], active_dir) < SPAM_MINUTES:
+                                                              reasons.append(f"spam koruma ({SPAM_MINUTES}dk)")
+        print(f"[TG] Gonderilmedi: {', '.join(reasons)}")
+
     return signal, sb, ss, price
 
 
