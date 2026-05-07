@@ -851,28 +851,43 @@ def format_telegram_exit(res: SignalResult) -> str:
 # QUICK TEST
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    import os
-    import glob
+    import requests as _requests
 
-    # Parquet dosyasını bul
-    parquet_paths = glob.glob("data/*.parquet")
-    if not parquet_paths:
-        print("Parquet dosyası bulunamadı. data/ klasörünü kontrol et.")
-        exit(1)
+    def _fetch_live(symbol="ETHUSDT", interval="5", limit=300):
+        url = "https://api.bybit.com/v5/market/kline"
+        params = {"symbol": symbol, "interval": interval, "limit": limit}
+        r = _requests.get(url, params=params, timeout=10)
+        r.raise_for_status()
+        rows = r.json()["result"]["list"]
+        df = pd.DataFrame(rows, columns=[
+            "timestamp", "open", "high", "low", "close", "volume", "turnover"
+        ])
+        df = df.iloc[::-1].reset_index(drop=True)
+        for col in ["open", "high", "low", "close", "volume", "turnover"]:
+            df[col] = df[col].astype(float)
+        df["timestamp"] = pd.to_datetime(df["timestamp"].astype(float), unit="ms", utc=True)
+        df = df.set_index("timestamp")
+        df["delta"] = df.apply(
+            lambda r: r["volume"] * 0.6 if r["close"] >= r["open"] else -r["volume"] * 0.6, axis=1)
+        df["buy_volume"]  = df["volume"] * df["delta"].apply(lambda d: 0.7 if d > 0 else 0.3)
+        df["sell_volume"] = df["volume"] - df["buy_volume"]
+        df["imbalance_ratio"] = df["buy_volume"] / df["volume"]
+        df["cvd"] = df["delta"].cumsum()
+        df["session_delta"] = df["delta"].rolling(12).sum()
+        df["vwap"] = (df["close"] * df["volume"]).cumsum() / df["volume"].cumsum()
+        bull_streak = (df["imbalance_ratio"] > 0.58).astype(int)
+        bear_streak = (df["imbalance_ratio"] < 0.42).astype(int)
+        df["stacked_imbalance_up"] = bull_streak.rolling(3).sum() == 3
+        df["stacked_imbalance_dn"] = bear_streak.rolling(3).sum() == 3
+        return df
 
-    path = sorted(parquet_paths)[-1]
-    print(f"Veri yükleniyor: {path}")
-    df = pd.read_parquet(path)
-    print(f"  {len(df)} bar yüklendi, kolonlar: {list(df.columns)[:8]}...")
+    print("Bybit'ten canlı veri çekiliyor...")
+    df_live = _fetch_live()
+    print(f"  {len(df_live)} bar | son fiyat: {df_live['close'].iloc[-1]:.2f}")
 
-    # Son 500 bar ile test
-    df_test = df.iloc[-500:].copy()
-
-    # Analiz
-    result = analyze(df_test, symbol="ETHUSDT")
+    result = analyze(df_live, symbol="ETHUSDT")
     print_signal(result)
 
-    # Telegram önizleme
     print("─── TELEGRAM SİNYAL MESAJI ───")
     print(format_telegram_signal(result))
 
