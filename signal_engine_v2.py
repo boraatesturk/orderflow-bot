@@ -61,6 +61,23 @@ CFG = {
 # DATACLASSES
 # ─────────────────────────────────────────────
 @dataclass
+class FundingOIResult:
+    # Funding Rate
+    funding_rate: float = 0.0          # mevcut funding rate (örn: 0.0001)
+    funding_rate_pct: float = 0.0      # yüzde olarak (örn: 0.01%)
+    funding_bias: str = ""             # "LONG_BIASED" | "SHORT_BIASED" | "NEUTRAL"
+    # Open Interest
+    oi_current: float = 0.0
+    oi_prev: float = 0.0
+    oi_change_pct: float = 0.0         # OI değişim yüzdesi
+    oi_trend: str = ""                 # "RISING" | "FALLING" | "FLAT"
+    # Skorlar
+    score_funding: float = 0.0        # -0.75 ile +0.75
+    score_oi: float = 0.0             # -0.75 ile +0.75
+    detail: str = ""
+
+
+@dataclass
 class AbsorptionResult:
     bullish: bool = False
     bearish: bool = False
@@ -119,6 +136,8 @@ class OrderflowDetail:
     score_bar_close:    float = 0.0
     score_delta_ma:     float = 0.0
     score_absorption:   float = 0.0
+    score_funding:      float = 0.0
+    score_oi:           float = 0.0
     total_score:        float = 0.0
     direction: str = ""              # "LONG" | "SHORT" | "FLAT"
 
@@ -139,6 +158,7 @@ class SignalResult:
     orderflow: OrderflowDetail = field(default_factory=OrderflowDetail)
     absorption: AbsorptionResult = field(default_factory=AbsorptionResult)
     dynamic_exit: DynamicExitResult = field(default_factory=DynamicExitResult)
+    funding_oi: FundingOIResult = field(default_factory=FundingOIResult)
     exit_signal: bool = False
     exit_reason: str = ""
 
@@ -206,6 +226,92 @@ def _find_bpr_ifvg_zones(df: pd.DataFrame, lookback: int = 30) -> list[dict]:
                 [{"top": z["top"], "bot": z["bot"], "type": "bull_ifvg"} for z in bull_zones[-3:]] + \
                 [{"top": z["top"], "bot": z["bot"], "type": "bear_ifvg"} for z in bear_zones[-3:]]
     return all_zones
+
+
+# ─────────────────────────────────────────────
+# FUNDING RATE + OI SCORER
+# ─────────────────────────────────────────────
+def score_funding_oi(
+    funding_rate: float,   # ham funding rate, örn: 0.0001
+    oi_current: float,     # mevcut OI
+    oi_prev: float,        # önceki OI (1 periyot önce)
+    price_direction: float # delta yönü: >0 long, <0 short
+) -> FundingOIResult:
+    """
+    Funding Rate + OI kombinasyon analizi.
+
+    Funding Rate Mantığı:
+      - Pozitif funding (longlar ödüyor) → piyasa aşırı long biased
+        * Fiyat yükseliyorsa → LONG güçlenir (+0.5) — trend devam
+        * Fiyat düşüyorsa   → SHORT güçlenir (+0.75) — long sıkışması
+      - Negatif funding (shortlar ödüyor) → piyasa aşırı short biased
+        * Fiyat düşüyorsa   → SHORT güçlenir (+0.5) — trend devam
+        * Fiyat yükseliyorsa→ LONG güçlenir (+0.75) — short sıkışması
+
+    OI Mantığı:
+      - OI artıyor + delta pozitif  → yeni long pozisyon açılıyor (+0.75)
+      - OI artıyor + delta negatif  → yeni short pozisyon açılıyor (-0.75)
+      - OI azalıyor + fiyat düşüyor → long kapanıyor (zayıflama, -0.5)
+      - OI azalıyor + fiyat yükseliyor → short kapanıyor (zayıflama, +0.5)
+    """
+    res = FundingOIResult()
+    res.funding_rate     = funding_rate
+    res.funding_rate_pct = round(funding_rate * 100, 4)
+    res.oi_current       = oi_current
+    res.oi_prev          = oi_prev
+
+    # OI değişimi
+    if oi_prev > 0:
+        res.oi_change_pct = round((oi_current - oi_prev) / oi_prev * 100, 3)
+    oi_rising  = res.oi_change_pct > 0.1   # %0.1 üzeri artış
+    oi_falling = res.oi_change_pct < -0.1  # %0.1 üzeri düşüş
+    res.oi_trend = "RISING" if oi_rising else ("FALLING" if oi_falling else "FLAT")
+
+    # ── FUNDING RATE SKORU ────────────────────────────────────────
+    fr_threshold = 0.0001  # %0.01 eşiği
+
+    if funding_rate > fr_threshold:
+        # Pozitif funding → longlar ödüyor
+        res.funding_bias = "LONG_BIASED"
+        if price_direction > 0:
+            res.score_funding = +0.5   # trend devam
+        else:
+            res.score_funding = +0.75  # long sıkışması → SHORT güçlü
+            res.score_funding *= -1    # short yönünde skor
+
+    elif funding_rate < -fr_threshold:
+        # Negatif funding → shortlar ödüyor
+        res.funding_bias = "SHORT_BIASED"
+        if price_direction < 0:
+            res.score_funding = -0.5   # trend devam (short yönünde)
+        else:
+            res.score_funding = +0.75  # short sıkışması → LONG güçlü
+    else:
+        res.funding_bias  = "NEUTRAL"
+        res.score_funding = 0.0
+
+    # ── OI SKORU ─────────────────────────────────────────────────
+    if oi_rising:
+        # Yeni pozisyon açılıyor
+        if price_direction > 0:
+            res.score_oi = +0.75   # yeni long → LONG güçlü
+        else:
+            res.score_oi = -0.75   # yeni short → SHORT güçlü
+    elif oi_falling:
+        # Pozisyon kapanıyor
+        if price_direction > 0:
+            res.score_oi = +0.5    # short kapanıyor → LONG hafif güçlü
+        else:
+            res.score_oi = -0.5    # long kapanıyor → SHORT hafif güçlü
+    else:
+        res.score_oi = 0.0
+
+    # ── DETAY ────────────────────────────────────────────────────
+    res.detail = (
+        f"Funding: %{res.funding_rate_pct:.4f} ({res.funding_bias}) → skor:{res.score_funding:+.2f} | "
+        f"OI: {res.oi_trend} ({res.oi_change_pct:+.2f}%) → skor:{res.score_oi:+.2f}"
+    )
+    return res
 
 
 # ─────────────────────────────────────────────
@@ -596,8 +702,11 @@ def compute_risk(
 def analyze(
     df: pd.DataFrame,
     symbol: str = "ETHUSDT",
-    position: Optional[str] = None,   # Açık pozisyon varsa "LONG"/"SHORT"
+    position: Optional[str] = None,
     entry_price: float = 0.0,
+    funding_rate: float = 0.0,
+    oi_current: float = 0.0,
+    oi_prev: float = 0.0,
 ) -> SignalResult:
     """
     Tüm analizi çalıştır ve SignalResult döndür.
@@ -627,6 +736,17 @@ def analyze(
         od.score_absorption = -ab.score_bonus
         od.total_score     -= ab.score_bonus
 
+    # 3. Funding Rate + OI
+    foi = score_funding_oi(
+        funding_rate  = funding_rate,
+        oi_current    = oi_current,
+        oi_prev       = oi_prev,
+        price_direction = od.delta,
+    )
+    od.score_funding = foi.score_funding
+    od.score_oi      = foi.score_oi
+    od.total_score   = round(od.total_score + foi.score_funding + foi.score_oi, 3)
+
     # Yeniden direction belirle
     od.direction = (
         "LONG"  if od.total_score >= CFG["min_score_long"] else
@@ -636,6 +756,7 @@ def analyze(
 
     result.orderflow  = od
     result.absorption = ab
+    result.funding_oi = foi
     result.score      = od.total_score
     result.direction  = od.direction
 
@@ -735,6 +856,19 @@ def print_signal(res: SignalResult) -> None:
         bonus_sign = "+" if (ab.bullish) else "-"
         print(f"  Skor bonusu: {bonus_sign}{ab.score_bonus:.1f}")
 
+    # ── FUNDING RATE + OI ────────────────────────────────────────────
+    foi = res.funding_oi
+    print(f"\n{Fore.CYAN}[ FUNDING RATE + OI ]{Style.RESET_ALL}")
+    if foi.funding_rate == 0.0 and foi.oi_current == 0.0:
+        print(f"  Veri yok (signal_logger.py üzerinden çekilir)")
+    else:
+        fr_color = Fore.GREEN if foi.score_funding > 0 else (Fore.RED if foi.score_funding < 0 else Fore.WHITE)
+        oi_color = Fore.GREEN if foi.score_oi > 0 else (Fore.RED if foi.score_oi < 0 else Fore.WHITE)
+        print(f"  Funding Rate : {foi.funding_rate_pct:+.4f}%  ({foi.funding_bias})  "
+              f"→ {fr_color}skor:{foi.score_funding:+.2f}{Style.RESET_ALL}")
+        print(f"  OI Değişimi  : {foi.oi_change_pct:+.3f}%  ({foi.oi_trend})  "
+              f"→ {oi_color}skor:{foi.score_oi:+.2f}{Style.RESET_ALL}")
+
     # ── TOPLAM SKOR ──────────────────────────────────────────────────
     print(f"\n{Fore.CYAN}[ TOPLAM SKOR ]{Style.RESET_ALL}")
     breakdown = (
@@ -743,7 +877,8 @@ def print_signal(res: SignalResult) -> None:
         f"Sess:{od.score_session:+.2f}\n"
         f"  VWAP:{od.score_vwap:+.2f} | VolSpike:{od.score_vol_spike:+.2f} | "
         f"BarClose:{od.score_bar_close:+.2f} | DeltaMA:{od.score_delta_ma:+.2f} | "
-        f"Absorb:{od.score_absorption:+.2f}"
+        f"Absorb:{od.score_absorption:+.2f}\n"
+        f"  Funding:{od.score_funding:+.2f} | OI:{od.score_oi:+.2f}"
     )
     print(breakdown)
     print(f"  {dir_color}TOPLAM: {res.score:+.2f}  →  {res.direction}{Style.RESET_ALL}")
@@ -797,8 +932,17 @@ def format_telegram_signal(res: SignalResult) -> str:
         f"Sess:{od.score_session:+.1f}\n"
         f"VWAP:{od.score_vwap:+.1f} VolSpk:{od.score_vol_spike:+.1f} "
         f"BarClose:{od.score_bar_close:+.1f} ΔMA:{od.score_delta_ma:+.1f} "
-        f"Absorb:{od.score_absorption:+.1f}"
+        f"Absorb:{od.score_absorption:+.1f}\n"
+        f"Funding:{od.score_funding:+.1f} OI:{od.score_oi:+.1f}"
     )
+
+    foi = res.funding_oi
+    foi_str = ""
+    if foi.funding_rate != 0.0 or foi.oi_current != 0.0:
+        foi_str = (
+            f"\n📈 *Funding:* `{foi.funding_rate_pct:+.4f}%` ({foi.funding_bias})"
+            f"\n📊 *OI:* `{foi.oi_change_pct:+.3f}%` ({foi.oi_trend})"
+        )
 
     risk_str = ""
     if res.direction != "FLAT":
@@ -823,6 +967,7 @@ def format_telegram_signal(res: SignalResult) -> str:
         f"Skor: `{res.score:+.2f}` | {res.timestamp}"
         f"{ab_str}\n\n"
         f"```\n{score_breakdown}\n```"
+        f"{foi_str}"
         f"{risk_str}"
         f"{exit_str}"
     )
@@ -844,6 +989,192 @@ def format_telegram_exit(res: SignalResult) -> str:
     )
     if dex.bpr_zone_hit:
         msg += f"\nBPR/IFVG: `{dex.bpr_zone_bot:.4f}–{dex.bpr_zone_top:.4f}`"
+    return msg
+
+
+# ─────────────────────────────────────────────
+# MULTI-TIMEFRAME SİSTEM
+# ─────────────────────────────────────────────
+@dataclass
+class MTFResult:
+    symbol:      str = "ETHUSDT"
+    timestamp:   str = ""
+    res_1h:      SignalResult = field(default_factory=SignalResult)
+    res_15m:     SignalResult = field(default_factory=SignalResult)
+    res_5m:      SignalResult = field(default_factory=SignalResult)
+    confluence:  int = 0          # kaç timeframe aynı yönde (0-3)
+    direction:   str = "FLAT"     # çoğunluk yönü
+    should_send: bool = False     # Telegram'a gönderilmeli mi?
+    note:        str = ""         # "GÜÇLÜ" | "ORTA" | "ZAYIF"
+
+
+def analyze_mtf(
+    df_1h:  pd.DataFrame,
+    df_15m: pd.DataFrame,
+    df_5m:  pd.DataFrame,
+    symbol: str = "ETHUSDT",
+    funding_rate: float = 0.0,
+    oi_current:   float = 0.0,
+    oi_prev:      float = 0.0,
+    position:     Optional[str] = None,
+    entry_price:  float = 0.0,
+) -> MTFResult:
+    """
+    3 timeframe'i ayrı ayrı analiz edip confluence hesaplar.
+
+    1H  → Trend yönü (bias) — ana filtre
+    15M → Setup tetikleyici
+    5M  → Giriş zamanlaması
+
+    Confluence:
+      3/3 → GÜÇLÜ sinyal, Telegram'a gönder
+      2/3 → ORTA sinyal, Telegram'a gönder
+      1/3 veya 0/3 → Gönderme
+    """
+    mtf = MTFResult(symbol=symbol)
+
+    # FR + OI sadece 5M analizine eklenir (en güncel veri)
+    mtf.res_1h  = analyze(df_1h,  symbol=symbol)
+    mtf.res_15m = analyze(df_15m, symbol=symbol)
+    mtf.res_5m  = analyze(
+        df_5m, symbol=symbol,
+        funding_rate=funding_rate,
+        oi_current=oi_current,
+        oi_prev=oi_prev,
+        position=position,
+        entry_price=entry_price,
+    )
+
+    # Timestamp
+    try:
+        mtf.timestamp = str(df_5m.index[-1])
+    except Exception:
+        pass
+
+    # Confluence hesapla
+    dirs = [mtf.res_1h.direction, mtf.res_15m.direction, mtf.res_5m.direction]
+    long_count  = dirs.count("LONG")
+    short_count = dirs.count("SHORT")
+
+    if long_count >= short_count:
+        mtf.direction   = "LONG"  if long_count  > 0 else "FLAT"
+        mtf.confluence  = long_count
+    else:
+        mtf.direction   = "SHORT"
+        mtf.confluence  = short_count
+
+    if mtf.confluence == 3:
+        mtf.should_send = True
+        mtf.note        = "GÜÇLÜ"
+    elif mtf.confluence == 2:
+        mtf.should_send = True
+        mtf.note        = "ORTA"
+    else:
+        mtf.should_send = False
+        mtf.note        = "ZAYIF"
+
+    return mtf
+
+
+def print_mtf(mtf: MTFResult) -> None:
+    """MTF sonuçlarını konsola yazdır."""
+    sep = "═" * 56
+    dir_color = {
+        "LONG":  Fore.GREEN,
+        "SHORT": Fore.RED,
+        "FLAT":  Fore.YELLOW,
+    }.get(mtf.direction, Fore.WHITE)
+
+    print(f"\n{sep}")
+    print(f"{dir_color}{'█'*4} {mtf.symbol} — MTF ANALİZİ{Style.RESET_ALL}")
+    print(sep)
+
+    tf_labels = [
+        ("1 Saat  ", "Trend Bias",      mtf.res_1h),
+        ("15 Dakika", "Setup",          mtf.res_15m),
+        ("5 Dakika", "Giriş Zamanı",    mtf.res_5m),
+    ]
+
+    for tf_label, role, res in tf_labels:
+        dc = {"LONG": Fore.GREEN, "SHORT": Fore.RED, "FLAT": Fore.YELLOW}.get(res.direction, Fore.WHITE)
+        emoji = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(res.direction, "⚪")
+        ab_tag = " 📦ABSORB" if (res.absorption.bullish or res.absorption.bearish) else ""
+        print(f"  ⏰ {tf_label:<10} {emoji} {dc}{res.direction:<6}{Style.RESET_ALL} "
+              f"(skor:{res.score:+.2f})  [{role}]{ab_tag}")
+
+    print(f"\n  🔗 Confluence : {mtf.confluence}/3 {mtf.direction}")
+    conf_color = Fore.GREEN if mtf.confluence == 3 else (Fore.YELLOW if mtf.confluence == 2 else Fore.RED)
+    print(f"  📶 Güç        : {conf_color}{mtf.note}{Style.RESET_ALL}")
+    print(f"  📤 Gönderilsin: {'✅' if mtf.should_send else '❌'}")
+
+    # En güçlü timeframe'in risk bilgisi
+    dominant = mtf.res_5m if mtf.res_5m.direction != "FLAT" else (
+               mtf.res_15m if mtf.res_15m.direction != "FLAT" else mtf.res_1h)
+    if dominant.direction != "FLAT":
+        print(f"\n  💰 Giriş: {dominant.entry:.4f}  SL: {dominant.sl:.4f}  "
+              f"TP1: {dominant.tp1:.4f}  Kaldıraç: {dominant.leverage}x")
+
+    print(f"\n{sep}\n")
+
+
+def format_telegram_mtf(mtf: MTFResult) -> str:
+    """MTF için Telegram mesajı üret."""
+    if not mtf.should_send:
+        return ""
+
+    dir_emoji = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(mtf.direction, "⚪")
+
+    def tf_line(label, res):
+        e = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(res.direction, "⚪")
+        ab = " 📦" if (res.absorption.bullish or res.absorption.bearish) else ""
+        return f"{e} `{res.direction:<5}` skor:`{res.score:+.2f}`{ab}"
+
+    note_emoji = {"GÜÇLÜ": "🔥", "ORTA": "⚡", "ZAYIF": "💤"}.get(mtf.note, "")
+
+    # Risk (5M önce, yoksa 15M, yoksa 1H)
+    dominant = mtf.res_5m if mtf.res_5m.direction != "FLAT" else (
+               mtf.res_15m if mtf.res_15m.direction != "FLAT" else mtf.res_1h)
+    risk_str = ""
+    if dominant.direction != "FLAT":
+        risk_str = (
+            f"\n\n💰 *Giriş:* `{dominant.entry}`\n"
+            f"🛑 *SL:* `{dominant.sl}`\n"
+            f"🎯 *TP1:* `{dominant.tp1}` | *TP2:* `{dominant.tp2}` | *TP3:* `{dominant.tp3}`\n"
+            f"⚡ *Kaldıraç:* {dominant.leverage}x"
+        )
+
+    # Funding + OI (5M analizinden)
+    foi = mtf.res_5m.funding_oi
+    foi_str = ""
+    if foi.funding_rate != 0.0 or foi.oi_current != 0.0:
+        foi_str = (
+            f"\n📈 *Funding:* `{foi.funding_rate_pct:+.4f}%` ({foi.funding_bias})"
+            f"  📊 *OI:* `{foi.oi_change_pct:+.3f}%` ({foi.oi_trend})"
+        )
+
+    # Exit izleme
+    dex = mtf.res_5m.dynamic_exit
+    exit_str = ""
+    if dex.cvd_divergence or dex.bpr_zone_hit:
+        exit_str = f"\n\n🚨 *Exit İzleme:*"
+        if dex.cvd_divergence:
+            exit_str += f"\n• CVD Div: `{dex.cvd_div_type}`"
+        exit_str += f"\n• ATR Trail: `{dex.atr_trail_long:.2f}` / `{dex.atr_trail_short:.2f}`"
+        if dex.bpr_zone_hit:
+            exit_str += f"\n• BPR/IFVG: `{dex.bpr_zone_bot:.2f}–{dex.bpr_zone_top:.2f}`"
+
+    msg = (
+        f"{dir_emoji} *{mtf.symbol} — Multi-Timeframe* {note_emoji}\n"
+        f"{mtf.timestamp}\n\n"
+        f"⏰ *1 Saat  :* {tf_line('1H',  mtf.res_1h)}\n"
+        f"⏰ *15 Dakika:* {tf_line('15M', mtf.res_15m)}\n"
+        f"⏰ *5 Dakika :* {tf_line('5M',  mtf.res_5m)}\n\n"
+        f"🔗 *Confluence:* {mtf.confluence}/3 {mtf.direction}\n"
+        f"💡 Karar senindir"
+        f"{foi_str}"
+        f"{risk_str}"
+        f"{exit_str}"
+    )
     return msg
 
 

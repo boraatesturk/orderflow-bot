@@ -21,9 +21,13 @@ from zoneinfo import ZoneInfo
 # ─── YENİ IMPORT ───────────────────────────────────────────
 from signal_engine_v2 import (
     analyze,
+    analyze_mtf,
     format_telegram_signal,
     format_telegram_exit,
+    format_telegram_mtf,
+    print_mtf,
     SignalResult,
+    MTFResult,
 )
 
 # ─── CONFIG ────────────────────────────────────────────────
@@ -81,7 +85,46 @@ def fetch_bybit_klines(symbol: str, interval: str = "5", limit: int = 300) -> pd
     return df
 
 
-# ─── SIGNALS.JSON YARDIMCILARI ─────────────────────────────
+# ─── BYBIT FUNDING RATE ────────────────────────────────────
+def fetch_funding_rate(symbol: str = "ETHUSDT") -> float:
+    """Bybit'ten güncel funding rate çek."""
+    try:
+        url = "https://api.bybit.com/v5/market/funding/history"
+        params = {"category": "linear", "symbol": symbol, "limit": 1}
+        r = requests.get(url, params=params, timeout=8)
+        r.raise_for_status()
+        data = r.json()
+        rows = data.get("result", {}).get("list", [])
+        if rows:
+            rate = float(rows[0].get("fundingRate", 0.0))
+            print(f"  [FR] fundingRate: {rate}")
+            return rate
+        else:
+            print(f"  [FR] Boş liste. API yanıt: {data}")
+    except Exception as e:
+        print(f"  Funding rate hata: {e}")
+    return 0.0
+
+
+# ─── BYBIT OPEN INTEREST ───────────────────────────────────
+def fetch_open_interest(symbol: str = "ETHUSDT") -> tuple[float, float]:
+    """Bybit'ten Open Interest çek."""
+    try:
+        url = "https://api.bybit.com/v5/market/open-interest"
+        params = {"category": "linear", "symbol": symbol, "intervalTime": "5min", "limit": 2}
+        r = requests.get(url, params=params, timeout=8)
+        r.raise_for_status()
+        data = r.json()
+        rows = data.get("result", {}).get("list", [])
+        print(f"  [OI] {len(rows)} kayıt. İlk: {rows[0] if rows else 'YOK'}")
+        if len(rows) >= 2:
+            return float(rows[0].get("openInterest", 0.0)), float(rows[1].get("openInterest", 0.0))
+        elif len(rows) == 1:
+            oi = float(rows[0].get("openInterest", 0.0))
+            return oi, oi
+    except Exception as e:
+        print(f"  OI hata: {e}")
+    return 0.0, 0.0
 def load_signals() -> list:
     if os.path.exists(SIGNALS_FILE):
         with open(SIGNALS_FILE, "r", encoding="utf-8") as f:
@@ -206,6 +249,19 @@ def result_to_dict(res: SignalResult) -> dict:
         "exit_signal": res.exit_signal,
         "exit_reason": res.exit_reason,
 
+        # Funding Rate + OI
+        "funding_oi": {
+            "funding_rate":     res.funding_oi.funding_rate,
+            "funding_rate_pct": res.funding_oi.funding_rate_pct,
+            "funding_bias":     res.funding_oi.funding_bias,
+            "oi_current":       res.funding_oi.oi_current,
+            "oi_prev":          res.funding_oi.oi_prev,
+            "oi_change_pct":    res.funding_oi.oi_change_pct,
+            "oi_trend":         res.funding_oi.oi_trend,
+            "score_funding":    res.funding_oi.score_funding,
+            "score_oi":         res.funding_oi.score_oi,
+        },
+
         # Sonuç (15dk sonra doldurulacak)
         "outcome":     None,
     }
@@ -215,55 +271,84 @@ def result_to_dict(res: SignalResult) -> dict:
 def run_once(open_position: str = None, entry_price: float = 0.0):
     """
     Tek çalışma:
-    1. Veri çek
-    2. Analiz et
-    3. Sinyal varsa Telegram'a at + JSON'a kaydet
-    4. Exit sinyali varsa ayrı Telegram mesajı at
+    1. 3 timeframe veri çek (1H, 15M, 5M)
+    2. FR + OI çek
+    3. MTF analiz et
+    4. Confluence 2/3 veya 3/3 ise Telegram'a at + JSON'a kaydet
+    5. Exit sinyali varsa ayrı Telegram mesajı at
     """
     print(f"[{datetime.now(TZ).strftime('%H:%M:%S')}] Çalışıyor...")
 
-    # Veri çek
+    # 3 timeframe veri çek
     try:
-        df = fetch_bybit_klines(SYMBOL, interval="5", limit=300)
+        df_5m  = fetch_bybit_klines(SYMBOL, interval="5",  limit=300)
+        df_15m = fetch_bybit_klines(SYMBOL, interval="15", limit=300)
+        df_1h  = fetch_bybit_klines(SYMBOL, interval="60", limit=200)
     except Exception as e:
         print(f"Veri çekme hatası: {e}")
         return
 
-    # Analiz
-    from signal_engine_v2 import print_signal
-    res = analyze(df, symbol=SYMBOL, position=open_position, entry_price=entry_price)
-    print_signal(res)  # Detaylı konsol çıktısı
+    # Funding Rate + OI çek
+    funding_rate        = fetch_funding_rate(SYMBOL)
+    oi_current, oi_prev = fetch_open_interest(SYMBOL)
+    print(f"  Funding: {funding_rate*100:+.4f}%  OI: {oi_current:.0f}")
+
+    # MTF Analiz
+    mtf = analyze_mtf(
+        df_1h        = df_1h,
+        df_15m       = df_15m,
+        df_5m        = df_5m,
+        symbol       = SYMBOL,
+        funding_rate = funding_rate,
+        oi_current   = oi_current,
+        oi_prev      = oi_prev,
+        position     = open_position,
+        entry_price  = entry_price,
+    )
+    print_mtf(mtf)  # Detaylı konsol çıktısı
 
     signals = load_signals()
 
     # ── EXIT SİNYALİ ──────────────────────────────────────
-    if res.exit_signal:
-        exit_msg = format_telegram_exit(res)
+    if mtf.res_5m.exit_signal:
+        exit_msg = format_telegram_exit(mtf.res_5m)
         if exit_msg:
             ok = send_telegram(exit_msg)
             print(f"  ⚠️  EXIT sinyali Telegram: {'✅' if ok else '❌'}")
-
-            # JSON'a kaydet
-            signals.append({**result_to_dict(res), "type": "EXIT"})
+            signals.append({
+                "type":      "EXIT",
+                "timestamp": str(datetime.now(TZ).isoformat()),
+                "symbol":    SYMBOL,
+                "reason":    mtf.res_5m.exit_reason,
+                "confluence": mtf.confluence,
+            })
             save_signals(signals)
-        return  # exit varsa yeni sinyal üretme
-
-    # ── GİRİŞ SİNYALİ ─────────────────────────────────────
-    if res.direction == "FLAT":
-        print("  FLAT — sinyal yok")
         return
 
-    if is_spam(signals, res.direction, SPAM_MINUTES):
-        print(f"  SPAM filtresi — {res.direction} son {SPAM_MINUTES}dk içinde atıldı")
+    # ── GİRİŞ SİNYALİ ─────────────────────────────────────
+    if not mtf.should_send:
+        print(f"  Confluence {mtf.confluence}/3 → sinyal yok")
+        return
+
+    if is_spam(signals, mtf.direction, SPAM_MINUTES):
+        print(f"  SPAM filtresi — {mtf.direction} son {SPAM_MINUTES}dk içinde atıldı")
         return
 
     # Telegram mesajı gönder
-    msg = format_telegram_signal(res)
+    msg = format_telegram_mtf(mtf)
     ok  = send_telegram(msg)
     print(f"  📩 Telegram: {'✅' if ok else '❌'}")
 
-    # JSON'a kaydet
-    signals.append({**result_to_dict(res), "type": "SIGNAL"})
+    # JSON'a kaydet (5M analizi baz alınır)
+    res = mtf.res_5m
+    rec = result_to_dict(res)
+    rec["type"]       = "MTF_SIGNAL"
+    rec["confluence"] = mtf.confluence
+    rec["note"]       = mtf.note
+    rec["tf_1h"]      = {"direction": mtf.res_1h.direction,  "score": mtf.res_1h.score}
+    rec["tf_15m"]     = {"direction": mtf.res_15m.direction, "score": mtf.res_15m.score}
+    rec["tf_5m"]      = {"direction": mtf.res_5m.direction,  "score": mtf.res_5m.score}
+    signals.append(rec)
     save_signals(signals)
     print(f"  💾 signals.json güncellendi ({len(signals)} kayıt)")
 
