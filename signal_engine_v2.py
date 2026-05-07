@@ -43,8 +43,8 @@ CFG = {
     "bpr_min_overlap":        0.0003,   # min overlap oranı (%0.03)
 
     # Skorlama
-    "min_score_long":         5.0,
-    "min_score_short":        5.0,
+    "min_score_long":         6.0,
+    "min_score_short":        6.0,
 
     # Risk
     "balance":                2500.0,
@@ -1067,7 +1067,7 @@ def analyze_mtf(
         mtf.should_send = True
         mtf.note        = "GÜÇLÜ"
     elif mtf.confluence == 2:
-        mtf.should_send = True
+        mtf.should_send = False
         mtf.note        = "ORTA"
     else:
         mtf.should_send = False
