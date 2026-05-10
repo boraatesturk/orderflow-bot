@@ -999,12 +999,14 @@ def format_telegram_exit(res: SignalResult) -> str:
 class MTFResult:
     symbol:      str = "ETHUSDT"
     timestamp:   str = ""
+    res_1d:      SignalResult = field(default_factory=SignalResult)
+    res_4h:      SignalResult = field(default_factory=SignalResult)
     res_1h:      SignalResult = field(default_factory=SignalResult)
     res_15m:     SignalResult = field(default_factory=SignalResult)
     res_5m:      SignalResult = field(default_factory=SignalResult)
-    confluence:  int = 0          # kaç timeframe aynı yönde (0-3)
-    direction:   str = "FLAT"     # çoğunluk yönü
-    should_send: bool = False     # Telegram'a gönderilmeli mi?
+    confluence:  int = 0          # kaç timeframe aynı yönde (0-5)
+    direction:   str = "FLAT"
+    should_send: bool = False
     note:        str = ""         # "GÜÇLÜ" | "ORTA" | "ZAYIF"
 
 
@@ -1018,24 +1020,27 @@ def analyze_mtf(
     oi_prev:      float = 0.0,
     position:     Optional[str] = None,
     entry_price:  float = 0.0,
+    df_4h:  pd.DataFrame = None,
+    df_1d:  pd.DataFrame = None,
 ) -> MTFResult:
     """
-    3 timeframe'i ayrı ayrı analiz edip confluence hesaplar.
+    5 timeframe analiz + confluence hesapla.
 
-    1H  → Trend yönü (bias) — ana filtre
+    1D  → Makro trend
+    4H  → Orta vade yön
+    1H  → Kısa vade trend
     15M → Setup tetikleyici
     5M  → Giriş zamanlaması
 
     Confluence:
-      3/3 → GÜÇLÜ sinyal, Telegram'a gönder
-      2/3 → ORTA sinyal, Telegram'a gönder
-      1/3 veya 0/3 → Gönderme
+      5/5 → GÜÇLÜ 🔥
+      4/5 → GÜÇLÜ 🔥
+      3/5 → ORTA  ⚡ → Telegram'a gönder
+      2/5 veya altı → Gönderme
     """
     mtf = MTFResult(symbol=symbol)
 
-    # FR + OI sadece 5M analizine eklenir (en güncel veri)
-    mtf.res_1h  = analyze(df_1h,  symbol=symbol)
-    mtf.res_15m = analyze(df_15m, symbol=symbol)
+    # FR + OI sadece 5M analizine eklenir
     mtf.res_5m  = analyze(
         df_5m, symbol=symbol,
         funding_rate=funding_rate,
@@ -1044,6 +1049,10 @@ def analyze_mtf(
         position=position,
         entry_price=entry_price,
     )
+    mtf.res_15m = analyze(df_15m, symbol=symbol)
+    mtf.res_1h  = analyze(df_1h,  symbol=symbol)
+    mtf.res_4h  = analyze(df_4h,  symbol=symbol) if df_4h is not None and len(df_4h) >= 30 else SignalResult(symbol=symbol)
+    mtf.res_1d  = analyze(df_1d,  symbol=symbol) if df_1d is not None and len(df_1d) >= 30 else SignalResult(symbol=symbol)
 
     # Timestamp
     try:
@@ -1051,23 +1060,35 @@ def analyze_mtf(
     except Exception:
         pass
 
-    # Confluence hesapla
-    dirs = [mtf.res_1h.direction, mtf.res_15m.direction, mtf.res_5m.direction]
+    # Confluence hesapla — aktif TF'ler
+    active_results = [mtf.res_5m, mtf.res_15m, mtf.res_1h]
+    if df_4h is not None and len(df_4h) >= 30:
+        active_results.append(mtf.res_4h)
+    if df_1d is not None and len(df_1d) >= 30:
+        active_results.append(mtf.res_1d)
+
+    total_tf    = len(active_results)
+    dirs        = [r.direction for r in active_results]
     long_count  = dirs.count("LONG")
     short_count = dirs.count("SHORT")
 
     if long_count >= short_count:
-        mtf.direction   = "LONG"  if long_count  > 0 else "FLAT"
-        mtf.confluence  = long_count
+        mtf.direction  = "LONG" if long_count > 0 else "FLAT"
+        mtf.confluence = long_count
     else:
-        mtf.direction   = "SHORT"
-        mtf.confluence  = short_count
+        mtf.direction  = "SHORT"
+        mtf.confluence = short_count
 
-    if mtf.confluence == 3:
+    # Gönderim eşiği: 3/5 (veya 3/total_tf)
+    min_conf = 3
+    if mtf.confluence >= total_tf:
         mtf.should_send = True
         mtf.note        = "GÜÇLÜ"
-    elif mtf.confluence == 2:
-        mtf.should_send = False
+    elif mtf.confluence == total_tf - 1:
+        mtf.should_send = True
+        mtf.note        = "GÜÇLÜ"
+    elif mtf.confluence >= min_conf:
+        mtf.should_send = True
         mtf.note        = "ORTA"
     else:
         mtf.should_send = False
@@ -1090,24 +1111,30 @@ def print_mtf(mtf: MTFResult) -> None:
     print(sep)
 
     tf_labels = [
-        ("1 Saat  ", "Trend Bias",      mtf.res_1h),
-        ("15 Dakika", "Setup",          mtf.res_15m),
-        ("5 Dakika", "Giriş Zamanı",    mtf.res_5m),
+        ("1 Gün   ", "Makro Trend",    mtf.res_1d),
+        ("4 Saat  ", "Orta Vade",      mtf.res_4h),
+        ("1 Saat  ", "Trend Bias",     mtf.res_1h),
+        ("15 Dakika", "Setup",         mtf.res_15m),
+        ("5 Dakika", "Giriş Zamanı",   mtf.res_5m),
     ]
 
     for tf_label, role, res in tf_labels:
-        dc = {"LONG": Fore.GREEN, "SHORT": Fore.RED, "FLAT": Fore.YELLOW}.get(res.direction, Fore.WHITE)
+        if res.direction == "FLAT" and res.score == 0.0:
+            print(f"  ⏰ {tf_label:<10} ⚪ {'—':<6}  [{role}] (veri yok)")
+            continue
+        dc    = {"LONG": Fore.GREEN, "SHORT": Fore.RED, "FLAT": Fore.YELLOW}.get(res.direction, Fore.WHITE)
         emoji = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(res.direction, "⚪")
         ab_tag = " 📦ABSORB" if (res.absorption.bullish or res.absorption.bearish) else ""
         print(f"  ⏰ {tf_label:<10} {emoji} {dc}{res.direction:<6}{Style.RESET_ALL} "
               f"(skor:{res.score:+.2f})  [{role}]{ab_tag}")
 
-    print(f"\n  🔗 Confluence : {mtf.confluence}/3 {mtf.direction}")
-    conf_color = Fore.GREEN if mtf.confluence == 3 else (Fore.YELLOW if mtf.confluence == 2 else Fore.RED)
+    total_tf = sum(1 for r in [mtf.res_1d, mtf.res_4h, mtf.res_1h, mtf.res_15m, mtf.res_5m]
+                   if not (r.direction == "FLAT" and r.score == 0.0))
+    print(f"\n  🔗 Confluence : {mtf.confluence}/{total_tf} {mtf.direction}")
+    conf_color = Fore.GREEN if mtf.confluence >= total_tf - 1 else (Fore.YELLOW if mtf.confluence >= 3 else Fore.RED)
     print(f"  📶 Güç        : {conf_color}{mtf.note}{Style.RESET_ALL}")
     print(f"  📤 Gönderilsin: {'✅' if mtf.should_send else '❌'}")
 
-    # En güçlü timeframe'in risk bilgisi
     dominant = mtf.res_5m if mtf.res_5m.direction != "FLAT" else (
                mtf.res_15m if mtf.res_15m.direction != "FLAT" else mtf.res_1h)
     if dominant.direction != "FLAT":
@@ -1122,16 +1149,20 @@ def format_telegram_mtf(mtf: MTFResult) -> str:
     if not mtf.should_send:
         return ""
 
-    dir_emoji = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(mtf.direction, "⚪")
+    dir_emoji  = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(mtf.direction, "⚪")
+    note_emoji = {"GÜÇLÜ": "🔥", "ORTA": "⚡", "ZAYIF": "💤"}.get(mtf.note, "")
 
-    def tf_line(label, res):
-        e = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(res.direction, "⚪")
+    def tf_line(res):
+        if res.direction == "FLAT" and res.score == 0.0:
+            return "⚪ `—    ` veri yok"
+        e  = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(res.direction, "⚪")
         ab = " 📦" if (res.absorption.bullish or res.absorption.bearish) else ""
         return f"{e} `{res.direction:<5}` skor:`{res.score:+.2f}`{ab}"
 
-    note_emoji = {"GÜÇLÜ": "🔥", "ORTA": "⚡", "ZAYIF": "💤"}.get(mtf.note, "")
+    total_tf = sum(1 for r in [mtf.res_1d, mtf.res_4h, mtf.res_1h, mtf.res_15m, mtf.res_5m]
+                   if not (r.direction == "FLAT" and r.score == 0.0))
 
-    # Risk (5M önce, yoksa 15M, yoksa 1H)
+    # Risk
     dominant = mtf.res_5m if mtf.res_5m.direction != "FLAT" else (
                mtf.res_15m if mtf.res_15m.direction != "FLAT" else mtf.res_1h)
     risk_str = ""
@@ -1143,7 +1174,7 @@ def format_telegram_mtf(mtf: MTFResult) -> str:
             f"⚡ *Kaldıraç:* {dominant.leverage}x"
         )
 
-    # Funding + OI (5M analizinden)
+    # Funding + OI
     foi = mtf.res_5m.funding_oi
     foi_str = ""
     if foi.funding_rate != 0.0 or foi.oi_current != 0.0:
@@ -1166,10 +1197,12 @@ def format_telegram_mtf(mtf: MTFResult) -> str:
     msg = (
         f"{dir_emoji} *{mtf.symbol} — Multi-Timeframe* {note_emoji}\n"
         f"{mtf.timestamp}\n\n"
-        f"⏰ *1 Saat  :* {tf_line('1H',  mtf.res_1h)}\n"
-        f"⏰ *15 Dakika:* {tf_line('15M', mtf.res_15m)}\n"
-        f"⏰ *5 Dakika :* {tf_line('5M',  mtf.res_5m)}\n\n"
-        f"🔗 *Confluence:* {mtf.confluence}/3 {mtf.direction}\n"
+        f"📅 *1 Gün    :* {tf_line(mtf.res_1d)}\n"
+        f"⏰ *4 Saat   :* {tf_line(mtf.res_4h)}\n"
+        f"⏰ *1 Saat   :* {tf_line(mtf.res_1h)}\n"
+        f"⏰ *15 Dakika:* {tf_line(mtf.res_15m)}\n"
+        f"⏰ *5 Dakika :* {tf_line(mtf.res_5m)}\n\n"
+        f"🔗 *Confluence:* {mtf.confluence}/{total_tf} {mtf.direction}\n"
         f"💡 Karar senindir"
         f"{foi_str}"
         f"{risk_str}"

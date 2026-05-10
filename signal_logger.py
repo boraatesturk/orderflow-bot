@@ -279,11 +279,13 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
     """
     print(f"[{datetime.now(TZ).strftime('%H:%M:%S')}] Çalışıyor...")
 
-    # 3 timeframe veri çek
+    # 3 → 5 timeframe veri çek
     try:
-        df_5m  = fetch_bybit_klines(SYMBOL, interval="5",  limit=300)
-        df_15m = fetch_bybit_klines(SYMBOL, interval="15", limit=300)
-        df_1h  = fetch_bybit_klines(SYMBOL, interval="60", limit=200)
+        df_5m  = fetch_bybit_klines(SYMBOL, interval="5",   limit=300)
+        df_15m = fetch_bybit_klines(SYMBOL, interval="15",  limit=300)
+        df_1h  = fetch_bybit_klines(SYMBOL, interval="60",  limit=200)
+        df_4h  = fetch_bybit_klines(SYMBOL, interval="240", limit=200)
+        df_1d  = fetch_bybit_klines(SYMBOL, interval="D",   limit=100)
     except Exception as e:
         print(f"Veri çekme hatası: {e}")
         return
@@ -298,6 +300,8 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
         df_1h        = df_1h,
         df_15m       = df_15m,
         df_5m        = df_5m,
+        df_4h        = df_4h,
+        df_1d        = df_1d,
         symbol       = SYMBOL,
         funding_rate = funding_rate,
         oi_current   = oi_current,
@@ -345,6 +349,8 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
     rec["type"]       = "MTF_SIGNAL"
     rec["confluence"] = mtf.confluence
     rec["note"]       = mtf.note
+    rec["tf_1d"]      = {"direction": mtf.res_1d.direction,  "score": mtf.res_1d.score}
+    rec["tf_4h"]      = {"direction": mtf.res_4h.direction,  "score": mtf.res_4h.score}
     rec["tf_1h"]      = {"direction": mtf.res_1h.direction,  "score": mtf.res_1h.score}
     rec["tf_15m"]     = {"direction": mtf.res_15m.direction, "score": mtf.res_15m.score}
     rec["tf_5m"]      = {"direction": mtf.res_5m.direction,  "score": mtf.res_5m.score}
