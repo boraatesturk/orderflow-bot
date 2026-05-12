@@ -41,10 +41,54 @@ TELEGRAM_TOKEN   = os.environ.get("TELEGRAM_TOKEN", "")
 TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # ─── BYBIT VERİ ÇEKİCİ ────────────────────────────────────
+def fetch_real_taker_data(symbol: str, interval_minutes: int, limit: int) -> dict:
+    """
+    Bybit recent-trade endpoint'inden gerçek taker buy/sell verisi çek.
+    Her mum için buy_volume ve sell_volume hesapla.
+    Returns: {timestamp_ms: {"buy": float, "sell": float}}
+    """
+    try:
+        # Kaç trade çekeceğimizi hesapla (limit * interval * tahmini trade/dk)
+        fetch_limit = min(1000, limit * interval_minutes * 10)
+        url = "https://api.bybit.com/v5/market/recent-trade"
+        params = {
+            "category": "linear",
+            "symbol":   symbol,
+            "limit":    fetch_limit,
+        }
+        r = requests.get(url, params=params, timeout=10)
+        r.raise_for_status()
+        trades = r.json().get("result", {}).get("list", [])
+
+        # Her trade'i ilgili muma yerleştir
+        interval_ms = interval_minutes * 60 * 1000
+        candle_data = {}
+
+        for t in trades:
+            ts_ms  = int(t["time"])
+            # Mumun başlangıç zamanını hesapla
+            candle_ts = (ts_ms // interval_ms) * interval_ms
+            size      = float(t["size"])
+            side      = t["side"]  # "Buy" veya "Sell"
+
+            if candle_ts not in candle_data:
+                candle_data[candle_ts] = {"buy": 0.0, "sell": 0.0}
+
+            if side == "Buy":
+                candle_data[candle_ts]["buy"]  += size
+            else:
+                candle_data[candle_ts]["sell"] += size
+
+        return candle_data
+    except Exception as e:
+        print(f"  [Taker] Hata: {e}")
+        return {}
+
+
 def fetch_bybit_klines(symbol: str, interval: str = "5", limit: int = 300) -> pd.DataFrame:
-    """Bybit'ten OHLCV + taker buy/sell verisi çek."""
+    """Bybit'ten OHLCV + gerçek taker buy/sell verisi çek."""
     url = "https://api.bybit.com/v5/market/kline"
-    params = {"symbol": symbol, "interval": interval, "limit": limit}
+    params = {"category": "linear", "symbol": symbol, "interval": interval, "limit": limit}
     r = requests.get(url, params=params, timeout=10)
     r.raise_for_status()
     data = r.json()
@@ -53,7 +97,7 @@ def fetch_bybit_klines(symbol: str, interval: str = "5", limit: int = 300) -> pd
     df = pd.DataFrame(rows, columns=[
         "timestamp", "open", "high", "low", "close", "volume", "turnover"
     ])
-    df = df.iloc[::-1].reset_index(drop=True)  # en eski → en yeni
+    df = df.iloc[::-1].reset_index(drop=True)
 
     for col in ["open", "high", "low", "close", "volume", "turnover"]:
         df[col] = df[col].astype(float)
@@ -61,26 +105,49 @@ def fetch_bybit_klines(symbol: str, interval: str = "5", limit: int = 300) -> pd
     df["timestamp"] = pd.to_datetime(df["timestamp"].astype(float), unit="ms", utc=True)
     df = df.set_index("timestamp")
 
-    # Orderflow türev kolonları (Bybit taker data yoksa tahmini hesapla)
-    # Bybit v5 kline'da taker_buy_base_vol ayrı endpoint; burada delta'yı
-    # (close > open → pozitif delta) ile tahmin ediyoruz
-    df["delta"] = df.apply(
-        lambda r: r["volume"] * 0.6 if r["close"] >= r["open"]
-                  else -r["volume"] * 0.6,
-        axis=1
-    )
-    df["buy_volume"]  = df["volume"] * df["delta"].apply(lambda d: 0.7 if d > 0 else 0.3)
-    df["sell_volume"] = df["volume"] - df["buy_volume"]
-    df["imbalance_ratio"] = df["buy_volume"] / df["volume"]
-    df["cvd"] = df["delta"].cumsum()
-    df["session_delta"] = df["delta"].rolling(12).sum()
-    df["vwap"] = (df["close"] * df["volume"]).cumsum() / df["volume"].cumsum()
+    # Gerçek taker data — sadece 5M için çek (diğer TF'ler için tahmin kullan)
+    if interval == "5":
+        taker = fetch_real_taker_data(symbol, 5, limit)
+    else:
+        taker = {}
 
-    # Stacked imbalance (3+ ardışık aynı yönlü imbalance)
+    # Her mum için buy/sell volume hesapla
+    buy_vols  = []
+    sell_vols = []
+
+    for ts in df.index:
+        ts_ms     = int(ts.timestamp() * 1000)
+        candle_ms = (ts_ms // (int(interval if interval.isdigit() else 1440) * 60 * 1000)) * \
+                    (int(interval if interval.isdigit() else 1440) * 60 * 1000)
+
+        if candle_ms in taker and (taker[candle_ms]["buy"] + taker[candle_ms]["sell"]) > 0:
+            buy_vols.append(taker[candle_ms]["buy"])
+            sell_vols.append(taker[candle_ms]["sell"])
+        else:
+            # Taker data yoksa tahminsel (eski yöntem — fallback)
+            row = df.loc[ts]
+            est_buy = row["volume"] * 0.6 if row["close"] >= row["open"] else row["volume"] * 0.4
+            buy_vols.append(est_buy)
+            sell_vols.append(row["volume"] - est_buy)
+
+    df["buy_volume"]  = buy_vols
+    df["sell_volume"] = sell_vols
+    df["delta"]       = df["buy_volume"] - df["sell_volume"]
+    df["imbalance_ratio"] = df["buy_volume"] / (df["volume"] + 1e-9)
+    df["cvd"]         = df["delta"].cumsum()
+    df["session_delta"]= df["delta"].rolling(12).sum()
+    df["vwap"]        = (df["close"] * df["volume"]).cumsum() / (df["volume"].cumsum() + 1e-9)
+
     bull_streak = (df["imbalance_ratio"] > 0.58).astype(int)
     bear_streak = (df["imbalance_ratio"] < 0.42).astype(int)
     df["stacked_imbalance_up"] = bull_streak.rolling(3).sum() == 3
     df["stacked_imbalance_dn"] = bear_streak.rolling(3).sum() == 3
+
+    # Gerçek taker data yüzdesi logla (5M için)
+    if interval == "5" and taker:
+        real_count = sum(1 for ts in df.index
+                        if int(ts.timestamp()*1000) // 300000 * 300000 in taker)
+        print(f"  [Taker] Gerçek data: {real_count}/{len(df)} mum")
 
     return df
 
