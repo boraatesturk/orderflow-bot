@@ -31,7 +31,7 @@ OUTPUT_FILE  = Path("/opt/orderflow/taker_data.json")
 LOG_FILE     = Path("/opt/orderflow/collector.log")
 SYMBOL       = "ETHUSDT"
 INTERVAL_MS  = 5 * 60 * 1000   # 5 dakika
-MAX_CANDLES  = 500              # Maksimum kaç mum tutulsun
+MAX_CANDLES  = 2000             # Maksimum kaç mum tutulsun (~7 gün)
 SAVE_EVERY   = 10               # Her kaç trade'de bir kaydet
 
 # Logging
