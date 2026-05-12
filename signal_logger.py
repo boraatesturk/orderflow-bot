@@ -141,17 +141,35 @@ def save_signals(signals: list) -> None:
         json.dump(signals, f, indent=2, default=str)
 
 
-def is_spam(signals: list, direction: str, minutes: int = SPAM_MINUTES) -> bool:
-    """Son SPAM_MINUTES dk içinde aynı yönde sinyal var mı?"""
+def is_spam(signals: list, direction: str, price: float, minutes: int = SPAM_MINUTES) -> bool:
+    """
+    Son SPAM_MINUTES dk içinde aynı yönde sinyal var mı?
+    Ayrıca fiyat ATR'nin 2x'inden yakınsa da spam say.
+    """
     now = datetime.now(timezone.utc)
     for s in reversed(signals):
+        if s.get("direction") != direction:
+            continue
         try:
             ts = datetime.fromisoformat(s["timestamp"])
             if ts.tzinfo is None:
                 ts = ts.replace(tzinfo=timezone.utc)
-            diff = (now - ts).total_seconds() / 60
-            if diff <= minutes and s.get("direction") == direction:
+            diff_min = (now - ts).total_seconds() / 60
+
+            # Zaman filtresi: son 5 dakika
+            if diff_min <= minutes:
                 return True
+
+            # Fiyat filtresi: son 30 dakika içinde fiyat %0.3'den yakınsa
+            if diff_min <= 30:
+                prev_price = s.get("entry", 0)
+                atr        = s.get("atr", 0)
+                if prev_price > 0:
+                    price_dist = abs(price - prev_price) / prev_price
+                    min_dist   = max(atr * 2 / prev_price, 0.003)  # ATR x2 veya %0.3
+                    if price_dist < min_dist:
+                        print(f"  SPAM (fiyat yakın: %{price_dist*100:.2f} < %{min_dist*100:.2f})")
+                        return True
         except Exception:
             pass
     return False
@@ -267,6 +285,135 @@ def result_to_dict(res: SignalResult) -> dict:
     }
 
 
+# ─── OUTCOME TRACKER ───────────────────────────────────────
+def fetch_current_price(symbol: str) -> float:
+    """Bybit'ten anlık fiyat çek."""
+    try:
+        url = "https://api.bybit.com/v5/market/tickers"
+        r = requests.get(url, params={"category": "linear", "symbol": symbol}, timeout=8)
+        r.raise_for_status()
+        data = r.json()
+        items = data.get("result", {}).get("list", [])
+        if items:
+            return float(items[0].get("lastPrice", 0))
+    except Exception as e:
+        print(f"  Fiyat çekme hatası: {e}")
+    return 0.0
+
+
+def check_outcomes(signals: list, symbol: str) -> tuple[list, bool]:
+    """
+    outcome=None olan sinyalleri kontrol et.
+    TP1/SL vurulduysa güncelle, Telegram bildirimi için liste döndür.
+    Returns: (updated_signals, any_updated)
+    """
+    current_price = fetch_current_price(symbol)
+    if current_price == 0:
+        return signals, False
+
+    any_updated  = False
+    notifications = []
+
+    for s in signals:
+        if s.get("type") != "MTF_SIGNAL":
+            continue
+        if s.get("outcome") is not None:
+            continue
+
+        direction = s.get("direction")
+        entry     = s.get("entry", 0)
+        sl        = s.get("sl", 0)
+        tp1       = s.get("tp1", 0)
+        tp2       = s.get("tp2", 0)
+        tp3       = s.get("tp3", 0)
+
+        if not entry or not sl or not tp1:
+            continue
+
+        # Timestamp kontrolü — en az 15 dakika geçmiş mi?
+        try:
+            ts = datetime.fromisoformat(s["timestamp"])
+            if ts.tzinfo is None:
+                ts = ts.replace(tzinfo=timezone.utc)
+            elapsed = (datetime.now(timezone.utc) - ts).total_seconds() / 60
+            if elapsed < 15:
+                continue
+        except Exception:
+            continue
+
+        outcome = None
+        hit     = None
+
+        if direction == "LONG":
+            if current_price <= sl:
+                outcome = "SL"
+                hit     = sl
+            elif current_price >= tp3:
+                outcome = "TP3"
+                hit     = tp3
+            elif current_price >= tp2:
+                outcome = "TP2"
+                hit     = tp2
+            elif current_price >= tp1:
+                outcome = "TP1"
+                hit     = tp1
+
+        elif direction == "SHORT":
+            if current_price >= sl:
+                outcome = "SL"
+                hit     = sl
+            elif current_price <= tp3:
+                outcome = "TP3"
+                hit     = tp3
+            elif current_price <= tp2:
+                outcome = "TP2"
+                hit     = tp2
+            elif current_price <= tp1:
+                outcome = "TP1"
+                hit     = tp1
+
+        if outcome:
+            s["outcome"]       = outcome
+            s["outcome_price"] = current_price
+            s["outcome_time"]  = datetime.now(TZ).isoformat()
+            any_updated        = True
+
+            # R hesapla
+            sl_dist = abs(entry - sl)
+            hit_dist = abs(hit - entry) if hit else 0
+            r_val = hit_dist / sl_dist if sl_dist > 0 else 0
+
+            notifications.append({
+                "direction": direction,
+                "outcome":   outcome,
+                "entry":     entry,
+                "hit":       hit,
+                "current":   current_price,
+                "r":         r_val,
+                "elapsed":   round(elapsed),
+                "confluence": s.get("confluence", 0),
+            })
+
+    # Bildirimleri Telegram'a gönder
+    for n in notifications:
+        is_win  = n["outcome"] != "SL"
+        emoji   = "✅" if is_win else "❌"
+        dir_e   = "🟢" if n["direction"] == "LONG" else "🔴"
+        outcome_label = n["outcome"]
+
+        msg = (
+            f"{emoji} *OUTCOME — {symbol}*\n"
+            f"{dir_e} {n['direction']} | {n['confluence']}/5\n\n"
+            f"Sonuç: *{outcome_label}*\n"
+            f"Giriş: `{n['entry']}`  →  Hit: `{n['hit']}`\n"
+            f"R: `{n['r']:.2f}R`  |  Süre: `{n['elapsed']} dk`"
+        )
+        ok = send_telegram(msg)
+        print(f"  📊 Outcome [{outcome_label}] Telegram: {'✅' if ok else '❌'}")
+
+    return signals, any_updated
+
+
 # ─── ANA DÖNGÜ ─────────────────────────────────────────────
 def run_once(open_position: str = None, entry_price: float = 0.0):
     """
@@ -278,6 +425,12 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
     5. Exit sinyali varsa ayrı Telegram mesajı at
     """
     print(f"[{datetime.now(TZ).strftime('%H:%M:%S')}] Çalışıyor...")
+
+    # ── OUTCOME TRACKER ────────────────────────────────────
+    signals = load_signals()
+    signals, updated = check_outcomes(signals, SYMBOL)
+    if updated:
+        save_signals(signals)
 
     # 3 → 5 timeframe veri çek
     try:
@@ -311,7 +464,7 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
     )
     print_mtf(mtf)  # Detaylı konsol çıktısı
 
-    signals = load_signals()
+    # signals zaten yüklendi (outcome check'te)
 
     # ── EXIT SİNYALİ ──────────────────────────────────────
     if mtf.res_5m.exit_signal:
@@ -334,7 +487,7 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
         print(f"  Confluence {mtf.confluence}/3 → sinyal yok")
         return
 
-    if is_spam(signals, mtf.direction, SPAM_MINUTES):
+    if is_spam(signals, mtf.direction, mtf.res_5m.entry, SPAM_MINUTES):
         print(f"  SPAM filtresi — {mtf.direction} son {SPAM_MINUTES}dk içinde atıldı")
         return
 

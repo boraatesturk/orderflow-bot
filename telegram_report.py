@@ -50,10 +50,18 @@ def save_signals(signals: list):
         json.dump(signals[-200:], f, indent=2, ensure_ascii=False)
 
 
+def ts_to_date(ts: str) -> str:
+    """Timestamp'ten YYYY-MM-DD tarihi çıkar (timezone'dan bağımsız)."""
+    try:
+        return datetime.fromisoformat(ts).astimezone(TZ_TR).strftime("%Y-%m-%d")
+    except Exception:
+        return ts[:10]
+
+
 def archive_and_reset(signals: list, target_date: str) -> list:
     """Bugünün sinyallerini arşive taşı, kalanları döndür."""
-    day_sigs  = [s for s in signals if s.get("timestamp", "").startswith(target_date)]
-    rest_sigs = [s for s in signals if not s.get("timestamp", "").startswith(target_date)]
+    day_sigs  = [s for s in signals if ts_to_date(s.get("timestamp", "")) == target_date]
+    rest_sigs = [s for s in signals if ts_to_date(s.get("timestamp", "")) != target_date]
 
     if day_sigs:
         archive = []
@@ -74,15 +82,15 @@ def archive_and_reset(signals: list, target_date: str) -> list:
 def build_daily_report(signals: list, target_date: str = None) -> str:
     """
     MTF formatındaki signals.json'dan günlük rapor oluştur.
-    target_date: "YYYY-MM-DD" formatında
+    target_date: YYYY-MM-DD formatında
     """
     if target_date is None:
         target_date = datetime.now(TZ_TR).strftime("%Y-%m-%d")
 
     display_date = datetime.now(TZ_TR).strftime("%d/%m/%Y")
 
-    # Bugünün sinyallerini filtrele
-    day_signals = [s for s in signals if s.get("timestamp", "").startswith(target_date)]
+    # Bugünün sinyallerini filtrele (timezone-safe)
+    day_signals = [s for s in signals if ts_to_date(s.get("timestamp", "")) == target_date]
 
     if not day_signals:
         return f"📊 <b>{SYMBOL} | {display_date}</b>\n\nBugün hiç sinyal üretilmedi."
@@ -115,21 +123,43 @@ def build_daily_report(signals: list, target_date: str = None) -> str:
     avg_funding  = sum(funding_vals) / len(funding_vals) if funding_vals else 0
     last_oi_trend = trade_signals[-1].get("funding_oi", {}).get("oi_trend", "—") if trade_signals else "—"
 
+    # Outcome istatistikleri
+    evaluated = [s for s in trade_signals if s.get("outcome") is not None]
+    open_sigs  = [s for s in trade_signals if s.get("outcome") is None]
+    wins       = [s for s in evaluated if s.get("outcome") != "SL"]
+    losses     = [s for s in evaluated if s.get("outcome") == "SL"]
+    win_rate   = len(wins) / len(evaluated) * 100 if evaluated else 0
+
+    tp1_hits = sum(1 for s in evaluated if s.get("outcome") == "TP1")
+    tp2_hits = sum(1 for s in evaluated if s.get("outcome") == "TP2")
+    tp3_hits = sum(1 for s in evaluated if s.get("outcome") == "TP3")
+    sl_hits  = len(losses)
+
     lines = [
         f"📊 <b>{SYMBOL} MTF Günlük Rapor</b>",
         f"📅 <b>{display_date}</b>",
         f"",
         f"🟢 LONG: {len(long_sigs)}  🔴 SHORT: {len(short_sigs)}  ⚠️ EXIT: {len(exit_signals)}",
         f"",
+        f"📈 <b>Sonuçlar</b>",
+        f"✅ Kazandı: {len(wins)}  ❌ Kaybetti: {len(losses)}  ⏳ Açık: {len(open_sigs)}",
+    ]
+
+    if evaluated:
+        lines += [
+            f"🎯 Win Rate: %{win_rate:.1f}",
+            f"🏆 TP1:{tp1_hits}  TP2:{tp2_hits}  TP3:{tp3_hits}  SL:{sl_hits}",
+        ]
+
+    lines += [
+        f"",
         f"🔗 <b>Confluence Dağılımı</b>",
         f"   5/5 → {conf_5} sinyal",
         f"   4/5 → {conf_4} sinyal",
         f"   3/5 → {conf_3} sinyal",
         f"",
-        f"📦 Absorption sinyali: {ab_count}",
-        f"⭐ Ort. Skor: {avg_score:.2f}",
-        f"📈 Ort. Funding: %{avg_funding:+.4f}",
-        f"📊 Son OI Trend: {last_oi_trend}",
+        f"📦 Absorption: {ab_count}  ⭐ Ort. Skor: {avg_score:.2f}",
+        f"📈 Ort. Funding: %{avg_funding:+.4f}  📊 Son OI: {last_oi_trend}",
         f"",
         f"─────────────────────────",
         f"<b>SİNYAL DETAYLARI</b>",
@@ -163,12 +193,20 @@ def build_daily_report(signals: list, target_date: str = None) -> str:
         def d_emoji(d):
             return "🟢" if d == "LONG" else ("🔴" if d == "SHORT" else "🟡")
 
+        outcome    = s.get("outcome")
+        if outcome is None:
+            outcome_str = "⏳ Açık"
+        elif outcome == "SL":
+            outcome_str = "❌ SL"
+        else:
+            outcome_str = f"✅ {outcome}"
+
         ab = s.get("absorption", {})
         ab_tag = " 📦" if ab.get("bullish") or ab.get("bearish") else ""
 
         lines += [
             f"",
-            f"{emoji} <b>{direction}</b> | {t} | Skor:{score:+.1f} | {conf}/5 {note_e}{ab_tag}",
+            f"{emoji} <b>{direction}</b> | {t} | Skor:{score:+.1f} | {conf}/5 {note_e}{ab_tag} | {outcome_str}",
             f"   {d_emoji(tf_1d)}1D {d_emoji(tf_4h)}4H {d_emoji(tf_1h)}1H {d_emoji(tf_15m)}15M {d_emoji(tf_5m)}5M",
             f"   💰{entry} 🛑{sl} 🎯{tp1} ⚡{lev}x",
         ]
