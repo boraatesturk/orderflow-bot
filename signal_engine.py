@@ -741,13 +741,8 @@ def run_live(df: pd.DataFrame):
     print(Fore.CYAN + f"  CANLI SINYAL MODU  |  {SYMBOL}")
     print(Fore.CYAN + "=" * 60)
 
-    # ICT feature'larini hesapla
-    ict = ICTEngine(df, swing_left=10, swing_right=10, fvg_min_pct=0.05)
-    df  = ict.compute_all()
-
     df = add_derived_features(df)
 
-    # Sadece temel kolonlarda NaN temizle, ICT kolonlarini koru
     core_cols = ["close", "open", "high", "low", "volume", "delta",
                  "cvd", "vwap", "imbalance_ratio", "vol_ma20", "delta_ma3"]
     df.dropna(subset=[c for c in core_cols if c in df.columns], inplace=True)
@@ -756,37 +751,9 @@ def run_live(df: pd.DataFrame):
         print(Fore.RED + "HATA: Veri islendikten sonra bos kaldi!")
         return
 
-    # ICT setuplarini once hesapla (print_signal_card icin gerekli)
-    setups = ict.get_active_setups(last_n=30)
-
-    # Son tamamlanan bar
     last_row = df.iloc[-1]
     signal   = generate_signal(last_row)
-    print_signal_card(last_row, signal, ict_setups=setups, df=df)
-
-    # ICT aktif setuplarini goster
-    print()
-    print(Fore.CYAN + "=" * 60)
-    print(Fore.CYAN + "  ICT SETUP DURUMU (son 3 bar)")
-    print(Fore.CYAN + "=" * 60)
-
-    if not setups["bull"] and not setups["bear"]:
-        print(f"  {Fore.YELLOW}Aktif ICT setup yok (FLAT bolge)")
-    else:
-        if setups["bull"]:
-            print(f"  {Fore.GREEN}>> BULLISH SETUPLAR:")
-            for s in setups["bull"]:
-                print(f"     {Fore.GREEN}{s}")
-
-        if setups["bull"] and setups["bear"]:
-            print()
-
-        if setups["bear"]:
-            print(f"  {Fore.RED}>> BEARISH SETUPLAR:")
-            for s in setups["bear"]:
-                print(f"     {Fore.RED}{s}")
-
-    print(Fore.CYAN + "=" * 60)
+    print_signal_card(last_row, signal, df=df)
     print()
 
 
@@ -844,55 +811,28 @@ def run_realtime(once: bool = False):
             log("Binance'den taze veri cekiliyor...", Fore.YELLOW)
             df_live = fetch_latest_bars(SYMBOL, interval="5m", limit=300)
 
-            # Henuz kapanmamis son bari cikar
-            now_utc  = datetime.now(timezone.utc)
-            current_bar_open = now_utc.replace(second=0, microsecond=0)
-            minutes = current_bar_open.minute
-            bar_minutes = (minutes // 5) * 5
-            current_bar_open = current_bar_open.replace(minute=bar_minutes)
-            df_live = df_live[df_live.index < current_bar_open]
 
             if df_live.empty:
                 log("Yeterli veri yok, bekleniyor...", Fore.YELLOW)
                 time_mod.sleep(10)
                 continue
 
-            # ICT analiz
-            ict    = ICTEngine(df_live, swing_left=5, swing_right=5, fvg_min_pct=0.05)
-            df_ict = ict.compute_all()
-            df_ict = add_derived_features(df_ict)
+            # Orderflow analiz (ICT kaldirildi)
+            df_live = add_derived_features(df_live)
 
             core = ["close","delta","cvd","imbalance_ratio","vol_ma20"]
-            df_ict.dropna(subset=[c for c in core if c in df_ict.columns], inplace=True)
+            df_live.dropna(subset=[c for c in core if c in df_live.columns], inplace=True)
 
-            if df_ict.empty:
+            if df_live.empty:
                 log("Veri isleme hatasi.", Fore.RED)
                 time_mod.sleep(10)
                 continue
 
-            setups   = ict.get_active_setups(last_n=30)
-            last_row = df_ict.iloc[-1]
+            last_row = df_live.iloc[-1]
             signal   = generate_signal(last_row)
 
-            # Ekrani temizle ve yeni sinyali goster
-            os.system("cls" if os.name == "nt" else "clear")
             print(Fore.CYAN + f"  Guncellendi: {datetime.now(TZ_TR).strftime('%d/%m/%Y %H:%M:%S')} (TR)  |  Bar: {last_row.name}")
-            print_signal_card(last_row, signal, ict_setups=setups, df=df_ict)
-
-            print(Fore.CYAN + "=" * 60)
-            print(Fore.CYAN + "  ICT SETUP DURUMU (son 288 bar = 1 gün)")
-            print(Fore.CYAN + "=" * 60)
-            if not setups["bull"] and not setups["bear"]:
-                print(f"  {Fore.YELLOW}Aktif ICT setup yok")
-            if setups["bull"]:
-                print(f"  {Fore.GREEN}>> BULLISH:")
-                for s in setups["bull"]:
-                    print(f"     {Fore.GREEN}{s}")
-            if setups["bear"]:
-                print(f"  {Fore.RED}>> BEARISH:")
-                for s in setups["bear"]:
-                    print(f"     {Fore.RED}{s}")
-            print(Fore.CYAN + "=" * 60)
+            print_signal_card(last_row, signal, df=df_live)
 
             # Sonraki 5dk bar kapanisina kadar bekle
             now_ts = int(datetime.now(timezone.utc).timestamp())

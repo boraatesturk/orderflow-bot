@@ -788,11 +788,11 @@ def analyze(
         result.dynamic_exit = compute_dynamic_exit(df, pos_guess, df["close"].iloc[-1])
 
     # Timestamp
-    if "timestamp" in df.columns or hasattr(df.index, "name"):
-        try:
-            result.timestamp = str(df.index[-1])
-        except Exception:
-            result.timestamp = ""
+    try:
+
+        result.timestamp = str(df.index[-1])
+    except Exception:
+        result.timestamp = ""
 
     return result
 
@@ -1216,53 +1216,77 @@ def format_telegram_mtf(mtf: MTFResult) -> str:
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
     import requests as _requests
+    import json as _json
+    from pathlib import Path as _Path
 
-    def _fetch_live(symbol="ETHUSDT", interval="5", limit=300):
-        url = "https://api.bybit.com/v5/market/kline"
-        params = {"symbol": symbol, "interval": interval, "limit": limit}
+    def _fetch_live(symbol="ETHUSDT", limit=300):
+        # Binance'den OHLCV + gercek taker_buy_volume cek
+        print("Binance'den gercek taker data cekiliyor...")
+        url = "https://api.binance.com/api/v3/klines"
+        params = {"symbol": symbol, "interval": "5m", "limit": limit}
         r = _requests.get(url, params=params, timeout=10)
         r.raise_for_status()
-        rows = r.json()["result"]["list"]
-        df = pd.DataFrame(rows, columns=[
-            "timestamp", "open", "high", "low", "close", "volume", "turnover"
-        ])
-        df = df.iloc[::-1].reset_index(drop=True)
-        for col in ["open", "high", "low", "close", "volume", "turnover"]:
-            df[col] = df[col].astype(float)
-        df["timestamp"] = pd.to_datetime(df["timestamp"].astype(float), unit="ms", utc=True)
-        df = df.set_index("timestamp")
-        df["delta"] = df.apply(
-            lambda r: r["volume"] * 0.6 if r["close"] >= r["open"] else -r["volume"] * 0.6, axis=1)
-        df["buy_volume"]  = df["volume"] * df["delta"].apply(lambda d: 0.7 if d > 0 else 0.3)
-        df["sell_volume"] = df["volume"] - df["buy_volume"]
-        df["imbalance_ratio"] = df["buy_volume"] / df["volume"]
-        df["cvd"] = df["delta"].cumsum()
+        data = r.json()
+
+        cols = ["open_time", "open", "high", "low", "close", "volume",
+                "close_time", "quote_volume", "trade_count",
+                "taker_buy_volume", "taker_buy_quote_volume", "_"]
+        df = pd.DataFrame(data, columns=cols)
+        df["open_time"] = pd.to_datetime(df["open_time"], unit="ms", utc=True)
+        for c in ["open", "high", "low", "close", "volume", "taker_buy_volume"]:
+            df[c] = df[c].astype(float)
+        df.set_index("open_time", inplace=True)
+        df.drop(columns=["_", "close_time", "quote_volume",
+                         "taker_buy_quote_volume"], inplace=True, errors="ignore")
+
+        # Gercek taker data ile delta hesapla
+        df["buy_volume"]      = df["taker_buy_volume"]
+        df["sell_volume"]     = df["volume"] - df["buy_volume"]
+        df["delta"]           = df["buy_volume"] - df["sell_volume"]
+        df["imbalance_ratio"] = df["buy_volume"] / (df["volume"] + 1e-9)
+
+        # taker_data.json varsa WebSocket verisiyle guncelle
+        taker_path = _Path("taker_data.json")
+        if taker_path.exists():
+            try:
+                with open(taker_path, "r") as f:
+                    taker_raw = _json.load(f)
+                taker_df = pd.DataFrame(taker_raw)
+                taker_df["timestamp"] = pd.to_datetime(taker_df["timestamp"], utc=True)
+                taker_df.set_index("timestamp", inplace=True)
+                common = df.index.intersection(taker_df.index)
+                if len(common) > 0:
+                    df.loc[common, "buy_volume"]      = taker_df.loc[common, "buy_volume"]
+                    df.loc[common, "sell_volume"]     = taker_df.loc[common, "sell_volume"]
+                    df.loc[common, "delta"]           = taker_df.loc[common, "buy_volume"] - taker_df.loc[common, "sell_volume"]
+                    df.loc[common, "imbalance_ratio"] = taker_df.loc[common, "buy_volume"] / (df.loc[common, "volume"] + 1e-9)
+                    print(f"  taker_data.json'dan {len(common)} bar guncellendi")
+            except Exception as e:
+                print(f"  taker_data.json okunamadi: {e}")
+
+        # Turetilmis kolonlar
+        df["cvd"]           = df["delta"].cumsum()
         df["session_delta"] = df["delta"].rolling(12).sum()
-        df["vwap"] = (df["close"] * df["volume"]).cumsum() / df["volume"].cumsum()
+        df["vwap"]          = (df["close"] * df["volume"]).cumsum() / df["volume"].cumsum()
+        df["poc_price"]     = df["close"]
+
         bull_streak = (df["imbalance_ratio"] > 0.58).astype(int)
         bear_streak = (df["imbalance_ratio"] < 0.42).astype(int)
         df["stacked_imbalance_up"] = bull_streak.rolling(3).sum() == 3
         df["stacked_imbalance_dn"] = bear_streak.rolling(3).sum() == 3
 
-        # Henüz kapanmamış son barı kes (yarım mum analize girmesin)
-        from datetime import datetime, timezone
-        now_utc = datetime.now(timezone.utc)
-        bar_minutes = (now_utc.minute // 5) * 5
-        current_bar_open = now_utc.replace(second=0, microsecond=0, minute=bar_minutes)
-        df = df[df.index < current_bar_open]
-
         return df
 
-    print("Bybit'ten canlı veri çekiliyor...")
+    print("Gercek taker data ile veri cekiliyor...")
     df_live = _fetch_live()
     print(f"  {len(df_live)} bar | son fiyat: {df_live['close'].iloc[-1]:.2f}")
 
     result = analyze(df_live, symbol="ETHUSDT")
     print_signal(result)
 
-    print("─── TELEGRAM SİNYAL MESAJI ───")
+    print("--- TELEGRAM SINYAL MESAJI ---")
     print(format_telegram_signal(result))
 
     if result.exit_signal:
-        print("\n─── TELEGRAM EXIT MESAJI ───")
+        print("\n--- TELEGRAM EXIT MESAJI ---")
         print(format_telegram_exit(result))
