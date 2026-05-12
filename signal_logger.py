@@ -377,39 +377,7 @@ def check_outcomes(signals: list, symbol: str) -> tuple[list, bool]:
             s["outcome_price"] = current_price
             s["outcome_time"]  = datetime.now(TZ).isoformat()
             any_updated        = True
-
-            # R hesapla
-            sl_dist = abs(entry - sl)
-            hit_dist = abs(hit - entry) if hit else 0
-            r_val = hit_dist / sl_dist if sl_dist > 0 else 0
-
-            notifications.append({
-                "direction": direction,
-                "outcome":   outcome,
-                "entry":     entry,
-                "hit":       hit,
-                "current":   current_price,
-                "r":         r_val,
-                "elapsed":   round(elapsed),
-                "confluence": s.get("confluence", 0),
-            })
-
-    # Bildirimleri Telegram'a gönder
-    for n in notifications:
-        is_win  = n["outcome"] != "SL"
-        emoji   = "✅" if is_win else "❌"
-        dir_e   = "🟢" if n["direction"] == "LONG" else "🔴"
-        outcome_label = n["outcome"]
-
-        msg = (
-            f"{emoji} *OUTCOME — {symbol}*\n"
-            f"{dir_e} {n['direction']} | {n['confluence']}/5\n\n"
-            f"Sonuç: *{outcome_label}*\n"
-            f"Giriş: `{n['entry']}`  →  Hit: `{n['hit']}`\n"
-            f"R: `{n['r']:.2f}R`  |  Süre: `{n['elapsed']} dk`"
-        )
-        ok = send_telegram(msg)
-        print(f"  📊 Outcome [{outcome_label}] Telegram: {'✅' if ok else '❌'}")
+            print(f"  📊 Outcome güncellendi: {direction} {outcome} @ {current_price}")
 
     return signals, any_updated
 

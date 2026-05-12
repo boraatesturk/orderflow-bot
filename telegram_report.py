@@ -174,41 +174,34 @@ def build_daily_report(signals: list, target_date: str = None) -> str:
             t = datetime.fromisoformat(ts).strftime("%H:%M")
         except Exception:
             t = ts[:16]
-        score    = s.get("score", 0)
-        conf     = s.get("confluence", 0)
-        entry    = s.get("entry", 0)
-        sl       = s.get("sl", 0)
-        tp1      = s.get("tp1", 0)
-        lev      = s.get("leverage", "—")
-        note     = s.get("note", "")
-        note_e   = {"GÜÇLÜ": "🔥", "ORTA": "⚡"}.get(note, "")
+        conf    = s.get("confluence", 0)
+        entry   = s.get("entry", 0)
+        sl      = s.get("sl", 0)
+        tp1     = s.get("tp1", 0)
+        lev     = s.get("leverage", "—")
+        note_e  = {"GÜÇLÜ": "🔥", "ORTA": "⚡"}.get(s.get("note", ""), "")
+        ab      = s.get("absorption", {})
+        ab_tag  = "📦" if ab.get("bullish") or ab.get("bearish") else "  "
 
-        # TF breakdown
+        outcome = s.get("outcome")
+        if outcome is None:
+            out_e = "⏳"
+        elif outcome == "SL":
+            out_e = "❌"
+        else:
+            out_e = "✅"
+        out_str = f"{out_e}{outcome or 'Açık'}"
+
         tf_1d  = s.get("tf_1d",  {}).get("direction", "—")
         tf_4h  = s.get("tf_4h",  {}).get("direction", "—")
         tf_1h  = s.get("tf_1h",  {}).get("direction", "—")
         tf_15m = s.get("tf_15m", {}).get("direction", "—")
         tf_5m  = s.get("tf_5m",  {}).get("direction", "—")
-
-        def d_emoji(d):
-            return "🟢" if d == "LONG" else ("🔴" if d == "SHORT" else "🟡")
-
-        outcome    = s.get("outcome")
-        if outcome is None:
-            outcome_str = "⏳ Açık"
-        elif outcome == "SL":
-            outcome_str = "❌ SL"
-        else:
-            outcome_str = f"✅ {outcome}"
-
-        ab = s.get("absorption", {})
-        ab_tag = " 📦" if ab.get("bullish") or ab.get("bearish") else ""
+        de = lambda d: "🟢" if d=="LONG" else ("🔴" if d=="SHORT" else "🟡")
 
         lines += [
-            f"",
-            f"{emoji} <b>{direction}</b> | {t} | Skor:{score:+.1f} | {conf}/5 {note_e}{ab_tag} | {outcome_str}",
-            f"   {d_emoji(tf_1d)}1D {d_emoji(tf_4h)}4H {d_emoji(tf_1h)}1H {d_emoji(tf_15m)}15M {d_emoji(tf_5m)}5M",
-            f"   💰{entry} 🛑{sl} 🎯{tp1} ⚡{lev}x",
+            f"{emoji}{t} {conf}/5{note_e} {ab_tag} <code>{entry:.1f}</code> TP<code>{tp1:.1f}</code> SL<code>{sl:.1f}</code> {lev}x → {out_str}",
+            f"   {de(tf_1d)}1D {de(tf_4h)}4H {de(tf_1h)}1H {de(tf_15m)}15M {de(tf_5m)}5M",
         ]
 
     if exit_signals:
