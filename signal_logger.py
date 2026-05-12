@@ -17,6 +17,7 @@ import requests
 import pandas as pd
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
+from pathlib import Path
 
 # ─── YENİ IMPORT ───────────────────────────────────────────
 from signal_engine_v2 import (
@@ -43,45 +44,23 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 # ─── BYBIT VERİ ÇEKİCİ ────────────────────────────────────
 def fetch_real_taker_data(symbol: str, interval_minutes: int, limit: int) -> dict:
     """
-    Bybit recent-trade endpoint'inden gerçek taker buy/sell verisi çek.
-    Her mum için buy_volume ve sell_volume hesapla.
-    Returns: {timestamp_ms: {"buy": float, "sell": float}}
+    taker_data.json'dan gerçek taker buy/sell verisi oku.
+    trade_collector.py servisi tarafından sürekli güncellenir.
+    Returns: {candle_ts_ms: {"buy": float, "sell": float}}
     """
+    taker_file = Path("/opt/orderflow/taker_data.json")
+    if not taker_file.exists():
+        # Yerel geliştirme için alternatif path
+        taker_file = Path("taker_data.json")
+    if not taker_file.exists():
+        return {}
+
     try:
-        # Kaç trade çekeceğimizi hesapla (limit * interval * tahmini trade/dk)
-        fetch_limit = min(1000, limit * interval_minutes * 10)
-        url = "https://api.bybit.com/v5/market/recent-trade"
-        params = {
-            "category": "linear",
-            "symbol":   symbol,
-            "limit":    fetch_limit,
-        }
-        r = requests.get(url, params=params, timeout=10)
-        r.raise_for_status()
-        trades = r.json().get("result", {}).get("list", [])
-
-        # Her trade'i ilgili muma yerleştir
-        interval_ms = interval_minutes * 60 * 1000
-        candle_data = {}
-
-        for t in trades:
-            ts_ms  = int(t["time"])
-            # Mumun başlangıç zamanını hesapla
-            candle_ts = (ts_ms // interval_ms) * interval_ms
-            size      = float(t["size"])
-            side      = t["side"]  # "Buy" veya "Sell"
-
-            if candle_ts not in candle_data:
-                candle_data[candle_ts] = {"buy": 0.0, "sell": 0.0}
-
-            if side == "Buy":
-                candle_data[candle_ts]["buy"]  += size
-            else:
-                candle_data[candle_ts]["sell"] += size
-
-        return candle_data
+        with open(taker_file) as f:
+            data = json.load(f)
+        return {int(k): {"buy": v["buy"], "sell": v["sell"]} for k, v in data.items()}
     except Exception as e:
-        print(f"  [Taker] Hata: {e}")
+        print(f"  [Taker] Dosya okuma hatası: {e}")
         return {}
 
 
