@@ -1,0 +1,17 @@
+[Unit]
+Description=Orderflow Trade Collector — Bybit WebSocket
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/orderflow
+ExecStart=/opt/orderflow/.venv/bin/python /opt/orderflow/trade_collector.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/orderflow/collector.log
+StandardError=append:/opt/orderflow/collector.log
+
+[Install]
+WantedBy=multi-user.target
