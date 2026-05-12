@@ -378,6 +378,81 @@ def check_outcomes(signals: list, symbol: str) -> tuple[list, bool]:
             s["outcome_time"]  = datetime.now(TZ).isoformat()
             any_updated        = True
             print(f"  📊 Outcome güncellendi: {direction} {outcome} @ {current_price}")
+            continue
+
+        # ── TRAILING STOP ──────────────────────────────────
+        atr      = s.get("atr", 0)
+        tp1      = s.get("tp1", 0)
+        trail_sl = s.get("trail_sl")        # mevcut trailing SL
+        be_done  = s.get("breakeven_done", False)
+
+        if not atr or not tp1:
+            continue
+
+        trail_notify = None
+
+        if direction == "LONG":
+            # TP1'e ulaştıysa break-even
+            if not be_done and current_price >= tp1:
+                new_be = round(entry + (entry * 0.0005), 4)  # entry + küçük buffer
+                s["trail_sl"]        = new_be
+                s["breakeven_done"]  = True
+                any_updated          = True
+                trail_notify = f"🔒 Break-even | SL → `{new_be}`"
+                print(f"  🔒 Break-even: SL {new_be}")
+
+            # ATR trailing
+            elif be_done:
+                new_trail = round(current_price - atr * 2, 4)
+                if trail_sl is None or new_trail > trail_sl:
+                    s["trail_sl"] = new_trail
+                    any_updated   = True
+                    trail_notify  = f"📈 Trail SL → `{new_trail}`"
+                    print(f"  📈 Trail SL güncellendi: {new_trail}")
+
+                # Trail vuruldu mu?
+                if trail_sl and current_price <= trail_sl:
+                    s["outcome"]       = "TRAIL_EXIT"
+                    s["outcome_price"] = current_price
+                    s["outcome_time"]  = datetime.now(TZ).isoformat()
+                    any_updated        = True
+                    trail_notify       = f"🏁 Trail Exit @ `{current_price}`"
+                    print(f"  🏁 Trail Exit: {current_price}")
+
+        elif direction == "SHORT":
+            if not be_done and current_price <= tp1:
+                new_be = round(entry - (entry * 0.0005), 4)
+                s["trail_sl"]       = new_be
+                s["breakeven_done"] = True
+                any_updated         = True
+                trail_notify = f"🔒 Break-even | SL → `{new_be}`"
+                print(f"  🔒 Break-even: SL {new_be}")
+
+            elif be_done:
+                new_trail = round(current_price + atr * 2, 4)
+                if trail_sl is None or new_trail < trail_sl:
+                    s["trail_sl"] = new_trail
+                    any_updated   = True
+                    trail_notify  = f"📉 Trail SL → `{new_trail}`"
+                    print(f"  📉 Trail SL güncellendi: {new_trail}")
+
+                if trail_sl and current_price >= trail_sl:
+                    s["outcome"]       = "TRAIL_EXIT"
+                    s["outcome_price"] = current_price
+                    s["outcome_time"]  = datetime.now(TZ).isoformat()
+                    any_updated        = True
+                    trail_notify       = f"🏁 Trail Exit @ `{current_price}`"
+                    print(f"  🏁 Trail Exit: {current_price}")
+
+        # Trail bildirimi Telegram'a at
+        if trail_notify:
+            dir_e = "🟢" if direction == "LONG" else "🔴"
+            msg = (
+                f"🎯 *TRAIL UPDATE — {symbol}*\n"
+                f"{dir_e} {direction} | Giriş: `{entry}`\n"
+                f"{trail_notify}"
+            )
+            send_telegram(msg)
 
     return signals, any_updated
 
