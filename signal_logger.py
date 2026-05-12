@@ -382,6 +382,18 @@ def check_outcomes(signals: list, symbol: str) -> tuple[list, bool]:
     return signals, any_updated
 
 
+# ─── AÇIK POZİSYON KONTROLÜ ────────────────────────────────
+def get_open_position(signals: list) -> dict | None:
+    """
+    signals.json'da outcome=None olan son MTF sinyalini döndür.
+    Bu açık pozisyon sayılır.
+    """
+    for s in reversed(signals):
+        if s.get("type") == "MTF_SIGNAL" and s.get("outcome") is None:
+            return s
+    return None
+
+
 # ─── ANA DÖNGÜ ─────────────────────────────────────────────
 def run_once(open_position: str = None, entry_price: float = 0.0):
     """
@@ -433,6 +445,28 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
     print_mtf(mtf)  # Detaylı konsol çıktısı
 
     # signals zaten yüklendi (outcome check'te)
+
+    # ── AÇIK POZİSYON KONTROLÜ ────────────────────────────
+    open_pos = get_open_position(signals)
+    if open_pos:
+        op_dir   = open_pos.get("direction")
+        op_entry = open_pos.get("entry", 0)
+        op_conf  = open_pos.get("confluence", 0)
+        print(f"  📌 Açık pozisyon: {op_dir} @ {op_entry} ({op_conf}/5)")
+
+        # Zıt yön gelirse kapatma uyarısı at
+        if mtf.should_send and mtf.direction != op_dir and mtf.direction != "FLAT":
+            msg = (
+                f"🔄 *POZİSYON KAPATMA UYARISI — {SYMBOL}*\n\n"
+                f"Açık: `{op_dir}` @ `{op_entry}`\n"
+                f"Yeni sinyal: `{mtf.direction}` ({mtf.confluence}/5)\n\n"
+                f"⚠️ Zıt yön sinyali geldi, pozisyonu kapatmayı değerlendirin!"
+            )
+            ok = send_telegram(msg)
+            print(f"  🔄 Kapatma uyarısı Telegram: {'✅' if ok else '❌'}")
+        else:
+            print(f"  ⏸️  Açık pozisyon var → yeni sinyal üretilmedi")
+        return
 
     # ── EXIT SİNYALİ ──────────────────────────────────────
     if mtf.res_5m.exit_signal:
