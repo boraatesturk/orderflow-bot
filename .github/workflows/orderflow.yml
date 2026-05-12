@@ -49,44 +49,6 @@ jobs:
           git diff --staged --quiet || git commit -m "sinyal: $(date -u '+%Y-%m-%d %H:%M') UTC"
           git push origin main || true
 
-  # ─── GÜNLÜK RAPOR JOB ───────────────────────────────────────────────────────
-  daily_report:
-    runs-on: ubuntu-latest
-    if: |
-      github.event_name == 'schedule' &&
-      github.event.schedule == '58 20 * * *'
-
-    steps:
-      - name: Repo'yu cek
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Python kur
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Kutuphaneleri yukle
-        run: pip install requests
-
-      - name: signals.json'u cek
-        run: |
-          git config user.name "orderflow-bot"
-          git config user.email "bot@orderflow.local"
-          git pull --rebase origin main || true
-
-      - name: Gunluk raporu gonder ve signals.json'u sifirla
-        env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python telegram_report.py
-
-      - name: Arsivenin commitini kaydet
-        run: |
-          git add signals.json signals_archive.json || true
-          git diff --staged --quiet || git commit -m "rapor: $(date -u '+%Y-%m-%d') gunluk arsiv"
-          git push origin main || true
 
   # ─── KEEPALIVE JOB ──────────────────────────────────────────────────────────
   # GitHub inaktif repolarda schedule'i durdurur.
