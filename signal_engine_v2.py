@@ -821,32 +821,52 @@ def print_signal(res: SignalResult) -> None:
 
     # ── ORDERFLOW BİLEŞENLERİ ────────────────────────────────────────
     print(f"\n{Fore.CYAN}[ ORDERFLOW ANALİZİ ]{Style.RESET_ALL}")
+    print(f"  {'Bileşen':<22} {'Skor':>6}  {'Ham Değer':<20}  Detay")
+    print(f"  {'-'*22} {'-'*6}  {'-'*20}  {'-'*20}")
+
     rows = [
-        ("Delta",          od.delta,         od.score_delta,
-         f"delta_pct: %{od.delta_pct*100:.1f}"),
-        ("CVD Momentum",   od.cvd_slope,      od.score_cvd,
-         f"cvd: {od.cvd:.0f}  slope({CFG['cvd_lookback']}bar): {od.cvd_slope:+.0f}"),
-        ("Imbalance",      od.imbalance_ratio, od.score_imbalance,
-         f"ratio: {od.imbalance_ratio:.3f}  "
-         f"(bull>{CFG['imbalance_bull']} / bear<{CFG['imbalance_bear']})"),
-        ("Stacked Imbalance", int(od.stacked_up or od.stacked_dn), od.score_stacked,
-         f"up:{od.stacked_up}  dn:{od.stacked_dn}"),
-        ("Session Delta",  od.session_delta,  od.score_session,
-         f"yön: {od.session_delta_direction}"),
-        ("Price vs VWAP",  0, od.score_vwap,
-         f"fiyat: {res.entry:.2f}  vwap: {od.vwap:.2f}  → {od.price_vs_vwap}"),
-        ("Vol Spike+Delta",od.volume_ratio,   od.score_vol_spike,
-         f"vol {od.volume_ratio:.2f}x avg"),
-        ("Bar Kapanış",    od.bar_close_pos,  od.score_bar_close,
-         f"pos: %{od.bar_close_pos*100:.0f}"),
-        ("Delta MA3/MA10", 0, od.score_delta_ma,
-         "hızlı/yavaş delta MA"),
+        ("Delta",
+         od.score_delta,
+         f"{od.delta:+.2f} ETH",
+         f"delta_pct: %{od.delta_pct*100:.1f}  (buy-sell hacmi)"),
+        ("CVD Momentum",
+         od.score_cvd,
+         f"{od.cvd_slope:+.0f} (5bar)",
+         f"cvd toplam: {od.cvd:.0f}"),
+        ("Imbalance",
+         od.score_imbalance,
+         f"%{od.imbalance_ratio*100:.1f} buy",
+         f"esik: bull>{CFG['imbalance_bull']*100:.0f}% / bear<{CFG['imbalance_bear']*100:.0f}%"),
+        ("Stacked Imbalance",
+         od.score_stacked,
+         f"{'BULL' if od.stacked_up else ('BEAR' if od.stacked_dn else 'YOK')}",
+         f"3+ art arda ayni yon imbalance"),
+        ("Session Delta",
+         od.score_session,
+         f"{od.session_delta:+.0f}",
+         f"gun icinde net akim: {od.session_delta_direction}"),
+        ("Price vs VWAP",
+         od.score_vwap,
+         f"{res.entry:.2f} / {od.vwap:.2f}",
+         f"fark: %{((res.entry-od.vwap)/od.vwap)*100:.3f}  → {od.price_vs_vwap}"),
+        ("Vol Spike+Delta",
+         od.score_vol_spike,
+         f"{od.volume:.1f} ETH",
+         f"{od.volume_ratio:.2f}x ortalama hacim"),
+        ("Bar Kapanis",
+         od.score_bar_close,
+         f"%{od.bar_close_pos*100:.0f} yukari",
+         f"(close-low)/(high-low)"),
+        ("Delta MA3/MA10",
+         od.score_delta_ma,
+         f"hizli/yavas MA",
+         f"momentum yonu"),
     ]
 
-    for name, val, score, detail in rows:
+    for name, score, ham, detail in rows:
         s_color = Fore.GREEN if score > 0 else (Fore.RED if score < 0 else Fore.WHITE)
         score_str = f"{score:+.2f}" if score != 0 else " 0.00"
-        print(f"  {name:<22} {s_color}{score_str}{Style.RESET_ALL}  {detail}")
+        print(f"  {name:<22} {s_color}{score_str}{Style.RESET_ALL}  {ham:<20}  {detail}")
 
     # ── ABSORPTION ───────────────────────────────────────────────────
     print(f"\n{Fore.CYAN}[ ABSORPTION ]{Style.RESET_ALL}")

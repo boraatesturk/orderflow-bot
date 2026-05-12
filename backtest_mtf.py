@@ -22,47 +22,44 @@ import matplotlib.gridspec as gridspec
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import sys, os
+
+# signal_engine_v2.py'den CFG'yi import et
+_v2_path = Path(__file__).parent / "signal_engine_v2.py"
+if not _v2_path.exists():
+    raise FileNotFoundError(f"signal_engine_v2.py bulunamadi: {_v2_path}")
+sys.path.insert(0, str(_v2_path.parent))
+from signal_engine_v2 import CFG
 
 try:
     import vectorbt as vbt
 except ImportError:
-    print("[HATA] vectorbt kurulu değil. Çalıştır: pip install vectorbt")
+    print("[HATA] vectorbt kurulu degil. Calistir: pip install vectorbt")
     raise
 
-# ─── AYARLAR ─────────────────────────────────────────────────────────────────
+# ─── BACKTEST AYARLARI (bunlar backtest'e ozel, v2'de yok) ───────────────────
 PARQUET_PATH = Path("data/ETHUSDT_orderflow_365d_5m.parquet")
 
-BALANCE       = 2500.0
+BALANCE       = CFG["balance"]
 LEVERAGE      = 10
-COMMISSION    = 0.0006     # %0.06 taker (her iki taraf = %0.12 round trip)
+COMMISSION    = 0.0006     # %0.06 taker
 SLIPPAGE      = 0.0002     # %0.02
 
 ATR_PERIOD    = 14
-ATR_SL_MULT   = 1.5        # SL = ATR * 1.5
-ATR_TP1_MULT  = 2.25       # TP1 = ATR * 2.25 (1.5R)
-ATR_TP2_MULT  = 4.5        # TP2 = ATR * 4.5  (3.0R)
+ATR_SL_MULT   = CFG["atr_sl_mult"]   # v2'den: 1.5
+ATR_TP1_MULT  = CFG["tp1_r"] * ATR_SL_MULT   # 1.5R * 1.5 = 2.25
+ATR_TP2_MULT  = CFG["tp2_r"] * ATR_SL_MULT   # 3.0R * 1.5 = 4.5
 
-# Sinyal eşikleri (5M skoru)
-MIN_SCORE_LONG  = 6.0   # 5.0'dan
-MIN_SCORE_SHORT = 6.0   # 5.0'dan
-MIN_SCORE_15M   = 5.0   # 3.0'dan
-MIN_SCORE_1H    = 4.0   # 2.0'dan
-MIN_CONFLUENCE  = 3     # 2'den — sadece 3/3
+# Sinyal eslikleri — v2'den
+MIN_SCORE_LONG  = CFG["min_score_long"]    # 6.0
+MIN_SCORE_SHORT = CFG["min_score_short"]   # 6.0
+MIN_SCORE_15M   = 5.0
+MIN_SCORE_1H    = 4.0
+MIN_CONFLUENCE  = 3
 
-BLOCKED_HOURS   = [2, 3, 4]   # UTC — düşük win rate
+BLOCKED_HOURS   = [2, 3, 4]   # UTC
 
-CFG = {
-    "imbalance_bull":       0.58,
-    "imbalance_bear":       0.42,
-    "volume_spike_mult":    1.5,
-    "cvd_lookback":         5,
-    "delta_ma_fast":        3,
-    "delta_ma_slow":        10,
-    "absorption_vol_mult":  1.5,
-    "absorption_body_atr":  1.0,
-    "absorption_delta_pct": 0.30,
-    "absorption_bars":      5,
-}
+print(f"[v2] CFG yuklendi: min_score={MIN_SCORE_LONG} | imb_bull={CFG['imbalance_bull']} | absorb_vol={CFG['absorption_vol_mult']}")
 # ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -138,8 +135,8 @@ def add_features_5m(df: pd.DataFrame) -> pd.DataFrame:
     df["body"]           = (df["open"] - df["close"]).abs()
     df["body_atr_ratio"] = df["body"] / (df["atr"] + 1e-9)
     df["delta_pressure"] = df["delta"].abs() / (df["volume"] + 1e-9)
-    df["recent_low"]     = df["low"].rolling(CFG["absorption_bars"]).min().shift(1)
-    df["recent_high"]    = df["high"].rolling(CFG["absorption_bars"]).max().shift(1)
+    df["recent_low"]     = df["low"].rolling(CFG["absorption_new_extreme_bars"]).min().shift(1)
+    df["recent_high"]    = df["high"].rolling(CFG["absorption_new_extreme_bars"]).max().shift(1)
     df["new_low"]        = df["low"] < df["recent_low"]
     df["new_high"]       = df["high"] > df["recent_high"]
 
@@ -643,6 +640,16 @@ def plot_results(pf_long, pf_short, df5, buy_sig, sell_sig, conf_l, conf_s):
     out.parent.mkdir(exist_ok=True)
     plt.savefig(out, dpi=150, bbox_inches="tight", facecolor=BG)
     print(f"[+] Dashboard kaydedildi: {out}")
+
+    # PNG'yi ekranda da ac
+    import subprocess, sys, os
+    if sys.platform == "win32":
+        os.startfile(str(out.resolve()))
+    elif sys.platform == "darwin":
+        subprocess.run(["open", str(out.resolve())])
+    else:
+        subprocess.run(["xdg-open", str(out.resolve())])
+
     plt.close()
 
 
