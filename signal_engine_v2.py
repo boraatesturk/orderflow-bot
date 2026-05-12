@@ -1243,6 +1243,14 @@ if __name__ == "__main__":
         bear_streak = (df["imbalance_ratio"] < 0.42).astype(int)
         df["stacked_imbalance_up"] = bull_streak.rolling(3).sum() == 3
         df["stacked_imbalance_dn"] = bear_streak.rolling(3).sum() == 3
+
+        # Henüz kapanmamış son barı kes (yarım mum analize girmesin)
+        from datetime import datetime, timezone
+        now_utc = datetime.now(timezone.utc)
+        bar_minutes = (now_utc.minute // 5) * 5
+        current_bar_open = now_utc.replace(second=0, microsecond=0, minute=bar_minutes)
+        df = df[df.index < current_bar_open]
+
         return df
 
     print("Bybit'ten canlı veri çekiliyor...")
