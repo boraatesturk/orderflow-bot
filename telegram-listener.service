@@ -1,0 +1,14 @@
+[Unit]
+Description=OrderFlow Telegram Listener
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/orderflow
+EnvironmentFile=/etc/environment
+ExecStart=/opt/orderflow/.venv/bin/python telegram_listener.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
