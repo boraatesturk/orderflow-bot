@@ -951,7 +951,7 @@ def format_telegram_signal(res: SignalResult) -> str:
         f"Imb:{od.score_imbalance:+.1f} Stack:{od.score_stacked:+.1f} "
         f"Sess:{od.score_session:+.1f}\n"
         f"VWAP:{od.score_vwap:+.1f} VolSpk:{od.score_vol_spike:+.1f} "
-        f"BarClose:{od.score_bar_close:+.1f} ΔMA:{od.score_delta_ma:+.1f} "
+        f"BarClose:{od.score_bar_close:+.1f} DMA:{od.score_delta_ma:+.1f} "
         f"Absorb:{od.score_absorption:+.1f}\n"
         f"Funding:{od.score_funding:+.1f} OI:{od.score_oi:+.1f}"
     )
