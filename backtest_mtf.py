@@ -7,7 +7,7 @@ Yenilikler:
   - Multi-Timeframe: 5M skor + 15M filtre + 1H bias
   - Absorption dedektörü bonus skoru
   - ATR bazlı SL/TP (sabit yüzde değil)
-  - Confluence filtresi: 2/3 veya 3/3
+  - Confluence filtresi: 3/4 veya 4/4
   - Saat filtresi, spam filtresi
   - Detaylı istatistik + dashboard PNG
 """
@@ -55,11 +55,18 @@ MIN_SCORE_LONG  = CFG["min_score_long"]    # 6.0
 MIN_SCORE_SHORT = CFG["min_score_short"]   # 6.0
 MIN_SCORE_15M   = 5.0
 MIN_SCORE_1H    = 4.0
-MIN_CONFLUENCE  = 3
+MIN_SCORE_4H    = 3.0
+MIN_CONFLUENCE  = 3    # 4 TF icinden 3'u yeterli
 
 BLOCKED_HOURS   = [2, 3, 4]   # UTC
 
 print(f"[v2] CFG yuklendi: min_score={MIN_SCORE_LONG} | imb_bull={CFG['imbalance_bull']} | absorb_vol={CFG['absorption_vol_mult']}")
+
+# Trend filtresi ayarlari
+TREND_FILTER_ENABLED   = True   # False yapinca eski haline doner
+TREND_STRONG_THRESHOLD = 5.0    # 1H skoru bu esigi gecerse "guclu trend" sayilir
+TREND_COUNTER_MIN_SCORE = 8.5   # Trende karsi giris icin min 5M skoru
+REVERSAL_BONUS_REQUIRED = True  # Trende karsi giris icin absorption veya stacked sartti
 # ─────────────────────────────────────────────────────────────────────────────
 
 
@@ -288,7 +295,8 @@ def compute_score_upper_tf(df_tf: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
 # ═══════════════════════════════════════════════════════════════════════════════
 def generate_mtf_signals(df_5m: pd.DataFrame) -> tuple:
     """
-    3 TF skor + confluence filtresi → giriş sinyalleri.
+    4 TF skor + confluence filtresi (3/4 yeterli) → giriş sinyalleri.
+    TF: 5M (giris) + 15M (setup) + 1H (trend) + 4H (makro)
     Returns: (buy_signal, sell_signal, score_5m_long, score_5m_short, confluence_long, confluence_short)
     """
     print("[*] Özellikler hesaplanıyor...")
@@ -297,40 +305,87 @@ def generate_mtf_signals(df_5m: pd.DataFrame) -> tuple:
     df5 = add_features_5m(df_5m)
     df5.dropna(inplace=True)
 
-    # 15M ve 1H resample
+    # 15M, 1H ve 4H resample
     df15 = resample_tf(df5, "15min")
     df1h = resample_tf(df5, "60min")
+    df4h = resample_tf(df5, "240min")
 
     # Skorlar
-    sl5, ss5   = compute_score_vectorized(df5)
+    sl5,  ss5  = compute_score_vectorized(df5)
     sl15, ss15 = compute_score_upper_tf(df15)
     sl1h, ss1h = compute_score_upper_tf(df1h)
+    sl4h, ss4h = compute_score_upper_tf(df4h)
 
-    # 15M ve 1H sinyallerini 5M'e hizala
-    sl15_5m = align_to_5m(sl15,                   df5.index)
-    ss15_5m = align_to_5m(ss15,                   df5.index)
-    sl1h_5m = align_to_5m(sl1h,                   df5.index)
-    ss1h_5m = align_to_5m(ss1h,                   df5.index)
+    # TF sinyallerini 5M'e hizala
+    sl15_5m = align_to_5m(sl15, df5.index)
+    ss15_5m = align_to_5m(ss15, df5.index)
+    sl1h_5m = align_to_5m(sl1h, df5.index)
+    ss1h_5m = align_to_5m(ss1h, df5.index)
+    sl4h_5m = align_to_5m(sl4h, df5.index)
+    ss4h_5m = align_to_5m(ss4h, df5.index)
 
     # TF bazlı yön
-    long_5m  = sl5   >= MIN_SCORE_LONG
-    short_5m = ss5   >= MIN_SCORE_SHORT
-    long_15m = sl15_5m >= MIN_SCORE_15M
-    short_15m= ss15_5m >= MIN_SCORE_15M
-    long_1h  = sl1h_5m >= MIN_SCORE_1H
-    short_1h = ss1h_5m >= MIN_SCORE_1H
+    long_5m  = sl5      >= MIN_SCORE_LONG
+    short_5m = ss5      >= MIN_SCORE_SHORT
+    long_15m = sl15_5m  >= MIN_SCORE_15M
+    short_15m= ss15_5m  >= MIN_SCORE_15M
+    long_1h  = sl1h_5m  >= MIN_SCORE_1H
+    short_1h = ss1h_5m  >= MIN_SCORE_1H
+    long_4h  = sl4h_5m  >= MIN_SCORE_4H
+    short_4h = ss4h_5m  >= MIN_SCORE_4H
 
-    # Confluence sayısı
-    conf_long  = long_5m.astype(int) + long_15m.astype(int) + long_1h.astype(int)
-    conf_short = short_5m.astype(int) + short_15m.astype(int) + short_1h.astype(int)
+    # Confluence sayısı (4 TF, 3/4 yeterli)
+    conf_long  = long_5m.astype(int) + long_15m.astype(int) + long_1h.astype(int) + long_4h.astype(int)
+    conf_short = short_5m.astype(int) + short_15m.astype(int) + short_1h.astype(int) + short_4h.astype(int)
+
+    # 4H bazlı istatistik (bilgi amaçlı)
+    print(f"[+] 4H  LONG  onay   : {long_4h.sum():,} bar")
+    print(f"[+] 4H  SHORT onay   : {short_4h.sum():,} bar")
 
     # Saat filtresi
     hour    = df5.index.hour
     hour_ok = ~pd.Series(hour, index=df5.index).isin(BLOCKED_HOURS)
 
+    # ── TREND FİLTRESİ ───────────────────────────────────────────────────────
+    if TREND_FILTER_ENABLED:
+        # 1H guclu bear trend → LONG icin yuksek esik veya yasak
+        strong_bear_1h = sl1h_5m < ss1h_5m  # 1H net bear
+        bear_dominant  = ss1h_5m >= TREND_STRONG_THRESHOLD  # 1H skoru guclu
+
+        # 1H guclu bull trend → SHORT icin yuksek esik veya yasak
+        strong_bull_1h = sl1h_5m > ss1h_5m
+        bull_dominant  = sl1h_5m >= TREND_STRONG_THRESHOLD
+
+        # Reversal sinyali var mi? (absorption veya stacked zit yon)
+        reversal_bull = (
+            df5.get("bull_absorb", pd.Series(False, index=df5.index)).astype(bool) |
+            df5["stacked_imbalance_up"].astype(bool)
+        )
+        reversal_bear = (
+            df5.get("bear_absorb", pd.Series(False, index=df5.index)).astype(bool) |
+            df5["stacked_imbalance_dn"].astype(bool)
+        )
+
+        # Trende karsi giris: ya reversal sinyali lazim ya da cok yuksek 5M skoru
+        counter_long_ok  = (~REVERSAL_BONUS_REQUIRED | reversal_bull) & (sl5 >= TREND_COUNTER_MIN_SCORE)
+        counter_short_ok = (~REVERSAL_BONUS_REQUIRED | reversal_bear) & (ss5 >= TREND_COUNTER_MIN_SCORE)
+
+        # Guclu bear trendinde LONG sadece reversal ile
+        long_allowed  = ~(strong_bear_1h & bear_dominant) | counter_long_ok
+        # Guclu bull trendinde SHORT sadece reversal ile
+        short_allowed = ~(strong_bull_1h & bull_dominant) | counter_short_ok
+    else:
+        long_allowed  = pd.Series(True, index=df5.index)
+        short_allowed = pd.Series(True, index=df5.index)
+
+    print(f"[+] Trend filtresi: {'AKTIF' if TREND_FILTER_ENABLED else 'KAPALI'}")
+    if TREND_FILTER_ENABLED:
+        print(f"    Engellenen LONG : {(~long_allowed).sum():,} bar")
+        print(f"    Engellenen SHORT: {(~short_allowed).sum():,} bar")
+
     # Giriş sinyalleri
-    buy_signal  = (conf_long  >= MIN_CONFLUENCE) & (conf_long  > conf_short) & hour_ok
-    sell_signal = (conf_short >= MIN_CONFLUENCE) & (conf_short > conf_long)  & hour_ok
+    buy_signal  = (conf_long  >= MIN_CONFLUENCE) & (conf_long  > conf_short) & hour_ok & long_allowed
+    sell_signal = (conf_short >= MIN_CONFLUENCE) & (conf_short > conf_long)  & hour_ok & short_allowed
 
     # Çakışma önleme
     conflict    = buy_signal & sell_signal
@@ -339,8 +394,8 @@ def generate_mtf_signals(df_5m: pd.DataFrame) -> tuple:
 
     print(f"[+] 5M  LONG  sinyali : {long_5m.sum():,}")
     print(f"[+] 5M  SHORT sinyali : {short_5m.sum():,}")
-    print(f"[+] MTF LONG  (≥{MIN_CONFLUENCE}/3): {buy_signal.sum():,}")
-    print(f"[+] MTF SHORT (≥{MIN_CONFLUENCE}/3): {sell_signal.sum():,}")
+    print(f"[+] MTF LONG  (≥{MIN_CONFLUENCE}/4): {buy_signal.sum():,}")
+    print(f"[+] MTF SHORT (≥{MIN_CONFLUENCE}/4): {sell_signal.sum():,}")
 
     return buy_signal, sell_signal, sl5, ss5, conf_long, conf_short, df5
 
@@ -438,12 +493,12 @@ def print_monthly(pf_long, pf_short):
 
 
 def print_confluence_stats(conf_l, conf_s, buy_sig, sell_sig):
-    print("\n  CONFLUENCE DAĞILIMI:")
-    for c in [3, 2, 1, 0]:
+    print("\n  CONFLUENCE DAGILIMI (4 TF):")
+    for c in [4, 3, 2, 1, 0]:
         bl = (conf_l == c).sum()
         bs = (conf_s == c).sum()
-        print(f"  {c}/3 → LONG:{bl:,}  SHORT:{bs:,}")
-    print(f"\n  Sinyal atılan (≥{MIN_CONFLUENCE}/3):")
+        print(f"  {c}/4 → LONG:{bl:,}  SHORT:{bs:,}")
+    print(f"\n  Sinyal atilan (>={MIN_CONFLUENCE}/4):")
     print(f"  LONG : {buy_sig.sum():,}")
     print(f"  SHORT: {sell_sig.sum():,}")
 
@@ -615,8 +670,8 @@ def plot_results(pf_long, pf_short, df5, buy_sig, sell_sig, conf_l, conf_s):
             ("SHORT trade",   f"{int(n_s):,}",     RED),
             ("  ↳ Kazanan",   f"{int(win_s):,}",   GREEN),
             ("  ↳ Kaybeden",  f"{int(lose_s):,}",  RED),
-            ("3/3 LONG",      f"{conf3_l.sum():,}", BLUE),
-            ("3/3 SHORT",     f"{conf3_s.sum():,}", PURPLE),
+            ("3+/4 LONG",     f"{conf3_l.sum():,}", BLUE),
+            ("3+/4 SHORT",    f"{conf3_s.sum():,}", PURPLE),
             ("2/3 LONG",      f"{conf2_l.sum():,}", BLUE),
             ("2/3 SHORT",     f"{conf2_s.sum():,}", PURPLE),
         ]
