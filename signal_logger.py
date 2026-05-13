@@ -575,16 +575,24 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
         op_conf  = open_pos.get("confluence", 0)
         print(f"  📌 Açık pozisyon: {op_dir} @ {op_entry} ({op_conf}/5)")
 
-        # Zıt yön gelirse kapatma uyarısı at
+        # Zıt yön gelirse kapatma uyarısı at — aynı pozisyon için sadece 1 kez
         if mtf.should_send and mtf.direction != op_dir and mtf.direction != "FLAT":
-            msg = (
-                f"🔄 *POZİSYON KAPATMA UYARISI — {SYMBOL}*\n\n"
-                f"Açık: `{op_dir}` @ `{op_entry}`\n"
-                f"Yeni sinyal: `{mtf.direction}` ({mtf.confluence}/5)\n\n"
-                f"⚠️ Zıt yön sinyali geldi, pozisyonu kapatmayı değerlendirin!"
-            )
-            ok = send_telegram(msg)
-            print(f"  🔄 Kapatma uyarısı Telegram: {'✅' if ok else '❌'}")
+            # Bu pozisyon için daha önce uyarı gönderildi mi?
+            reversal_already_sent = open_pos.get("reversal_warned", False)
+            if not reversal_already_sent:
+                msg = (
+                    f"🔄 *POZİSYON KAPATMA UYARISI — {SYMBOL}*\n\n"
+                    f"Açık: `{op_dir}` @ `{op_entry}`\n"
+                    f"Yeni sinyal: `{mtf.direction}` ({mtf.confluence}/5)\n\n"
+                    f"⚠️ Zıt yön sinyali geldi, pozisyonu kapatmayı değerlendirin!"
+                )
+                ok = send_telegram(msg)
+                print(f"  🔄 Kapatma uyarısı Telegram: {'✅' if ok else '❌'}")
+                # Bir daha gönderilmesin diye işaretle
+                open_pos["reversal_warned"] = True
+                save_signals(signals)
+            else:
+                print(f"  🔄 Kapatma uyarısı zaten gönderildi, tekrar atılmadı")
         else:
             print(f"  ⏸️  Açık pozisyon var → yeni sinyal üretilmedi")
         return
