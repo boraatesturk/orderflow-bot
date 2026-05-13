@@ -934,59 +934,123 @@ def print_signal(res: SignalResult) -> None:
 # TELEGRAM MESAJ FORMATTERI
 # ─────────────────────────────────────────────
 def format_telegram_signal(res: SignalResult) -> str:
-    """Telegram için signal mesajı üret."""
+    """Telegram için signal mesajı üret — okunabilir format."""
     od  = res.orderflow
     ab  = res.absorption
     dex = res.dynamic_exit
 
     dir_emoji = {"LONG": "🟢", "SHORT": "🔴", "FLAT": "🟡"}.get(res.direction, "⚪")
-    ab_str = ""
+
+    # ── PIYASA YORUMU ─────────────────────────────────────────
+    bullish_signals = []
+    bearish_signals = []
+
+    if od.score_delta > 0:
+        bullish_signals.append(f"Alim baskisi var ({od.delta:+.0f} ETH)")
+    elif od.score_delta < 0:
+        bearish_signals.append(f"Satis baskisi var ({od.delta:+.0f} ETH)")
+
+    if od.score_cvd > 0:
+        bullish_signals.append("CVD yukseliyor")
+    elif od.score_cvd < 0:
+        bearish_signals.append("CVD dusuyor")
+
+    if od.score_imbalance > 0:
+        bullish_signals.append(f"Alim imbalance (%{od.imbalance_ratio*100:.0f} buy)")
+    elif od.score_imbalance < 0:
+        bearish_signals.append(f"Satis imbalance (%{od.imbalance_ratio*100:.0f} buy)")
+
+    if od.score_stacked > 0:
+        bullish_signals.append("Stacked BULL imbalance (3+ bar)")
+    elif od.score_stacked < 0:
+        bearish_signals.append("Stacked BEAR imbalance (3+ bar)")
+
+    if od.score_vwap > 0:
+        bullish_signals.append("Fiyat VWAP ustunde")
+    elif od.score_vwap < 0:
+        bearish_signals.append("Fiyat VWAP altinda")
+
+    if od.score_session > 0:
+        bullish_signals.append("Gun icinde net alim")
+    elif od.score_session < 0:
+        bearish_signals.append("Gun icinde net satis")
+
     if ab.bullish:
-        ab_str = f"\n📦 *Absorption: Bullish* ✅ (Vol {ab.volume_ratio:.2f}x)"
+        bullish_signals.append(f"Absorption: Alici emilimi (Vol {ab.volume_ratio:.1f}x)")
     elif ab.bearish:
-        ab_str = f"\n📦 *Absorption: Bearish* ✅ (Vol {ab.volume_ratio:.2f}x)"
+        bearish_signals.append(f"Absorption: Satici emilimi (Vol {ab.volume_ratio:.1f}x)")
 
-    score_breakdown = (
-        f"Delta:{od.score_delta:+.1f} CVD:{od.score_cvd:+.1f} "
-        f"Imb:{od.score_imbalance:+.1f} Stack:{od.score_stacked:+.1f} "
-        f"Sess:{od.score_session:+.1f}\n"
-        f"VWAP:{od.score_vwap:+.1f} VolSpk:{od.score_vol_spike:+.1f} "
-        f"BarClose:{od.score_bar_close:+.1f} DMA:{od.score_delta_ma:+.1f} "
-        f"Absorb:{od.score_absorption:+.1f}\n"
-        f"Funding:{od.score_funding:+.1f} OI:{od.score_oi:+.1f}"
-    )
+    bull_str = ""
+    bear_str = ""
+    if bullish_signals:
+        bull_str = "\n".join([f"🟢 {s}" for s in bullish_signals])
+    if bearish_signals:
+        bear_str = "\n".join([f"🔴 {s}" for s in bearish_signals])
 
+    piyasa_str = ""
+    if bull_str:
+        piyasa_str += f"\n{bull_str}"
+    if bear_str:
+        piyasa_str += f"\n{bear_str}"
+
+    # ── KARAR ─────────────────────────────────────────────────
+    min_score = 6.0
+    if res.direction == "LONG":
+        karar_str = f"\n\n✅ *LONG sinyali — Pozisyon ac*"
+    elif res.direction == "SHORT":
+        karar_str = f"\n\n✅ *SHORT sinyali — Pozisyon ac*"
+    else:
+        long_uzaklik  =  min_score - res.score if res.score < min_score else 0
+        short_uzaklik = -min_score - res.score if res.score > -min_score else 0
+        if res.score > 0:
+            karar_str = (
+                f"\n\n⚠️ *Giris yok — Skor yetersiz*"
+                f"\nLONG icin `{long_uzaklik:.1f}` puan daha lazim"
+                f"\nCVD yukselmeye devam ederse izle"
+            )
+        elif res.score < 0:
+            karar_str = (
+                f"\n\n⚠️ *Giris yok — Skor yetersiz*"
+                f"\nSHORT icin `{abs(short_uzaklik):.1f}` puan daha lazim"
+                f"\nCVD dustugunde ve VWAP altinda kalirsa izle"
+            )
+        else:
+            karar_str = f"\n\n⚠️ *Giris yok — Yon belli degil*"
+
+    # ── FUNDING / OI ──────────────────────────────────────────
     foi = res.funding_oi
     foi_str = ""
     if foi.funding_rate != 0.0 or foi.oi_current != 0.0:
         foi_str = (
-            f"\n📈 *Funding:* `{foi.funding_rate_pct:+.4f}%` ({foi.funding_bias})"
+            f"\n\n📈 *Funding:* `{foi.funding_rate_pct:+.4f}%` ({foi.funding_bias})"
             f"\n📊 *OI:* `{foi.oi_change_pct:+.3f}%` ({foi.oi_trend})"
         )
 
+    # ── GIRIS / SL / TP ───────────────────────────────────────
     risk_str = ""
     if res.direction != "FLAT":
         risk_str = (
-            f"\n\n💰 *Giriş:* `{res.entry}`\n"
-            f"🛑 *SL:* `{res.sl}`\n"
-            f"🎯 *TP1:* `{res.tp1}` | *TP2:* `{res.tp2}` | *TP3:* `{res.tp3}`\n"
-            f"⚡ *Kaldıraç:* {res.leverage}x"
+            f"\n\n💰 *Giris:* `{res.entry}`"
+            f"\n🛑 *SL:* `{res.sl}`"
+            f"\n🎯 *TP1:* `{res.tp1}` | *TP2:* `{res.tp2}` | *TP3:* `{res.tp3}`"
+            f"\n⚡ *Kaldirac:* {res.leverage}x"
         )
 
+    # ── EXIT IZLEME ───────────────────────────────────────────
     exit_str = ""
     if dex.cvd_divergence or dex.bpr_zone_hit:
-        exit_str = f"\n\n📊 *Exit İzleme:*"
+        exit_str = f"\n\n📊 *Exit Izleme:*"
         if dex.cvd_divergence:
             exit_str += f"\n• CVD Div: {dex.cvd_div_type}"
         exit_str += f"\n• ATR Trail: {dex.atr_trail_long:.2f} / {dex.atr_trail_short:.2f}"
         if dex.bpr_zone_hit:
-            exit_str += f"\n• BPR/IFVG Zone: {dex.bpr_zone_bot:.2f}–{dex.bpr_zone_top:.2f}"
+            exit_str += f"\n• BPR/IFVG: {dex.bpr_zone_bot:.2f}-{dex.bpr_zone_top:.2f}"
 
     msg = (
-        f"{dir_emoji} *{res.symbol} — {res.direction}*\n"
-        f"Skor: `{res.score:+.2f}` | {res.timestamp}"
-        f"{ab_str}\n\n"
-        f"```\n{score_breakdown}\n```"
+        f"{dir_emoji} *{res.symbol} — {res.direction}*"
+        f"\nSkor: `{res.score:+.2f}` | `{res.timestamp}`"
+        f"\n{piyasa_str}"
+        f"{karar_str}"
         f"{foi_str}"
         f"{risk_str}"
         f"{exit_str}"
