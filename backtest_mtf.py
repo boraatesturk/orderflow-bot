@@ -60,6 +60,13 @@ MIN_CONFLUENCE  = 3    # 4 TF icinden 3'u yeterli
 
 BLOCKED_HOURS   = [2, 3, 4]   # UTC
 
+# Dinamik skor esigi
+# 4/4 confluence → dusuk esik (zaten cok guclu)
+# 3/4 confluence → yuksek esik (daha az onay var, 5M guclu olmali)
+DYNAMIC_SCORE_ENABLED = True
+MIN_SCORE_4OF4 = 6.0   # 4/4 confluence → 6.0 yeterli
+MIN_SCORE_3OF4 = 7.5   # 3/4 confluence → 7.5 lazim
+
 print(f"[v2] CFG yuklendi: min_score={MIN_SCORE_LONG} | imb_bull={CFG['imbalance_bull']} | absorb_vol={CFG['absorption_vol_mult']}")
 
 # Trend filtresi ayarlari
@@ -383,9 +390,27 @@ def generate_mtf_signals(df_5m: pd.DataFrame) -> tuple:
         print(f"    Engellenen LONG : {(~long_allowed).sum():,} bar")
         print(f"    Engellenen SHORT: {(~short_allowed).sum():,} bar")
 
+    # ── DİNAMİK SKOR EŞİĞİ ─────────────────────────────────────────────────
+    if DYNAMIC_SCORE_ENABLED:
+        # 4/4 confluence → MIN_SCORE_4OF4, 3/4 → MIN_SCORE_3OF4
+        long_score_ok  = (
+            ((conf_long  == 4) & (sl5 >= MIN_SCORE_4OF4)) |
+            ((conf_long  == 3) & (sl5 >= MIN_SCORE_3OF4))
+        )
+        short_score_ok = (
+            ((conf_short == 4) & (ss5 >= MIN_SCORE_4OF4)) |
+            ((conf_short == 3) & (ss5 >= MIN_SCORE_3OF4))
+        )
+        print(f"[+] Dinamik esik: 4/4→{MIN_SCORE_4OF4} | 3/4→{MIN_SCORE_3OF4}")
+        print(f"    Esigi gecen LONG : {long_score_ok.sum():,} bar")
+        print(f"    Esigi gecen SHORT: {short_score_ok.sum():,} bar")
+    else:
+        long_score_ok  = sl5 >= MIN_SCORE_LONG
+        short_score_ok = ss5 >= MIN_SCORE_SHORT
+
     # Giriş sinyalleri
-    buy_signal  = (conf_long  >= MIN_CONFLUENCE) & (conf_long  > conf_short) & hour_ok & long_allowed
-    sell_signal = (conf_short >= MIN_CONFLUENCE) & (conf_short > conf_long)  & hour_ok & short_allowed
+    buy_signal  = (conf_long  >= MIN_CONFLUENCE) & (conf_long  > conf_short) & hour_ok & long_allowed & long_score_ok
+    sell_signal = (conf_short >= MIN_CONFLUENCE) & (conf_short > conf_long)  & hour_ok & short_allowed & short_score_ok
 
     # Çakışma önleme
     conflict    = buy_signal & sell_signal
