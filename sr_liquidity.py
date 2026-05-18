@@ -480,10 +480,15 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict):
 
     plt.tight_layout()
 
-    # Telegram için dosyaya kaydet
+    # Her zaman dosyaya kaydet (Telegram icin), sonra ekranda da goster
     import tempfile, os
     tmp = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
     plt.savefig(tmp.name, dpi=120, bbox_inches="tight", facecolor="#0d1117")
+
+    # Sadece yerel calistirmada ekranda goster
+    if not getattr(plot_chart, "_save_to_file", False):
+        plt.show()
+
     plt.close()
     return tmp.name
 
