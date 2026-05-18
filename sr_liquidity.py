@@ -518,11 +518,19 @@ def main():
     if not args.no_chart:
         path = plot_chart(df, sr, pools)
         if path:
-            import subprocess, sys
+            import subprocess, sys, shutil
+            # Kalici konuma kopyala
+            out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sr_liquidity_chart.png")
+            shutil.copy(path, out)
+            os.unlink(path)
+            print(Fore.GREEN + f"  Grafik kaydedildi: {out}")
+            # Ekranda ac
             if sys.platform == "win32":
-                os.startfile(path)
+                os.startfile(out)
+            elif sys.platform == "darwin":
+                subprocess.run(["open", out])
             else:
-                subprocess.run(["xdg-open", path])
+                subprocess.run(["xdg-open", out])
 
 
 if __name__ == "__main__":
