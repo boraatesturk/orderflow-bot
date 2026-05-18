@@ -20,6 +20,8 @@ from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 from pathlib import Path
 
+import matplotlib
+matplotlib.use("Agg")  # VPS'te ekran yok, dosyaya kaydet
 from signal_engine_v2 import (
     analyze,
     analyze_mtf,
@@ -142,6 +144,48 @@ def handle_sinyal(chat_id: str):
         print(f"  [/sinyal HATA] {e}")
 
 
+def handle_liq(chat_id: str, bars: int = 150):
+    """S/R + Likidite haritasını oluşturup Telegram'a gönder."""
+    send_message(chat_id, f"⏳ Likidite haritası oluşturuluyor ({bars} bar)...")
+    try:
+        from sr_liquidity import fetch_bars, find_sr_levels, find_liquidity_pools, plot_chart
+        from datetime import datetime, timezone
+
+        df = fetch_bars(SYMBOL, limit=bars)
+
+        # Açık barı kes
+        now_utc = datetime.now(timezone.utc)
+        bar_min = (now_utc.minute // 5) * 5
+        current_bar = now_utc.replace(minute=bar_min, second=0, microsecond=0)
+        df = df[df.index < current_bar]
+
+        sr    = find_sr_levels(df)
+        pools = find_liquidity_pools(df, sr)
+        path  = plot_chart(df, sr, pools)
+
+        if not path:
+            send_message(chat_id, "❌ Grafik oluşturulamadı.")
+            return
+
+        # Telegram'a fotoğraf gönder
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto"
+        with open(path, "rb") as photo:
+            r = requests.post(url, data={"chat_id": chat_id}, files={"photo": photo}, timeout=30)
+
+        import os
+        os.unlink(path)  # Geçici dosyayı sil
+
+        if r.status_code == 200:
+            print(f"  [/liq] Gönderildi ✅")
+        else:
+            print(f"  [/liq] Telegram hata: {r.text[:100]}")
+            send_message(chat_id, "❌ Grafik gönderilemedi.")
+
+    except Exception as e:
+        send_message(chat_id, f"❌ Liq hatası: `{e}`")
+        print(f"  [/liq HATA] {e}")
+
+
 def handle_durum(chat_id: str):
     """Açık pozisyon ve son sinyal durumunu gönder."""
     try:
@@ -262,11 +306,18 @@ def main():
                     handle_sinyal(chat_id)
                 elif text in ["/durum", "/status"]:
                     handle_durum(chat_id)
+                elif text in ["/liq", "/likidite"]:
+                    # /liq 300 gibi bar sayısı verilebilir
+                    parts = text.split()
+                    bars  = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 150
+                    handle_liq(chat_id, bars=bars)
                 elif text in ["/yardim", "/help", "/start"]:
                     send_message(chat_id, (
                         "🤖 *OrderFlow Bot Komutları*\n\n"
                         "/sinyal — Anlık orderflow analizi\n"
-                        "/durum  — Açık pozisyon + son sinyaller"
+                        "/durum  — Açık pozisyon + son sinyaller\n"
+                        "/liq    — S/R + Likidite haritası (görsel)\n"
+                        "/liq 300 — Son 300 bar ile harita"
                     ))
 
         except Exception as e:

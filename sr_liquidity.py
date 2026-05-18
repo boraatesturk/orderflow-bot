@@ -479,7 +479,13 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict):
     ax_vp.spines[:].set_color("#333333")
 
     plt.tight_layout()
-    plt.show()
+
+    # Telegram için dosyaya kaydet
+    import tempfile, os
+    tmp = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
+    plt.savefig(tmp.name, dpi=120, bbox_inches="tight", facecolor="#0d1117")
+    plt.close()
+    return tmp.name
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -510,7 +516,13 @@ def main():
     print_terminal_report(sr, pools)
 
     if not args.no_chart:
-        plot_chart(df, sr, pools)
+        path = plot_chart(df, sr, pools)
+        if path:
+            import subprocess, sys
+            if sys.platform == "win32":
+                os.startfile(path)
+            else:
+                subprocess.run(["xdg-open", path])
 
 
 if __name__ == "__main__":
