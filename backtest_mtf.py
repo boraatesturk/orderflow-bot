@@ -408,9 +408,19 @@ def generate_mtf_signals(df_5m: pd.DataFrame) -> tuple:
         long_score_ok  = sl5 >= MIN_SCORE_LONG
         short_score_ok = ss5 >= MIN_SCORE_SHORT
 
+    # Zit yon filtresi — 4H veya 1H karsi yondeyse sinyal atma
+    # LONG icin: 4H SHORT veya 1H SHORT ise girme
+    no_counter_long  = ~(short_4h | short_1h)
+    # SHORT icin: 4H LONG veya 1H LONG ise girme
+    no_counter_short = ~(long_4h  | long_1h)
+
+    print(f"[+] Zit yon filtresi:")
+    print(f"    Engellenen LONG  (4H/1H SHORT): {(~no_counter_long).sum():,} bar")
+    print(f"    Engellenen SHORT (4H/1H LONG) : {(~no_counter_short).sum():,} bar")
+
     # Giriş sinyalleri
-    buy_signal  = (conf_long  >= MIN_CONFLUENCE) & (conf_long  > conf_short) & hour_ok & long_allowed & long_score_ok
-    sell_signal = (conf_short >= MIN_CONFLUENCE) & (conf_short > conf_long)  & hour_ok & short_allowed & short_score_ok
+    buy_signal  = (conf_long  >= MIN_CONFLUENCE) & (conf_long  > conf_short) & hour_ok & long_allowed  & long_score_ok  & no_counter_long
+    sell_signal = (conf_short >= MIN_CONFLUENCE) & (conf_short > conf_long)  & hour_ok & short_allowed & short_score_ok & no_counter_short
 
     # Çakışma önleme
     conflict    = buy_signal & sell_signal

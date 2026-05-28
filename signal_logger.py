@@ -114,7 +114,10 @@ def fetch_bybit_klines(symbol: str, interval: str = "5", limit: int = 300) -> pd
     df["delta"]       = df["buy_volume"] - df["sell_volume"]
     df["imbalance_ratio"] = df["buy_volume"] / (df["volume"] + 1e-9)
     df["cvd"]         = df["delta"].cumsum()
-    df["session_delta"]= df["delta"].rolling(12).sum()
+    # Session delta — gun basından itibaren (UTC 00:00'dan)
+    df["_date"] = df.index.floor("D")
+    df["session_delta"] = df.groupby("_date")["delta"].cumsum()
+    df.drop(columns=["_date"], inplace=True)
     df["vwap"]        = (df["close"] * df["volume"]).cumsum() / (df["volume"].cumsum() + 1e-9)
 
     bull_streak = (df["imbalance_ratio"] > 0.58).astype(int)

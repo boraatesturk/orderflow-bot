@@ -1361,7 +1361,10 @@ if __name__ == "__main__":
 
         # Turetilmis kolonlar
         df["cvd"]           = df["delta"].cumsum()
-        df["session_delta"] = df["delta"].rolling(12).sum()
+        # Session delta — gun basından itibaren (UTC 00:00'dan)
+        df["_date"] = df.index.floor("D")
+        df["session_delta"] = df.groupby("_date")["delta"].cumsum()
+        df.drop(columns=["_date"], inplace=True)
         df["vwap"]          = (df["close"] * df["volume"]).cumsum() / df["volume"].cumsum()
         df["poc_price"]     = df["close"]
 
