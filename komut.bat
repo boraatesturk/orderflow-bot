@@ -5,3 +5,4 @@ if "%1"=="sinyal" python signal_engine.py --once
 if "%1"=="canli"  python signal_engine.py --live
 if "%1"=="liq"    python sr_liquidity.py
 if "%1"=="veri"   python data_collector.py
+if "%1"=="backtest"   python backtest_mtf.py

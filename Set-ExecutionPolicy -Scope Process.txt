@@ -1,0 +1,7 @@
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+& C:\Users\pc\Desktop\ORDERFLOW\.venv\Scripts\Activate.ps1
+
+function sinyal { python signal_engine.py --once }
+function sinyal2 { python signal_engine_v2.py }
+function liq { python sr_liquidity.py }
+function backtest { python backtest_mtf.py }

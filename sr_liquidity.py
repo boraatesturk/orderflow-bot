@@ -8,6 +8,8 @@
     python sr_liquidity.py --bars 500   # Son 500 bar
 =============================================================================
 """
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 import pandas as pd
 import numpy as np
