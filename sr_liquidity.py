@@ -8,8 +8,6 @@
     python sr_liquidity.py --bars 500   # Son 500 bar
 =============================================================================
 """
-import matplotlib
-matplotlib.use("Qt5Agg")
 
 import pandas as pd
 import numpy as np
@@ -368,11 +366,44 @@ def print_terminal_report(sr: dict, pools: dict):
     print()
 
 
+def print_gex_report(gex_levels: list, current: float):
+    if not gex_levels:
+        return
+    total_gex = sum(g["net_gex"] for g in gex_levels)
+    print(Fore.CYAN + "=" * 62)
+    print(Fore.CYAN + "  GAMMA EXPOSURE (GEX) SEVİYELERİ")
+    print(Fore.CYAN + "=" * 62)
+    durum = Fore.GREEN + "POZİTİF ▲ (dar bant)" if total_gex > 0 else Fore.RED + "NEGATİF ▼ (volatil)"
+    print(f"  Piyasa: {durum}{Style.RESET_ALL}  |  Net GEX: {total_gex/1e6:.1f}M")
+    print()
+    for g in reversed(gex_levels):
+        strike  = g["strike"]
+        gtype   = g["type"]
+        net_gex = g["net_gex"]
+        dte     = g["dte"]
+        dist    = (strike - current) / current * 100
+
+        if gtype == "call_wall":
+            color = Fore.MAGENTA
+            tag   = "CALL WALL ▲"
+        elif gtype == "put_wall":
+            color = Fore.CYAN
+            tag   = "PUT  WALL ▼"
+        else:
+            color = Fore.WHITE
+            tag   = "GEX LEVEL  "
+
+        arrow = "▲" if dist > 0 else "▼"
+        print(f"  {color}{strike:>8.0f} USDT  {dist:>+7.2f}%  {tag}  {net_gex/1e6:>+7.1f}M  {dte}d {arrow}{Style.RESET_ALL}")
+    print(Fore.CYAN + "=" * 62)
+    print()
+
+
 # ═══════════════════════════════════════════════════════════════════
 #  MATPLOTLİB CHART
 # ═══════════════════════════════════════════════════════════════════
 
-def plot_chart(df: pd.DataFrame, sr: dict, pools: dict):
+def plot_chart(df: pd.DataFrame, sr: dict, pools: dict, gex_levels: list = None):
     fig = plt.figure(figsize=(16, 9), facecolor="#0d1117")
     gs  = GridSpec(1, 5, figure=fig)
 
@@ -420,6 +451,34 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict):
     ax_candle.text(n + 0.5, sr["poc"], f"POC {sr['poc']:.1f}",
                    color="#ff9800", fontsize=7.5, va="center")
 
+    # ── GEX SEVİYELERİ ───────────────────────────────────────────
+    if gex_levels:
+        for g in gex_levels:
+            strike  = g["strike"]
+            gtype   = g["type"]
+            net_gex = g["net_gex"]
+            dte     = g["dte"]
+
+            if gtype == "call_wall":
+                color  = "#e040fb"   # Mor — direnç
+                label  = f"CW {strike:.0f} ({dte}d)"
+                ls     = "--"
+                lw     = 1.5
+            elif gtype == "put_wall":
+                color  = "#00bcd4"   # Cyan — destek
+                label  = f"PW {strike:.0f} ({dte}d)"
+                ls     = "--"
+                lw     = 1.5
+            else:
+                color  = "#78909c"   # Gri — nötr
+                label  = f"GEX {strike:.0f} ({dte}d)"
+                ls     = ":"
+                lw     = 1.0
+
+            ax_candle.axhline(strike, color=color, lw=lw, ls=ls, alpha=0.7, zorder=3)
+            ax_candle.text(n + 0.5, strike, label, color=color,
+                           fontsize=7, va="center", style="italic")
+
     # ── LİKİDİTE HAVUZLARI ───────────────────────────────────────
     for p in pools["bull"]:
         ax_candle.axhspan(p["range_lo"], p["range_hi"],
@@ -449,8 +508,13 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict):
     ax_candle.set_xlim(-1, n + 12)
     ax_candle.tick_params(axis="y", colors="#aaaaaa", labelsize=7)
     ax_candle.spines[:].set_color("#333333")
-    ax_candle.set_title(f"{SYMBOL} — S/R & Likidite Haritasi  ({datetime.now(TZ_TR).strftime('%d/%m/%Y %H:%M')} TR)",
-                        color="#ffffff", fontsize=11, pad=10)
+    gex_str = ""
+    if gex_levels is not None:
+        total_gex = sum(g["net_gex"] for g in gex_levels)
+        gex_str = f"  |  GEX: {'POZ ▲' if total_gex > 0 else 'NEG ▼'} ({total_gex/1e6:.0f}M)"
+    ax_candle.set_title(
+        f"{SYMBOL} — S/R & Likidite Haritasi  ({datetime.now(TZ_TR).strftime('%d/%m/%Y %H:%M')} TR){gex_str}",
+        color="#ffffff", fontsize=11, pad=10)
 
     # ── VOLUME PROFILE ────────────────────────────────────────────
     bin_mids = (bins[:-1] + bins[1:]) / 2
@@ -481,18 +545,7 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict):
     ax_vp.spines[:].set_color("#333333")
 
     plt.tight_layout()
-
-    # Her zaman dosyaya kaydet (Telegram icin), sonra ekranda da goster
-    import tempfile, os
-    tmp = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
-    plt.savefig(tmp.name, dpi=120, bbox_inches="tight", facecolor="#0d1117")
-
-    # Sadece yerel calistirmada ekranda goster
-    if not getattr(plot_chart, "_save_to_file", False):
-        plt.show()
-
-    plt.close()
-    return tmp.name
+    plt.show()
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -522,22 +575,17 @@ def main():
 
     print_terminal_report(sr, pools)
 
+    # GEX seviyeleri
+    gex_levels = []
+    try:
+        from gex_calculator import fetch_gex
+        gex_levels = fetch_gex("ETH", max_dte=45)
+        print_gex_report(gex_levels, sr["current_price"])
+    except Exception as e:
+        print(f"  [GEX] Yuklenemedi: {e}")
+
     if not args.no_chart:
-        path = plot_chart(df, sr, pools)
-        if path:
-            import subprocess, sys, shutil
-            # Kalici konuma kopyala
-            out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sr_liquidity_chart.png")
-            shutil.copy(path, out)
-            os.unlink(path)
-            print(Fore.GREEN + f"  Grafik kaydedildi: {out}")
-            # Ekranda ac
-            if sys.platform == "win32":
-                os.startfile(out)
-            elif sys.platform == "darwin":
-                subprocess.run(["open", out])
-            else:
-                subprocess.run(["xdg-open", out])
+        plot_chart(df, sr, pools, gex_levels=gex_levels)
 
 
 if __name__ == "__main__":
