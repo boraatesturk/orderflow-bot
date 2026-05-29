@@ -306,5 +306,8187 @@
     "ml_conf": 0,
     "ml_weighted": "N/A",
     "ml_uyum": "FLAT"
+  },
+  {
+    "timestamp": "2026-05-12T04:10:04.115155+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.75,
+    "entry": 2326.52,
+    "sl": 2333.4996,
+    "tp1": 2316.0507,
+    "tp2": 2305.5813,
+    "tp3": 2291.6222,
+    "leverage": 11,
+    "atr": 3.205,
+    "orderflow": {
+      "delta": -1.75,
+      "delta_pct": -60.0,
+      "cvd": -134355.28,
+      "cvd_slope": -6105.88,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.002,
+      "session_delta": -4636.13,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.087,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.197,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %20 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.205,
+      "atr_trail_long": 2319.1375,
+      "atr_trail_short": 2334.4725,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 753991.98,
+      "oi_prev": 755074.14,
+      "oi_change_pct": -0.143,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T04:25:03.724806+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2324.45,
+    "sl": 2331.4234,
+    "tp1": 2313.99,
+    "tp2": 2303.5299,
+    "tp3": 2289.5832,
+    "leverage": 8,
+    "atr": 3.9329,
+    "orderflow": {
+      "delta": -16.88,
+      "delta_pct": -60.0,
+      "cvd": -125633.15,
+      "cvd_slope": -3146.98,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.01,
+      "session_delta": -8257.34,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.01,
+      "body_vs_atr": 0.038,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %4 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.9329,
+      "atr_trail_long": 2314.7679,
+      "atr_trail_short": 2334.2821,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 755168.48,
+      "oi_prev": 754246.14,
+      "oi_change_pct": 0.122,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T04:35:04.339290+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2313.84,
+    "sl": 2320.7815,
+    "tp1": 2303.4277,
+    "tp2": 2293.0154,
+    "tp3": 2279.1324,
+    "leverage": 10,
+    "atr": 4.5443,
+    "orderflow": {
+      "delta": -162.05,
+      "delta_pct": -60.0,
+      "cvd": -135790.65,
+      "cvd_slope": -4835.66,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.081,
+      "session_delta": -18570.22,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.182,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.081,
+      "body_vs_atr": 0.079,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.08x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.5443,
+      "atr_trail_long": 2302.8393,
+      "atr_trail_short": 2325.1207,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 754421.18,
+      "oi_prev": 753964.83,
+      "oi_change_pct": 0.061,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T05:00:03.968825+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2308.87,
+    "sl": 2318.9339,
+    "tp1": 2293.7741,
+    "tp2": 2278.6782,
+    "tp3": 2258.5504,
+    "leverage": 10,
+    "atr": 6.7093,
+    "orderflow": {
+      "delta": -40.0,
+      "delta_pct": -60.0,
+      "cvd": -122464.97,
+      "cvd_slope": -1547.09,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.009,
+      "session_delta": -10394.78,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.01,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.009,
+      "body_vs_atr": 0.149,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %15 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.7093,
+      "atr_trail_long": 2293.0968,
+      "atr_trail_short": 2325.6332,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2312.0,
+      "bpr_zone_bot": 2307.97
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 756271.09,
+      "oi_prev": 755822.96,
+      "oi_change_pct": 0.059,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T09:55:04.089582+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2302.37,
+    "sl": 2309.2771,
+    "tp1": 2292.0093,
+    "tp2": 2281.6487,
+    "tp3": 2267.8344,
+    "leverage": 8,
+    "atr": 2.5629,
+    "orderflow": {
+      "delta": -2.0,
+      "delta_pct": -60.0,
+      "cvd": -83571.57,
+      "cvd_slope": -7422.87,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -8290.74,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.082,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.5629,
+      "atr_trail_long": 2296.1729,
+      "atr_trail_short": 2308.7771,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 767886.85,
+      "oi_prev": 768297.39,
+      "oi_change_pct": -0.053,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:05:03.461105+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 0.75,
+    "entry": 2296.81,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 2.9214,
+    "orderflow": {
+      "delta": 3.95,
+      "delta_pct": 60.0,
+      "cvd": -98258.68,
+      "cvd_slope": -22129.41,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -23805.37,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.955,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.072,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %7 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.9214,
+      "atr_trail_long": 2289.5164,
+      "atr_trail_short": 2303.9036,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 768567.26,
+      "oi_prev": 767886.85,
+      "oi_change_pct": 0.089,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 0.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:10:04.369393+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2298.61,
+    "sl": 2305.5058,
+    "tp1": 2288.2663,
+    "tp2": 2277.9225,
+    "tp3": 2264.1308,
+    "leverage": 8,
+    "atr": 3.0614,
+    "orderflow": {
+      "delta": -89.2,
+      "delta_pct": -60.0,
+      "cvd": -91269.09,
+      "cvd_slope": -9527.46,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.044,
+      "session_delta": -18596.55,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.044,
+      "body_vs_atr": 0.082,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.04x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.0614,
+      "atr_trail_long": 2291.4264,
+      "atr_trail_short": 2306.2636,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 779909.31,
+      "oi_prev": 780664.4,
+      "oi_change_pct": -0.097,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:20:04.285683+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -4.0,
+    "entry": 2301.76,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.6007,
+    "orderflow": {
+      "delta": -15.35,
+      "delta_pct": -60.0,
+      "cvd": -90518.56,
+      "cvd_slope": 5550.73,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.007,
+      "session_delta": -20695.99,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.007,
+      "body_vs_atr": 0.078,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6007,
+      "atr_trail_long": 2293.0982,
+      "atr_trail_short": 2310.7618,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 781061.02,
+      "oi_prev": 779909.31,
+      "oi_change_pct": 0.148,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -4.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:30:03.263810+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.25,
+    "entry": 2299.82,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.79,
+    "orderflow": {
+      "delta": -64.27,
+      "delta_pct": -60.0,
+      "cvd": -87848.11,
+      "cvd_slope": -4382.68,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.028,
+      "session_delta": -20109.38,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.085,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.028,
+      "body_vs_atr": 0.071,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %7 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.79,
+      "atr_trail_long": 2290.885,
+      "atr_trail_short": 2309.245,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2301.59,
+      "bpr_zone_bot": 2298.86
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 783012.11,
+      "oi_prev": 782748.38,
+      "oi_change_pct": 0.034,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:35:03.407507+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 2.5,
+    "entry": 2299.57,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.6464,
+    "orderflow": {
+      "delta": 3.28,
+      "delta_pct": 60.0,
+      "cvd": -88181.83,
+      "cvd_slope": -2624.09,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -19522.18,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.003,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6464,
+      "atr_trail_long": 2290.4539,
+      "atr_trail_short": 2308.6761,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2301.59,
+      "bpr_zone_bot": 2298.86
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 785856.01,
+      "oi_prev": 783012.11,
+      "oi_change_pct": 0.363,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 2.5
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:40:04.063644+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.25,
+    "entry": 2298.64,
+    "sl": 2305.5359,
+    "tp1": 2288.2961,
+    "tp2": 2277.9522,
+    "tp3": 2264.1604,
+    "leverage": 9,
+    "atr": 3.4879,
+    "orderflow": {
+      "delta": -0.08,
+      "delta_pct": -60.0,
+      "cvd": -88419.39,
+      "cvd_slope": -4978.13,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -20307.87,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.003,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4879,
+      "atr_trail_long": 2289.9304,
+      "atr_trail_short": 2307.3596,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 786261.42,
+      "oi_prev": 785856.01,
+      "oi_change_pct": 0.052,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:50:03.555404+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -3.75,
+    "entry": 2295.7,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.0114,
+    "orderflow": {
+      "delta": -80.86,
+      "delta_pct": -60.0,
+      "cvd": -81275.5,
+      "cvd_slope": 4527.33,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.028,
+      "session_delta": -7577.26,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.028,
+      "body_vs_atr": 0.095,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %9 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0114,
+      "atr_trail_long": 2286.0514,
+      "atr_trail_short": 2305.7286,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 783382.42,
+      "oi_prev": 785970.51,
+      "oi_change_pct": -0.329,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -3.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T11:00:04.121831+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.0,
+    "entry": 2293.99,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.0257,
+    "orderflow": {
+      "delta": 13.28,
+      "delta_pct": 60.0,
+      "cvd": -79813.81,
+      "cvd_slope": 10181.72,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.004,
+      "session_delta": 8633.67,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.28,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.004,
+      "body_vs_atr": 0.017,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %2 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0257,
+      "atr_trail_long": 2284.1057,
+      "atr_trail_short": 2303.9843,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 780864.38,
+      "oi_prev": 778655.43,
+      "oi_change_pct": 0.284,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T11:05:03.294680+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.75,
+    "entry": 2289.08,
+    "sl": 2295.9472,
+    "tp1": 2278.7791,
+    "tp2": 2268.4783,
+    "tp3": 2254.7438,
+    "leverage": 10,
+    "atr": 4.3679,
+    "orderflow": {
+      "delta": -72.61,
+      "delta_pct": -60.0,
+      "cvd": -87262.88,
+      "cvd_slope": -4844.27,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.022,
+      "session_delta": -2902.4,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.667,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.022,
+      "body_vs_atr": 0.032,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %3 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.3679,
+      "atr_trail_long": 2278.3004,
+      "atr_trail_short": 2299.7196,
+      "cvd_divergence": true,
+      "cvd_div_type": "bullish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 780971.67,
+      "oi_prev": 780864.38,
+      "oi_change_pct": 0.014,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T11:10:03.509910+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -9.0,
+    "entry": 2289.04,
+    "sl": 2295.9071,
+    "tp1": 2278.7393,
+    "tp2": 2268.4386,
+    "tp3": 2254.7044,
+    "leverage": 11,
+    "atr": 4.0714,
+    "orderflow": {
+      "delta": -0.95,
+      "delta_pct": -60.0,
+      "cvd": -91028.38,
+      "cvd_slope": -13002.96,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -11026.67,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.056,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.042,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %4 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0714,
+      "atr_trail_long": 2279.0314,
+      "atr_trail_short": 2299.2086,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 782666.34,
+      "oi_prev": 780971.67,
+      "oi_change_pct": 0.217,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -9.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T12:20:04.076042+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.5,
+    "entry": 2281.01,
+    "sl": 2287.853,
+    "tp1": 2270.7455,
+    "tp2": 2260.4809,
+    "tp3": 2246.7949,
+    "leverage": 10,
+    "atr": 3.43,
+    "orderflow": {
+      "delta": -3.14,
+      "delta_pct": -60.0,
+      "cvd": -89234.63,
+      "cvd_slope": -7292.25,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.001,
+      "session_delta": 126.61,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.05,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.052,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %5 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.43,
+      "atr_trail_long": 2272.625,
+      "atr_trail_short": 2289.575,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 794437.97,
+      "oi_prev": 793592.07,
+      "oi_change_pct": 0.107,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.5
+    }
+  },
+  {
+    "timestamp": "2026-05-12T13:50:03.865012+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2282.14,
+    "sl": 2288.9864,
+    "tp1": 2271.8704,
+    "tp2": 2261.6007,
+    "tp3": 2247.9079,
+    "leverage": 8,
+    "atr": 3.2429,
+    "orderflow": {
+      "delta": -0.17,
+      "delta_pct": -60.0,
+      "cvd": -92207.21,
+      "cvd_slope": -1748.73,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -4547.73,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.031,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %3 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.2429,
+      "atr_trail_long": 2274.1329,
+      "atr_trail_short": 2290.2471,
+      "cvd_divergence": true,
+      "cvd_div_type": "bullish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 798271.24,
+      "oi_prev": 796752.29,
+      "oi_change_pct": 0.191,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T04:10:04.115155+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.75,
+    "entry": 2326.52,
+    "sl": 2333.4996,
+    "tp1": 2316.0507,
+    "tp2": 2305.5813,
+    "tp3": 2291.6222,
+    "leverage": 11,
+    "atr": 3.205,
+    "orderflow": {
+      "delta": -1.75,
+      "delta_pct": -60.0,
+      "cvd": -134355.28,
+      "cvd_slope": -6105.88,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.002,
+      "session_delta": -4636.13,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.087,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.197,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %20 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.205,
+      "atr_trail_long": 2319.1375,
+      "atr_trail_short": 2334.4725,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 753991.98,
+      "oi_prev": 755074.14,
+      "oi_change_pct": -0.143,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "TP3",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.013476+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T04:25:03.724806+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2324.45,
+    "sl": 2331.4234,
+    "tp1": 2313.99,
+    "tp2": 2303.5299,
+    "tp3": 2289.5832,
+    "leverage": 8,
+    "atr": 3.9329,
+    "orderflow": {
+      "delta": -16.88,
+      "delta_pct": -60.0,
+      "cvd": -125633.15,
+      "cvd_slope": -3146.98,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.01,
+      "session_delta": -8257.34,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.01,
+      "body_vs_atr": 0.038,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %4 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.9329,
+      "atr_trail_long": 2314.7679,
+      "atr_trail_short": 2334.2821,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 755168.48,
+      "oi_prev": 754246.14,
+      "oi_change_pct": 0.122,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP3",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.013876+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T04:35:04.339290+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2313.84,
+    "sl": 2320.7815,
+    "tp1": 2303.4277,
+    "tp2": 2293.0154,
+    "tp3": 2279.1324,
+    "leverage": 10,
+    "atr": 4.5443,
+    "orderflow": {
+      "delta": -162.05,
+      "delta_pct": -60.0,
+      "cvd": -135790.65,
+      "cvd_slope": -4835.66,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.081,
+      "session_delta": -18570.22,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.182,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.081,
+      "body_vs_atr": 0.079,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.08x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.5443,
+      "atr_trail_long": 2302.8393,
+      "atr_trail_short": 2325.1207,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 754421.18,
+      "oi_prev": 753964.83,
+      "oi_change_pct": 0.061,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP2",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.013921+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T05:00:03.968825+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2308.87,
+    "sl": 2318.9339,
+    "tp1": 2293.7741,
+    "tp2": 2278.6782,
+    "tp3": 2258.5504,
+    "leverage": 10,
+    "atr": 6.7093,
+    "orderflow": {
+      "delta": -40.0,
+      "delta_pct": -60.0,
+      "cvd": -122464.97,
+      "cvd_slope": -1547.09,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.009,
+      "session_delta": -10394.78,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.01,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.009,
+      "body_vs_atr": 0.149,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %15 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.7093,
+      "atr_trail_long": 2293.0968,
+      "atr_trail_short": 2325.6332,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2312.0,
+      "bpr_zone_bot": 2307.97
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 756271.09,
+      "oi_prev": 755822.96,
+      "oi_change_pct": 0.059,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.013958+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T09:55:04.089582+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2302.37,
+    "sl": 2309.2771,
+    "tp1": 2292.0093,
+    "tp2": 2281.6487,
+    "tp3": 2267.8344,
+    "leverage": 8,
+    "atr": 2.5629,
+    "orderflow": {
+      "delta": -2.0,
+      "delta_pct": -60.0,
+      "cvd": -83571.57,
+      "cvd_slope": -7422.87,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -8290.74,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.082,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.5629,
+      "atr_trail_long": 2296.1729,
+      "atr_trail_short": 2308.7771,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 767886.85,
+      "oi_prev": 768297.39,
+      "oi_change_pct": -0.053,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.013991+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T10:05:03.461105+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 0.75,
+    "entry": 2296.81,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 2.9214,
+    "orderflow": {
+      "delta": 3.95,
+      "delta_pct": 60.0,
+      "cvd": -98258.68,
+      "cvd_slope": -22129.41,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -23805.37,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.955,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.072,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %7 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.9214,
+      "atr_trail_long": 2289.5164,
+      "atr_trail_short": 2303.9036,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 768567.26,
+      "oi_prev": 767886.85,
+      "oi_change_pct": 0.089,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 0.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:10:04.369393+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2298.61,
+    "sl": 2305.5058,
+    "tp1": 2288.2663,
+    "tp2": 2277.9225,
+    "tp3": 2264.1308,
+    "leverage": 8,
+    "atr": 3.0614,
+    "orderflow": {
+      "delta": -89.2,
+      "delta_pct": -60.0,
+      "cvd": -91269.09,
+      "cvd_slope": -9527.46,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.044,
+      "session_delta": -18596.55,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.044,
+      "body_vs_atr": 0.082,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.04x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.0614,
+      "atr_trail_long": 2291.4264,
+      "atr_trail_short": 2306.2636,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 779909.31,
+      "oi_prev": 780664.4,
+      "oi_change_pct": -0.097,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.014025+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T10:20:04.285683+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -4.0,
+    "entry": 2301.76,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.6007,
+    "orderflow": {
+      "delta": -15.35,
+      "delta_pct": -60.0,
+      "cvd": -90518.56,
+      "cvd_slope": 5550.73,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.007,
+      "session_delta": -20695.99,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.007,
+      "body_vs_atr": 0.078,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %8 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6007,
+      "atr_trail_long": 2293.0982,
+      "atr_trail_short": 2310.7618,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 781061.02,
+      "oi_prev": 779909.31,
+      "oi_change_pct": 0.148,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -4.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:30:03.263810+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.25,
+    "entry": 2299.82,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.79,
+    "orderflow": {
+      "delta": -64.27,
+      "delta_pct": -60.0,
+      "cvd": -87848.11,
+      "cvd_slope": -4382.68,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.028,
+      "session_delta": -20109.38,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.085,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.028,
+      "body_vs_atr": 0.071,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %7 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.79,
+      "atr_trail_long": 2290.885,
+      "atr_trail_short": 2309.245,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2301.59,
+      "bpr_zone_bot": 2298.86
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 783012.11,
+      "oi_prev": 782748.38,
+      "oi_change_pct": 0.034,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.25
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:35:03.407507+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 2.5,
+    "entry": 2299.57,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.6464,
+    "orderflow": {
+      "delta": 3.28,
+      "delta_pct": 60.0,
+      "cvd": -88181.83,
+      "cvd_slope": -2624.09,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -19522.18,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.003,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6464,
+      "atr_trail_long": 2290.4539,
+      "atr_trail_short": 2308.6761,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2301.59,
+      "bpr_zone_bot": 2298.86
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 785856.01,
+      "oi_prev": 783012.11,
+      "oi_change_pct": 0.363,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 2.5
+    }
+  },
+  {
+    "timestamp": "2026-05-12T10:40:04.063644+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.25,
+    "entry": 2298.64,
+    "sl": 2305.5359,
+    "tp1": 2288.2961,
+    "tp2": 2277.9522,
+    "tp3": 2264.1604,
+    "leverage": 9,
+    "atr": 3.4879,
+    "orderflow": {
+      "delta": -0.08,
+      "delta_pct": -60.0,
+      "cvd": -88419.39,
+      "cvd_slope": -4978.13,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -20307.87,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.003,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4879,
+      "atr_trail_long": 2289.9304,
+      "atr_trail_short": 2307.3596,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 786261.42,
+      "oi_prev": 785856.01,
+      "oi_change_pct": 0.052,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "outcome_price": 2286.83,
+    "outcome_time": "2026-05-12T15:15:02.014061+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T10:50:03.555404+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -3.75,
+    "entry": 2295.7,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.0114,
+    "orderflow": {
+      "delta": -80.86,
+      "delta_pct": -60.0,
+      "cvd": -81275.5,
+      "cvd_slope": 4527.33,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.028,
+      "session_delta": -7577.26,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.028,
+      "body_vs_atr": 0.095,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %9 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0114,
+      "atr_trail_long": 2286.0514,
+      "atr_trail_short": 2305.7286,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.383e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 783382.42,
+      "oi_prev": 785970.51,
+      "oi_change_pct": -0.329,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -3.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T11:00:04.121831+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.0,
+    "entry": 2293.99,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.0257,
+    "orderflow": {
+      "delta": 13.28,
+      "delta_pct": 60.0,
+      "cvd": -79813.81,
+      "cvd_slope": 10181.72,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.004,
+      "session_delta": 8633.67,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.28,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.004,
+      "body_vs_atr": 0.017,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %2 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0257,
+      "atr_trail_long": 2284.1057,
+      "atr_trail_short": 2303.9843,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 780864.38,
+      "oi_prev": 778655.43,
+      "oi_change_pct": 0.284,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T11:05:03.294680+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.75,
+    "entry": 2289.08,
+    "sl": 2295.9472,
+    "tp1": 2278.7791,
+    "tp2": 2268.4783,
+    "tp3": 2254.7438,
+    "leverage": 10,
+    "atr": 4.3679,
+    "orderflow": {
+      "delta": -72.61,
+      "delta_pct": -60.0,
+      "cvd": -87262.88,
+      "cvd_slope": -4844.27,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.022,
+      "session_delta": -2902.4,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.667,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.022,
+      "body_vs_atr": 0.032,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %3 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.3679,
+      "atr_trail_long": 2278.3004,
+      "atr_trail_short": 2299.7196,
+      "cvd_divergence": true,
+      "cvd_div_type": "bullish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 780971.67,
+      "oi_prev": 780864.38,
+      "oi_change_pct": 0.014,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.75
+    }
+  },
+  {
+    "timestamp": "2026-05-12T11:10:03.509910+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -9.0,
+    "entry": 2289.04,
+    "sl": 2295.9071,
+    "tp1": 2278.7393,
+    "tp2": 2268.4386,
+    "tp3": 2254.7044,
+    "leverage": 11,
+    "atr": 4.0714,
+    "orderflow": {
+      "delta": -0.95,
+      "delta_pct": -60.0,
+      "cvd": -91028.38,
+      "cvd_slope": -13002.96,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -11026.67,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.056,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.042,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %4 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0714,
+      "atr_trail_long": 2279.0314,
+      "atr_trail_short": 2299.2086,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 782666.34,
+      "oi_prev": 780971.67,
+      "oi_change_pct": 0.217,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -9.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T12:20:04.076042+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.5,
+    "entry": 2281.01,
+    "sl": 2287.853,
+    "tp1": 2270.7455,
+    "tp2": 2260.4809,
+    "tp3": 2246.7949,
+    "leverage": 10,
+    "atr": 3.43,
+    "orderflow": {
+      "delta": -3.14,
+      "delta_pct": -60.0,
+      "cvd": -89234.63,
+      "cvd_slope": -7292.25,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.001,
+      "session_delta": 126.61,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.05,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.052,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %5 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.43,
+      "atr_trail_long": 2272.625,
+      "atr_trail_short": 2289.575,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 794437.97,
+      "oi_prev": 793592.07,
+      "oi_change_pct": 0.107,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.5
+    }
+  },
+  {
+    "timestamp": "2026-05-12T13:50:03.865012+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2282.14,
+    "sl": 2288.9864,
+    "tp1": 2271.8704,
+    "tp2": 2261.6007,
+    "tp3": 2247.9079,
+    "leverage": 8,
+    "atr": 3.2429,
+    "orderflow": {
+      "delta": -0.17,
+      "delta_pct": -60.0,
+      "cvd": -92207.21,
+      "cvd_slope": -1748.73,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -4547.73,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.031,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %3 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.2429,
+      "atr_trail_long": 2274.1329,
+      "atr_trail_short": 2290.2471,
+      "cvd_divergence": true,
+      "cvd_div_type": "bullish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 798271.24,
+      "oi_prev": 796752.29,
+      "oi_change_pct": 0.191,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    }
+  },
+  {
+    "timestamp": "2026-05-12T16:35:04.189296+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.75,
+    "entry": 2279.3,
+    "sl": 2286.4818,
+    "tp1": 2268.5273,
+    "tp2": 2257.7546,
+    "tp3": 2243.3911,
+    "leverage": 10,
+    "atr": 4.7879,
+    "orderflow": {
+      "delta": -150.41,
+      "delta_pct": -60.0,
+      "cvd": -88804.55,
+      "cvd_slope": -588.7,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.049,
+      "session_delta": -4207.29,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.381,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.049,
+      "body_vs_atr": 0.061,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.05x | Gövde %6 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.7879,
+      "atr_trail_long": 2267.7204,
+      "atr_trail_short": 2291.0296,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 811293.22,
+      "oi_prev": 811083.33,
+      "oi_change_pct": 0.026,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "outcome_price": 2267.11,
+    "outcome_time": "2026-05-12T17:35:02.022782+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T17:50:04.502952+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -9.0,
+    "entry": 2269.01,
+    "sl": 2279.7693,
+    "tp1": 2252.8711,
+    "tp2": 2236.7321,
+    "tp3": 2215.2136,
+    "leverage": 11,
+    "atr": 7.1729,
+    "orderflow": {
+      "delta": -69.77,
+      "delta_pct": -60.0,
+      "cvd": -89845.37,
+      "cvd_slope": -1026.17,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.015,
+      "session_delta": -23248.36,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.015,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.015,
+      "body_vs_atr": 0.093,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %9 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 7.1729,
+      "atr_trail_long": 2251.7479,
+      "atr_trail_short": 2286.9321,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 814433.62,
+      "oi_prev": 813334.91,
+      "oi_change_pct": 0.135,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -9.0
+    },
+    "outcome_price": 2280.62,
+    "outcome_time": "2026-05-12T21:45:01.890594+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T18:25:03.518603+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.5,
+    "entry": 2257.1,
+    "sl": 2266.9796,
+    "tp1": 2242.2805,
+    "tp2": 2227.4611,
+    "tp3": 2207.7018,
+    "leverage": 11,
+    "atr": 6.5864,
+    "orderflow": {
+      "delta": -1482.92,
+      "delta_pct": -60.0,
+      "cvd": -100158.58,
+      "cvd_slope": -14511.35,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.331,
+      "session_delta": -34446.47,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.543,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.331,
+      "body_vs_atr": 0.055,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.33x | Gövde %5 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.5864,
+      "atr_trail_long": 2241.4839,
+      "atr_trail_short": 2272.5561,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -5.172e-05,
+      "funding_rate_pct": -0.0052,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 817583.04,
+      "oi_prev": 815257.45,
+      "oi_change_pct": 0.285,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.5
+    },
+    "outcome_price": 2268.42,
+    "outcome_time": "2026-05-12T19:20:01.659395+03:00"
+  },
+  {
+    "timestamp": "2026-05-12T23:05:05.318567+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 7.75,
+    "entry": 2285.74,
+    "sl": 2278.8828,
+    "tp1": 2296.0258,
+    "tp2": 2306.3117,
+    "tp3": 2320.0261,
+    "leverage": 10,
+    "atr": 2.7221,
+    "orderflow": {
+      "delta": 4.5,
+      "delta_pct": 60.0,
+      "cvd": -42794.83,
+      "cvd_slope": 3403.96,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.003,
+      "session_delta": 5753.62,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.015,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %1 ATR | Delta baskı %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.7221,
+      "atr_trail_long": 2278.9346,
+      "atr_trail_short": 2292.4954,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -8.61e-06,
+      "funding_rate_pct": -0.0009,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 820320.49,
+      "oi_prev": 821890.83,
+      "oi_change_pct": -0.191,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 7.75
+    }
+  },
+  {
+    "timestamp": "2026-05-13T08:00:03.914647+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.25,
+    "entry": 2306.05,
+    "sl": 2299.1319,
+    "tp1": 2316.4272,
+    "tp2": 2326.8044,
+    "tp3": 2340.6408,
+    "leverage": 8,
+    "atr": 2.4086,
+    "orderflow": {
+      "delta": 3.49,
+      "delta_pct": 20.0,
+      "cvd": -6116.28,
+      "cvd_slope": 1927.44,
+      "imbalance": 0.6,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.007,
+      "session_delta": 3201.66,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.007,
+      "body_vs_atr": 0.021,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %2 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.4086,
+      "atr_trail_long": 2300.0286,
+      "atr_trail_short": 2312.0214,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.05e-05,
+      "funding_rate_pct": 0.0021,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 799192.74,
+      "oi_prev": 799334.81,
+      "oi_change_pct": -0.018,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 3.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 3.75
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "outcome_price": 2298.47,
+    "outcome_time": "2026-05-13T08:35:01.568724+03:00"
+  },
+  {
+    "timestamp": "2026-05-13T15:45:04.081928+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.0,
+    "entry": 2280.2,
+    "sl": 2290.3496,
+    "tp1": 2264.9755,
+    "tp2": 2249.7511,
+    "tp3": 2229.4518,
+    "leverage": 9,
+    "atr": 6.7664,
+    "orderflow": {
+      "delta": -9.85,
+      "delta_pct": -89.79,
+      "cvd": -28422.91,
+      "cvd_slope": -17746.51,
+      "imbalance": 0.0319,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -20662.7,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.025,
+      "delta_pressure": 0.898,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %3 ATR | Delta baskı %90"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.7664,
+      "atr_trail_long": 2263.4539,
+      "atr_trail_short": 2297.1161,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.282e-05,
+      "funding_rate_pct": 0.0083,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 798901.15,
+      "oi_prev": 784137.72,
+      "oi_change_pct": 1.883,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 2.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.0
+    },
+    "outcome_price": 2261.71,
+    "outcome_time": "2026-05-13T16:50:02.440270+03:00"
+  },
+  {
+    "timestamp": "2026-05-13T16:50:04.645450+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.0,
+    "entry": 2261.83,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 5.4329,
+    "orderflow": {
+      "delta": -313.08,
+      "delta_pct": -64.3,
+      "cvd": -42496.95,
+      "cvd_slope": -7523.18,
+      "imbalance": 0.1908,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.038,
+      "session_delta": -14818.67,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.731,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.038,
+      "body_vs_atr": 0.052,
+      "delta_pressure": 0.643,
+      "detail": "Absorption YOK | Vol 0.04x | Gövde %5 ATR | Delta baskı %64"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.4329,
+      "atr_trail_long": 2248.5279,
+      "atr_trail_short": 2274.6521,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.282e-05,
+      "funding_rate_pct": 0.0083,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 818181.19,
+      "oi_prev": 814079.01,
+      "oi_change_pct": 0.504,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -5.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.0
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-14T05:50:03.338255+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.155,
+    "entry": 2252.2,
+    "sl": 2258.9566,
+    "tp1": 2242.0651,
+    "tp2": 2231.9302,
+    "tp3": 2218.417,
+    "leverage": 9,
+    "atr": 2.8014,
+    "orderflow": {
+      "delta": -2.76,
+      "delta_pct": -6.03,
+      "cvd": -43695.74,
+      "cvd_slope": -3830.61,
+      "imbalance": 0.0,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.032,
+      "session_delta": -5490.85,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.321,
+      "scores": {
+        "delta": -0.9047202797202797,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.032,
+      "body_vs_atr": 0.129,
+      "delta_pressure": 0.06,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %13 ATR | Delta baskı %6"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.8014,
+      "atr_trail_long": 2245.5564,
+      "atr_trail_short": 2259.0336,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.973e-05,
+      "funding_rate_pct": 0.006,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 885905.84,
+      "oi_prev": 886202.35,
+      "oi_change_pct": -0.033,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -5.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.155
+    },
+    "outcome_price": 2241.55,
+    "outcome_time": "2026-05-14T06:50:02.158397+03:00"
+  },
+  {
+    "timestamp": "2026-05-14T12:35:03.396405+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2258.96,
+    "sl": 2265.7369,
+    "tp1": 2248.7947,
+    "tp2": 2238.6294,
+    "tp3": 2225.0756,
+    "leverage": 10,
+    "atr": 2.6236,
+    "orderflow": {
+      "delta": -0.4,
+      "delta_pct": -20.0,
+      "cvd": -59858.94,
+      "cvd_slope": -2347.08,
+      "imbalance": 0.4,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.001,
+      "session_delta": -3783.86,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.069,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %7 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.6236,
+      "atr_trail_long": 2252.5811,
+      "atr_trail_short": 2265.5189,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.788e-05,
+      "funding_rate_pct": 0.0038,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 867627.34,
+      "oi_prev": 867747.32,
+      "oi_change_pct": -0.014,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 2.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2248.24,
+    "outcome_time": "2026-05-14T15:20:02.467772+03:00"
+  },
+  {
+    "timestamp": "2026-05-14T16:40:03.957392+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 4.5,
+    "entry": 2252.27,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.3736,
+    "orderflow": {
+      "delta": 0.67,
+      "delta_pct": 20.0,
+      "cvd": -24297.41,
+      "cvd_slope": 1452.68,
+      "imbalance": 0.6,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -6104.72,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.064,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %6 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.3736,
+      "atr_trail_long": 2241.3361,
+      "atr_trail_short": 2262.9239,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2255.56,
+      "bpr_zone_bot": 2252.27
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.788e-05,
+      "funding_rate_pct": 0.0038,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 856212.7,
+      "oi_prev": 847670.82,
+      "oi_change_pct": 1.008,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 4.5
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-15T08:35:04.559748+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.25,
+    "entry": 2249.07,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.2557,
+    "orderflow": {
+      "delta": -150.79,
+      "delta_pct": -63.77,
+      "cvd": -1588.17,
+      "cvd_slope": -11879.26,
+      "imbalance": 0.1786,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.064,
+      "session_delta": -11334.12,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.85,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.064,
+      "body_vs_atr": 0.005,
+      "delta_pressure": 0.638,
+      "detail": "Absorption YOK | Vol 0.06x | Gövde %0 ATR | Delta baskı %64"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.2557,
+      "atr_trail_long": 2238.4607,
+      "atr_trail_short": 2259.5393,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.435e-05,
+      "funding_rate_pct": 0.0024,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 804529.76,
+      "oi_prev": 804354.79,
+      "oi_change_pct": 0.022,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-16T00:00:04.248468+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.25,
+    "entry": 2218.93,
+    "sl": 2225.5868,
+    "tp1": 2208.9448,
+    "tp2": 2198.9596,
+    "tp3": 2185.646,
+    "leverage": 9,
+    "atr": 2.8636,
+    "orderflow": {
+      "delta": -9.45,
+      "delta_pct": -23.03,
+      "cvd": -38229.58,
+      "cvd_slope": -2530.26,
+      "imbalance": 0.0714,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.02,
+      "session_delta": -8648.6,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.111,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.02,
+      "body_vs_atr": 0.024,
+      "delta_pressure": 0.23,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %2 ATR | Delta baskı %23"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.8636,
+      "atr_trail_long": 2211.8511,
+      "atr_trail_short": 2226.0789,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.393e-05,
+      "funding_rate_pct": 0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 849790.68,
+      "oi_prev": 849891.2,
+      "oi_change_pct": -0.012,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "outcome_price": 2227.07,
+    "outcome_time": "2026-05-16T03:15:01.679523+03:00"
+  },
+  {
+    "timestamp": "2026-05-16T09:15:04.177265+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2221.56,
+    "sl": 2228.2247,
+    "tp1": 2211.563,
+    "tp2": 2201.566,
+    "tp3": 2188.2366,
+    "leverage": 10,
+    "atr": 1.8793,
+    "orderflow": {
+      "delta": -2.85,
+      "delta_pct": -71.79,
+      "cvd": -38073.3,
+      "cvd_slope": -546.31,
+      "imbalance": 0.0932,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.005,
+      "session_delta": -507.13,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.005,
+      "body_vs_atr": 0.069,
+      "delta_pressure": 0.718,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %7 ATR | Delta baskı %72"
+    },
+    "dynamic_exit": {
+      "atr_value": 1.8793,
+      "atr_trail_long": 2217.0018,
+      "atr_trail_short": 2226.2582,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2223.85,
+      "bpr_zone_bot": 2220.99
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.383e-05,
+      "funding_rate_pct": 0.0064,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 839688.32,
+      "oi_prev": 840341.59,
+      "oi_change_pct": -0.078,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2211.24,
+    "outcome_time": "2026-05-16T09:50:01.726399+03:00"
+  },
+  {
+    "timestamp": "2026-05-16T10:05:03.937526+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.0,
+    "entry": 2212.19,
+    "sl": 2218.8266,
+    "tp1": 2202.2351,
+    "tp2": 2192.2803,
+    "tp3": 2179.0072,
+    "leverage": 10,
+    "atr": 3.5186,
+    "orderflow": {
+      "delta": -12.66,
+      "delta_pct": -65.63,
+      "cvd": -34491.96,
+      "cvd_slope": -4016.1,
+      "imbalance": 0.0233,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.01,
+      "session_delta": -10318.6,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.043,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.01,
+      "body_vs_atr": 0.063,
+      "delta_pressure": 0.656,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %6 ATR | Delta baskı %66"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.5186,
+      "atr_trail_long": 2203.6136,
+      "atr_trail_short": 2220.9764,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.383e-05,
+      "funding_rate_pct": 0.0064,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 843380.48,
+      "oi_prev": 842292.81,
+      "oi_change_pct": 0.129,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP2",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.0
+    },
+    "outcome_price": 2191.63,
+    "outcome_time": "2026-05-16T10:25:02.389358+03:00"
+  },
+  {
+    "timestamp": "2026-05-16T12:05:04.356979+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.5,
+    "entry": 2191.94,
+    "sl": 2198.5158,
+    "tp1": 2182.0763,
+    "tp2": 2172.2125,
+    "tp3": 2159.0609,
+    "leverage": 9,
+    "atr": 2.1721,
+    "orderflow": {
+      "delta": -1.37,
+      "delta_pct": -31.28,
+      "cvd": -72519.68,
+      "cvd_slope": -627.4,
+      "imbalance": 0.0,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -999.77,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.313,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %31"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.1721,
+      "atr_trail_long": 2186.5096,
+      "atr_trail_short": 2197.3704,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2192.13,
+      "bpr_zone_bot": 2191.94
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.276e-05,
+      "funding_rate_pct": 0.0023,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 855429.24,
+      "oi_prev": 854138.17,
+      "oi_change_pct": 0.151,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP2",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.5
+    },
+    "outcome_price": 2170.22,
+    "outcome_time": "2026-05-16T12:25:02.077805+03:00"
+  },
+  {
+    "timestamp": "2026-05-16T12:30:05.130576+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2169.0,
+    "sl": 2176.2064,
+    "tp1": 2158.1904,
+    "tp2": 2147.3807,
+    "tp3": 2132.9679,
+    "leverage": 8,
+    "atr": 4.8043,
+    "orderflow": {
+      "delta": -1.79,
+      "delta_pct": -13.09,
+      "cvd": -106757.2,
+      "cvd_slope": -26083.88,
+      "imbalance": 0.2933,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -36085.05,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.004,
+      "delta_pressure": 0.131,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %13"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.8043,
+      "atr_trail_long": 2157.2493,
+      "atr_trail_short": 2181.0107,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.276e-05,
+      "funding_rate_pct": 0.0023,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 837026.05,
+      "oi_prev": 836167.78,
+      "oi_change_pct": 0.103,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    },
+    "outcome_price": 2178.03,
+    "outcome_time": "2026-05-16T14:20:02.095742+03:00"
+  },
+  {
+    "timestamp": "2026-05-16T21:25:04.331474+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2176.31,
+    "sl": 2182.8389,
+    "tp1": 2166.5166,
+    "tp2": 2156.7232,
+    "tp3": 2143.6653,
+    "leverage": 8,
+    "atr": 1.6371,
+    "orderflow": {
+      "delta": -0.99,
+      "delta_pct": -20.0,
+      "cvd": -73786.55,
+      "cvd_slope": -53.87,
+      "imbalance": 0.4,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.004,
+      "session_delta": -49.75,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.004,
+      "body_vs_atr": 0.006,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %1 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 1.6371,
+      "atr_trail_long": 2172.2271,
+      "atr_trail_short": 2180.4029,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.977e-05,
+      "funding_rate_pct": 0.005,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 846578.41,
+      "oi_prev": 847205.97,
+      "oi_change_pct": -0.074,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    }
+  },
+  {
+    "timestamp": "2026-05-17T04:45:04.303711+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2169.24,
+    "sl": 2175.7477,
+    "tp1": 2159.4784,
+    "tp2": 2149.7168,
+    "tp3": 2136.7014,
+    "leverage": 10,
+    "atr": 3.8136,
+    "orderflow": {
+      "delta": -23.43,
+      "delta_pct": -86.17,
+      "cvd": -72832.56,
+      "cvd_slope": -4342.76,
+      "imbalance": 0.0688,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.011,
+      "session_delta": -11178.89,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.023,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.011,
+      "body_vs_atr": 0.113,
+      "delta_pressure": 0.862,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %11 ATR | Delta baskı %86"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.8136,
+      "atr_trail_long": 2160.1361,
+      "atr_trail_short": 2178.7639,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.966e-05,
+      "funding_rate_pct": 0.007,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 837361.67,
+      "oi_prev": 836697.76,
+      "oi_change_pct": 0.079,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2177.01,
+    "outcome_time": "2026-05-17T06:05:01.815985+03:00"
+  },
+  {
+    "timestamp": "2026-05-17T07:50:04.064628+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 7.75,
+    "entry": 2187.64,
+    "sl": 2181.0771,
+    "tp1": 2197.4844,
+    "tp2": 2207.3288,
+    "tp3": 2220.4546,
+    "leverage": 10,
+    "atr": 2.3529,
+    "orderflow": {
+      "delta": 10.7,
+      "delta_pct": 286.1,
+      "cvd": -52485.18,
+      "cvd_slope": 7144.42,
+      "imbalance": 4.107,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": 9861.03,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 2.861,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %286"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.3529,
+      "atr_trail_long": 2181.7579,
+      "atr_trail_short": 2193.5221,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.966e-05,
+      "funding_rate_pct": 0.007,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 839143.75,
+      "oi_prev": 839959.13,
+      "oi_change_pct": -0.097,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.75
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "outcome_price": 2177.74,
+    "outcome_time": "2026-05-17T20:15:02.255486+03:00"
+  },
+  {
+    "timestamp": "2026-05-17T20:15:04.580088+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2177.74,
+    "sl": 2184.2732,
+    "tp1": 2167.9402,
+    "tp2": 2158.1403,
+    "tp3": 2145.0739,
+    "leverage": 8,
+    "atr": 2.4014,
+    "orderflow": {
+      "delta": -24.19,
+      "delta_pct": -69.89,
+      "cvd": 5362.21,
+      "cvd_slope": -2408.87,
+      "imbalance": 0.1641,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.014,
+      "session_delta": -3991.5,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.286,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.014,
+      "body_vs_atr": 0.137,
+      "delta_pressure": 0.699,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %14 ATR | Delta baskı %70"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.4014,
+      "atr_trail_long": 2172.0864,
+      "atr_trail_short": 2183.6036,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.246e-05,
+      "funding_rate_pct": 0.0072,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 814645.6,
+      "oi_prev": 814326.69,
+      "oi_change_pct": 0.039,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2185.33,
+    "outcome_time": "2026-05-17T21:05:01.562530+03:00"
+  },
+  {
+    "timestamp": "2026-05-18T01:25:04.558568+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.25,
+    "entry": 2179.0,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.6693,
+    "orderflow": {
+      "delta": -18.19,
+      "delta_pct": -15.24,
+      "cvd": 4934.74,
+      "cvd_slope": -8863.37,
+      "imbalance": 0.4022,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.044,
+      "session_delta": -7143.62,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.044,
+      "body_vs_atr": 0.199,
+      "delta_pressure": 0.152,
+      "detail": "Absorption YOK | Vol 0.04x | Gövde %20 ATR | Delta baskı %15"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6693,
+      "atr_trail_long": 2170.8668,
+      "atr_trail_short": 2188.1732,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.246e-05,
+      "funding_rate_pct": 0.0072,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 818844.65,
+      "oi_prev": 818928.14,
+      "oi_change_pct": -0.01,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-19T04:30:03.559955+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 0.75,
+    "entry": 2123.99,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.7007,
+    "orderflow": {
+      "delta": 31.54,
+      "delta_pct": 317.3,
+      "cvd": 14358.84,
+      "cvd_slope": -4321.32,
+      "imbalance": 4.3863,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.003,
+      "session_delta": -4675.07,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.249,
+      "delta_pressure": 3.173,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %25 ATR | Delta baskı %317"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.7007,
+      "atr_trail_long": 2115.6582,
+      "atr_trail_short": 2133.2418,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.923e-05,
+      "funding_rate_pct": 0.0069,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 778631.47,
+      "oi_prev": 778655.16,
+      "oi_change_pct": -0.003,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 0.75
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-20T01:05:06.500119+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2111.1,
+    "sl": 2117.4333,
+    "tp1": 2101.6,
+    "tp2": 2092.1001,
+    "tp3": 2079.4335,
+    "leverage": 8,
+    "atr": 2.2071,
+    "orderflow": {
+      "delta": -9.65,
+      "delta_pct": -96500.0,
+      "cvd": -36688.25,
+      "cvd_slope": -1972.69,
+      "imbalance": 0.0,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -2231.75,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.005,
+      "delta_pressure": 965.0,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %96500"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.2071,
+      "atr_trail_long": 2105.5921,
+      "atr_trail_short": 2116.6179,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.843e-05,
+      "funding_rate_pct": 0.0058,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 780797.1,
+      "oi_prev": 781435.82,
+      "oi_change_pct": -0.082,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2123.46,
+    "outcome_time": "2026-05-20T08:10:01.600310+03:00"
+  },
+  {
+    "timestamp": "2026-05-20T09:55:03.990540+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.5,
+    "entry": 2131.57,
+    "sl": 2125.1753,
+    "tp1": 2141.1621,
+    "tp2": 2150.7541,
+    "tp3": 2163.5436,
+    "leverage": 9,
+    "atr": 2.6993,
+    "orderflow": {
+      "delta": 0.16,
+      "delta_pct": 20.0,
+      "cvd": -47428.59,
+      "cvd_slope": 1409.85,
+      "imbalance": 0.6,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 3054.78,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.6993,
+      "atr_trail_long": 2124.8218,
+      "atr_trail_short": 2138.3182,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2131.57,
+      "bpr_zone_bot": 2131.39
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.206e-05,
+      "funding_rate_pct": 0.0062,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 782520.79,
+      "oi_prev": 780048.24,
+      "oi_change_pct": 0.317,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 0.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 4.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.5
+    },
+    "outcome_price": 2124.84,
+    "outcome_time": "2026-05-20T14:50:02.791128+03:00"
+  },
+  {
+    "timestamp": "2026-05-20T14:50:04.795799+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.25,
+    "entry": 2124.86,
+    "sl": 2131.2346,
+    "tp1": 2115.2981,
+    "tp2": 2105.7363,
+    "tp3": 2092.9871,
+    "leverage": 9,
+    "atr": 2.02,
+    "orderflow": {
+      "delta": -0.5,
+      "delta_pct": -20.0,
+      "cvd": -29005.65,
+      "cvd_slope": -2558.82,
+      "imbalance": 0.4,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.002,
+      "session_delta": -3421.37,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.045,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %4 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.02,
+      "atr_trail_long": 2119.91,
+      "atr_trail_short": 2129.91,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.389e-05,
+      "funding_rate_pct": 0.0044,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 795908.05,
+      "oi_prev": 795608.97,
+      "oi_change_pct": 0.038,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 0.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "outcome_price": 2132.16,
+    "outcome_time": "2026-05-20T15:35:01.792855+03:00"
+  },
+  {
+    "timestamp": "2026-05-20T17:50:03.761011+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 7.5,
+    "entry": 2133.35,
+    "sl": 2123.5861,
+    "tp1": 2147.9959,
+    "tp2": 2162.6418,
+    "tp3": 2182.1696,
+    "leverage": 10,
+    "atr": 6.5093,
+    "orderflow": {
+      "delta": 4.58,
+      "delta_pct": 100.0,
+      "cvd": -33298.29,
+      "cvd_slope": 4081.89,
+      "imbalance": 1.0,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -3549.64,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.035,
+      "delta_pressure": 1.0,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %4 ATR | Delta baskı %100"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.5093,
+      "atr_trail_long": 2117.0768,
+      "atr_trail_short": 2149.3932,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.389e-05,
+      "funding_rate_pct": 0.0044,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 786617.46,
+      "oi_prev": 780876.99,
+      "oi_change_pct": 0.735,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 0.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 7.5
+    }
+  },
+  {
+    "timestamp": "2026-05-21T01:15:03.984664+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.75,
+    "entry": 2121.12,
+    "sl": 2127.4834,
+    "tp1": 2111.575,
+    "tp2": 2102.0299,
+    "tp3": 2089.3032,
+    "leverage": 11,
+    "atr": 2.8586,
+    "orderflow": {
+      "delta": -61.23,
+      "delta_pct": -96.61,
+      "cvd": 347.06,
+      "cvd_slope": -5181.6,
+      "imbalance": 0.0128,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.038,
+      "session_delta": -4383.0,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.038,
+      "body_vs_atr": 0.003,
+      "delta_pressure": 0.966,
+      "detail": "Absorption YOK | Vol 0.04x | Gövde %0 ATR | Delta baskı %97"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.8586,
+      "atr_trail_long": 2113.9836,
+      "atr_trail_short": 2128.2664,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.126e-05,
+      "funding_rate_pct": 0.0051,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 762414.12,
+      "oi_prev": 766487.5,
+      "oi_change_pct": -0.531,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 1.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "outcome_price": 2128.16,
+    "outcome_time": "2026-05-21T02:50:02.313595+03:00"
+  },
+  {
+    "timestamp": "2026-05-21T04:00:04.568019+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.75,
+    "entry": 2142.81,
+    "sl": 2136.3816,
+    "tp1": 2152.4526,
+    "tp2": 2162.0953,
+    "tp3": 2174.9522,
+    "leverage": 9,
+    "atr": 2.9329,
+    "orderflow": {
+      "delta": 90.39,
+      "delta_pct": 55.44,
+      "cvd": 23412.25,
+      "cvd_slope": 4013.71,
+      "imbalance": 0.8665,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.108,
+      "session_delta": 5090.68,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.832,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.108,
+      "body_vs_atr": 0.269,
+      "delta_pressure": 0.554,
+      "detail": "Absorption YOK | Vol 0.11x | Gövde %27 ATR | Delta baskı %55"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.9329,
+      "atr_trail_long": 2135.6379,
+      "atr_trail_short": 2149.3521,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.736e-05,
+      "funding_rate_pct": 0.0037,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 762147.13,
+      "oi_prev": 763781.65,
+      "oi_change_pct": -0.214,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 2.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "outcome_price": 2134.8,
+    "outcome_time": "2026-05-21T08:50:02.131674+03:00"
+  },
+  {
+    "timestamp": "2026-05-21T10:00:04.202798+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2126.71,
+    "sl": 2133.0901,
+    "tp1": 2117.1398,
+    "tp2": 2107.5696,
+    "tp3": 2094.8094,
+    "leverage": 8,
+    "atr": 2.7657,
+    "orderflow": {
+      "delta": -149.96,
+      "delta_pct": -165.79,
+      "cvd": 27318.53,
+      "cvd_slope": -215.27,
+      "imbalance": 0.3445,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.038,
+      "session_delta": -1651.8,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.038,
+      "body_vs_atr": 0.333,
+      "delta_pressure": 1.658,
+      "detail": "Absorption YOK | Vol 0.04x | Gövde %33 ATR | Delta baskı %166"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.7657,
+      "atr_trail_long": 2120.7257,
+      "atr_trail_short": 2133.6243,
+      "cvd_divergence": true,
+      "cvd_div_type": "bullish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.736e-05,
+      "funding_rate_pct": 0.0037,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761967.06,
+      "oi_prev": 760906.47,
+      "oi_change_pct": 0.139,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    },
+    "outcome_price": 2133.67,
+    "outcome_time": "2026-05-21T10:50:01.908315+03:00"
+  },
+  {
+    "timestamp": "2026-05-21T13:30:04.108532+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2114.81,
+    "sl": 2121.1544,
+    "tp1": 2105.2934,
+    "tp2": 2095.7767,
+    "tp3": 2083.0878,
+    "leverage": 8,
+    "atr": 3.6357,
+    "orderflow": {
+      "delta": -79.03,
+      "delta_pct": -78.02,
+      "cvd": 7967.81,
+      "cvd_slope": -15910.93,
+      "imbalance": 0.1051,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.021,
+      "session_delta": -17462.83,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.034,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.021,
+      "body_vs_atr": 0.234,
+      "delta_pressure": 0.78,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %23 ATR | Delta baskı %78"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6357,
+      "atr_trail_long": 2106.5707,
+      "atr_trail_short": 2123.8693,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 3.763e-05,
+      "funding_rate_pct": 0.0038,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 767538.13,
+      "oi_prev": 767586.02,
+      "oi_change_pct": -0.006,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2121.99,
+    "outcome_time": "2026-05-21T17:05:01.798623+03:00"
+  },
+  {
+    "timestamp": "2026-05-21T20:25:04.345011+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.5,
+    "entry": 2145.27,
+    "sl": 2137.8289,
+    "tp1": 2156.4316,
+    "tp2": 2167.5932,
+    "tp3": 2182.4754,
+    "leverage": 11,
+    "atr": 4.9607,
+    "orderflow": {
+      "delta": 845.25,
+      "delta_pct": 90.9,
+      "cvd": 17947.31,
+      "cvd_slope": 15821.64,
+      "imbalance": 0.9586,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.172,
+      "session_delta": 15569.14,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.683,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.172,
+      "body_vs_atr": 0.163,
+      "delta_pressure": 0.909,
+      "detail": "Absorption YOK | Vol 0.17x | Gövde %16 ATR | Delta baskı %91"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.9607,
+      "atr_trail_long": 2133.2482,
+      "atr_trail_short": 2156.8518,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.692e-05,
+      "funding_rate_pct": 0.0057,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 760221.97,
+      "oi_prev": 755481.71,
+      "oi_change_pct": 0.627,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 2.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 4.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.5
+    },
+    "outcome_price": 2137.61,
+    "outcome_time": "2026-05-21T21:40:01.994416+03:00"
+  },
+  {
+    "timestamp": "2026-05-21T23:00:04.018119+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.75,
+    "entry": 2142.3,
+    "sl": 2135.8731,
+    "tp1": 2151.9404,
+    "tp2": 2161.5807,
+    "tp3": 2174.4345,
+    "leverage": 11,
+    "atr": 3.3471,
+    "orderflow": {
+      "delta": 56.67,
+      "delta_pct": 42.92,
+      "cvd": 47458.85,
+      "cvd_slope": 3672.93,
+      "imbalance": 0.7155,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.03,
+      "session_delta": 5590.71,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.95,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.03,
+      "body_vs_atr": 0.057,
+      "delta_pressure": 0.429,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %6 ATR | Delta baskı %43"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.3471,
+      "atr_trail_long": 2133.9421,
+      "atr_trail_short": 2150.4779,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.692e-05,
+      "funding_rate_pct": 0.0057,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 764359.13,
+      "oi_prev": 765562.69,
+      "oi_change_pct": -0.157,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 2.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": 4.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.75
+    }
+  },
+  {
+    "timestamp": "2026-05-22T09:45:04.029234+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2125.95,
+    "sl": 2132.3278,
+    "tp1": 2116.3832,
+    "tp2": 2106.8164,
+    "tp3": 2094.0607,
+    "leverage": 8,
+    "atr": 2.4957,
+    "orderflow": {
+      "delta": -15.8,
+      "delta_pct": -72.31,
+      "cvd": 21015.78,
+      "cvd_slope": -229.3,
+      "imbalance": 0.032,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.011,
+      "session_delta": -591.57,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.011,
+      "body_vs_atr": 0.232,
+      "delta_pressure": 0.723,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %23 ATR | Delta baskı %72"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.4957,
+      "atr_trail_long": 2120.2907,
+      "atr_trail_short": 2132.1893,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.26e-05,
+      "funding_rate_pct": 0.0043,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 755946.76,
+      "oi_prev": 755552.2,
+      "oi_change_pct": 0.052,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2135.37,
+    "outcome_time": "2026-05-22T15:15:01.751525+03:00"
+  },
+  {
+    "timestamp": "2026-05-22T17:25:04.272003+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.75,
+    "entry": 2114.0,
+    "sl": 2121.3179,
+    "tp1": 2103.0232,
+    "tp2": 2092.0464,
+    "tp3": 2077.4107,
+    "leverage": 9,
+    "atr": 4.8786,
+    "orderflow": {
+      "delta": -13.42,
+      "delta_pct": -35.4,
+      "cvd": 17462.34,
+      "cvd_slope": -6362.55,
+      "imbalance": 0.3229,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.007,
+      "session_delta": -10191.35,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.007,
+      "body_vs_atr": 0.055,
+      "delta_pressure": 0.354,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %6 ATR | Delta baskı %35"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.8786,
+      "atr_trail_long": 2102.1236,
+      "atr_trail_short": 2126.1964,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.028e-05,
+      "funding_rate_pct": 0.004,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 773161.83,
+      "oi_prev": 774098.5,
+      "oi_change_pct": -0.121,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "outcome_price": 2122.36,
+    "outcome_time": "2026-05-22T18:35:01.784387+03:00"
+  },
+  {
+    "timestamp": "2026-05-22T20:30:03.584352+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 7.25,
+    "entry": 2128.44,
+    "sl": 2122.0547,
+    "tp1": 2138.018,
+    "tp2": 2147.596,
+    "tp3": 2160.3666,
+    "leverage": 9,
+    "atr": 3.2136,
+    "orderflow": {
+      "delta": 2.62,
+      "delta_pct": 20.0,
+      "cvd": 16092.41,
+      "cvd_slope": 2485.55,
+      "imbalance": 0.6,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.004,
+      "session_delta": 2585.75,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.004,
+      "body_vs_atr": 0.221,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %22 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.2136,
+      "atr_trail_long": 2120.4061,
+      "atr_trail_short": 2135.7639,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.759e-05,
+      "funding_rate_pct": 0.0078,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 788377.63,
+      "oi_prev": 787985.9,
+      "oi_change_pct": 0.05,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 2.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "outcome_price": 2121.55,
+    "outcome_time": "2026-05-22T20:50:02.160435+03:00"
+  },
+  {
+    "timestamp": "2026-05-22T21:45:03.980510+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.0,
+    "entry": 2106.26,
+    "sl": 2112.5788,
+    "tp1": 2096.7818,
+    "tp2": 2087.3037,
+    "tp3": 2074.6661,
+    "leverage": 9,
+    "atr": 3.4179,
+    "orderflow": {
+      "delta": -78.76,
+      "delta_pct": -92.45,
+      "cvd": -21862.18,
+      "cvd_slope": -5289.61,
+      "imbalance": 0.0416,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.02,
+      "session_delta": -6331.62,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.02,
+      "body_vs_atr": 0.269,
+      "delta_pressure": 0.925,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %27 ATR | Delta baskı %92"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4179,
+      "atr_trail_long": 2098.6354,
+      "atr_trail_short": 2114.8046,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.759e-05,
+      "funding_rate_pct": 0.0078,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 794554.9,
+      "oi_prev": 792093.36,
+      "oi_change_pct": 0.311,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.0
+    },
+    "outcome_price": 2093.25,
+    "outcome_time": "2026-05-22T22:05:02.391529+03:00"
+  },
+  {
+    "timestamp": "2026-05-22T22:05:04.423383+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.75,
+    "entry": 2093.34,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 5.6236,
+    "orderflow": {
+      "delta": -14.43,
+      "delta_pct": -78.85,
+      "cvd": -59756.01,
+      "cvd_slope": -2958.3,
+      "imbalance": 0.1022,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -27410.54,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.121,
+      "delta_pressure": 0.789,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %12 ATR | Delta baskı %79"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.6236,
+      "atr_trail_long": 2079.9611,
+      "atr_trail_short": 2107.3989,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.759e-05,
+      "funding_rate_pct": 0.0078,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 785838.54,
+      "oi_prev": 789756.93,
+      "oi_change_pct": -0.496,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.75
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-23T03:20:04.206638+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.0,
+    "entry": 2064.05,
+    "sl": 2057.3,
+    "tp1": 2074.175,
+    "tp2": 2084.3,
+    "tp3": 2097.8,
+    "leverage": 8,
+    "atr": 4.5,
+    "orderflow": {
+      "delta": 4.4,
+      "delta_pct": 37.87,
+      "cvd": -61875.9,
+      "cvd_slope": 4291.51,
+      "imbalance": 0.6893,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.003,
+      "session_delta": 1652.34,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.027,
+      "delta_pressure": 0.379,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %3 ATR | Delta baskı %38"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.5,
+      "atr_trail_long": 2052.8,
+      "atr_trail_short": 2075.18,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.956e-05,
+      "funding_rate_pct": 0.007,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 800685.58,
+      "oi_prev": 798010.25,
+      "oi_change_pct": 0.335,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.0
+    },
+    "reversal_warned": true,
+    "outcome_price": 2057.02,
+    "outcome_time": "2026-05-23T10:20:02.395507+03:00"
+  },
+  {
+    "timestamp": "2026-05-23T10:55:03.513131+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 0.25,
+    "entry": 2020.5,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 6.48,
+    "orderflow": {
+      "delta": 79.98,
+      "delta_pct": 131.55,
+      "cvd": -107851.64,
+      "cvd_slope": -42674.99,
+      "imbalance": 2.0854,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.005,
+      "session_delta": -44852.45,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.005,
+      "body_vs_atr": 0.056,
+      "delta_pressure": 1.315,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %6 ATR | Delta baskı %132"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.48,
+      "atr_trail_long": 2004.66,
+      "atr_trail_short": 2036.7,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.956e-05,
+      "funding_rate_pct": 0.007,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 815918.39,
+      "oi_prev": 822945.48,
+      "oi_change_pct": -0.854,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 0.25
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-24T00:00:03.979597+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 4.0,
+    "entry": 2146.35,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 9.4121,
+    "orderflow": {
+      "delta": 814.63,
+      "delta_pct": 89.83,
+      "cvd": 13942.94,
+      "cvd_slope": -131.47,
+      "imbalance": 1.1731,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.054,
+      "session_delta": 39052.68,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.932,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.054,
+      "body_vs_atr": 0.144,
+      "delta_pressure": 0.898,
+      "detail": "Absorption YOK | Vol 0.05x | Gövde %14 ATR | Delta baskı %90"
+    },
+    "dynamic_exit": {
+      "atr_value": 9.4121,
+      "atr_trail_long": 2122.9196,
+      "atr_trail_short": 2168.5204,
+      "cvd_divergence": true,
+      "cvd_div_type": "bearish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.454e-05,
+      "funding_rate_pct": 0.0065,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 747762.7,
+      "oi_prev": 743600.51,
+      "oi_change_pct": 0.56,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 4.75
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 4.0
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-25T00:40:04.007060+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.0,
+    "entry": 2070.11,
+    "sl": 2077.1193,
+    "tp1": 2059.5961,
+    "tp2": 2049.0821,
+    "tp3": 2035.0636,
+    "leverage": 10,
+    "atr": 4.6729,
+    "orderflow": {
+      "delta": -14.9,
+      "delta_pct": -38.02,
+      "cvd": -39486.85,
+      "cvd_slope": -23410.7,
+      "imbalance": 0.2473,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.01,
+      "session_delta": -21075.77,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.01,
+      "body_vs_atr": 0.043,
+      "delta_pressure": 0.38,
+      "detail": "Absorption YOK | Vol 0.01x | Gövde %4 ATR | Delta baskı %38"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.6729,
+      "atr_trail_long": 2058.4279,
+      "atr_trail_short": 2081.3721,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2078.72,
+      "bpr_zone_bot": 2070.11
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.118e-05,
+      "funding_rate_pct": 0.0051,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 769193.92,
+      "oi_prev": 765292.57,
+      "oi_change_pct": 0.51,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.0
+    },
+    "outcome_price": 2085.44,
+    "outcome_time": "2026-05-25T01:05:02.147427+03:00"
+  },
+  {
+    "timestamp": "2026-05-25T10:05:04.054099+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.25,
+    "entry": 2115.77,
+    "sl": 2109.4227,
+    "tp1": 2125.291,
+    "tp2": 2134.8119,
+    "tp3": 2147.5066,
+    "leverage": 8,
+    "atr": 3.6821,
+    "orderflow": {
+      "delta": 305.76,
+      "delta_pct": 54.97,
+      "cvd": -20496.82,
+      "cvd_slope": 7478.52,
+      "imbalance": 0.8004,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.18,
+      "session_delta": 5453.7,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.18,
+      "body_vs_atr": 0.109,
+      "delta_pressure": 0.55,
+      "detail": "Absorption YOK | Vol 0.18x | Gövde %11 ATR | Delta baskı %55"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.6821,
+      "atr_trail_long": 2106.5646,
+      "atr_trail_short": 2124.3454,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.137e-05,
+      "funding_rate_pct": 0.0051,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 776336.37,
+      "oi_prev": 775590.12,
+      "oi_change_pct": 0.096,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 2.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "outcome_price": 2108.41,
+    "outcome_time": "2026-05-25T10:25:01.551746+03:00"
+  },
+  {
+    "timestamp": "2026-05-25T12:15:03.958357+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.75,
+    "entry": 2117.81,
+    "sl": 2111.4566,
+    "tp1": 2127.3401,
+    "tp2": 2136.8703,
+    "tp3": 2149.5772,
+    "leverage": 11,
+    "atr": 2.185,
+    "orderflow": {
+      "delta": 45.86,
+      "delta_pct": 3422.39,
+      "cvd": -24891.52,
+      "cvd_slope": 3620.84,
+      "imbalance": 35.1194,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": 2861.15,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.018,
+      "delta_pressure": 34.224,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %2 ATR | Delta baskı %3422"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.185,
+      "atr_trail_long": 2112.3475,
+      "atr_trail_short": 2123.2125,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.128e-05,
+      "funding_rate_pct": 0.0061,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 777688.79,
+      "oi_prev": 780322.67,
+      "oi_change_pct": -0.338,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.75
+    },
+    "outcome_price": 2128.1,
+    "outcome_time": "2026-05-25T17:50:02.133849+03:00"
+  },
+  {
+    "timestamp": "2026-05-25T23:40:14.139670+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2114.76,
+    "sl": 2121.1043,
+    "tp1": 2105.2436,
+    "tp2": 2095.7272,
+    "tp3": 2083.0386,
+    "leverage": 8,
+    "atr": 2.2964,
+    "orderflow": {
+      "delta": -7.88,
+      "delta_pct": -93.14,
+      "cvd": 11920.11,
+      "cvd_slope": -2538.87,
+      "imbalance": 0.0,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.005,
+      "session_delta": -2545.17,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.045,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.005,
+      "body_vs_atr": 0.091,
+      "delta_pressure": 0.931,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %9 ATR | Delta baskı %93"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.2964,
+      "atr_trail_long": 2109.2289,
+      "atr_trail_short": 2120.4911,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.183e-05,
+      "funding_rate_pct": 0.0082,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 788134.22,
+      "oi_prev": 785582.44,
+      "oi_change_pct": 0.325,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 3.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    }
+  },
+  {
+    "timestamp": "2026-05-26T03:40:04.641020+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -0.75,
+    "entry": 2099.26,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 2.6886,
+    "orderflow": {
+      "delta": -29.81,
+      "delta_pct": -4028.38,
+      "cvd": 24170.4,
+      "cvd_slope": -8679.16,
+      "imbalance": 1.0,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 1160.86,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.004,
+      "delta_pressure": 40.284,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %0 ATR | Delta baskı %4028"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.6886,
+      "atr_trail_long": 2092.5386,
+      "atr_trail_short": 2105.9714,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2103.73,
+      "bpr_zone_bot": 2099.26
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.8e-05,
+      "funding_rate_pct": 0.0058,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 782894.65,
+      "oi_prev": 783095.05,
+      "oi_change_pct": -0.026,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -0.75
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-27T00:10:03.432871+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2073.19,
+    "sl": 2079.4096,
+    "tp1": 2063.8606,
+    "tp2": 2054.5313,
+    "tp3": 2042.0922,
+    "leverage": 10,
+    "atr": 2.4614,
+    "orderflow": {
+      "delta": -67.86,
+      "delta_pct": -86.25,
+      "cvd": -27938.89,
+      "cvd_slope": -770.32,
+      "imbalance": 0.1469,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.056,
+      "session_delta": -588.03,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.056,
+      "body_vs_atr": 0.179,
+      "delta_pressure": 0.862,
+      "detail": "Absorption YOK | Vol 0.06x | Gövde %18 ATR | Delta baskı %86"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.4614,
+      "atr_trail_long": 2067.4764,
+      "atr_trail_short": 2079.3436,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.548e-05,
+      "funding_rate_pct": 0.0025,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 807686.53,
+      "oi_prev": 807641.72,
+      "oi_change_pct": 0.006,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2079.73,
+    "outcome_time": "2026-05-27T03:35:02.400311+03:00"
+  },
+  {
+    "timestamp": "2026-05-27T04:25:04.265090+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.75,
+    "entry": 2072.33,
+    "sl": 2078.547,
+    "tp1": 2063.0045,
+    "tp2": 2053.679,
+    "tp3": 2041.245,
+    "leverage": 10,
+    "atr": 3.0229,
+    "orderflow": {
+      "delta": -52.53,
+      "delta_pct": -75.37,
+      "cvd": -30767.14,
+      "cvd_slope": -3733.56,
+      "imbalance": 0.0689,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.028,
+      "session_delta": -3891.43,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.562,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.028,
+      "body_vs_atr": 0.023,
+      "delta_pressure": 0.754,
+      "detail": "Absorption YOK | Vol 0.03x | Gövde %2 ATR | Delta baskı %75"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.0229,
+      "atr_trail_long": 2064.8429,
+      "atr_trail_short": 2079.7971,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 1.199e-05,
+      "funding_rate_pct": 0.0012,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 814386.41,
+      "oi_prev": 814802.23,
+      "oi_change_pct": -0.051,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "outcome_price": 2060.26,
+    "outcome_time": "2026-05-27T07:35:02.091386+03:00"
+  },
+  {
+    "timestamp": "2026-05-27T07:35:04.060134+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2060.26,
+    "sl": 2066.4408,
+    "tp1": 2050.9888,
+    "tp2": 2041.7177,
+    "tp3": 2029.3561,
+    "leverage": 8,
+    "atr": 3.3943,
+    "orderflow": {
+      "delta": -14.26,
+      "delta_pct": -25.25,
+      "cvd": -26827.83,
+      "cvd_slope": -7426.79,
+      "imbalance": 0.0163,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.02,
+      "session_delta": -12019.4,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.455,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.02,
+      "body_vs_atr": 0.015,
+      "delta_pressure": 0.253,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %1 ATR | Delta baskı %25"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.3943,
+      "atr_trail_long": 2051.8343,
+      "atr_trail_short": 2068.6957,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 1.199e-05,
+      "funding_rate_pct": 0.0012,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 818321.97,
+      "oi_prev": 819487.36,
+      "oi_change_pct": -0.142,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "GÜÇLÜ",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2071.37,
+    "outcome_time": "2026-05-27T07:55:02.386624+03:00"
+  },
+  {
+    "timestamp": "2026-05-27T11:30:03.479612+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 7.75,
+    "entry": 2093.07,
+    "sl": 2086.7908,
+    "tp1": 2102.4888,
+    "tp2": 2111.9076,
+    "tp3": 2124.466,
+    "leverage": 10,
+    "atr": 2.955,
+    "orderflow": {
+      "delta": 278.63,
+      "delta_pct": 480.89,
+      "cvd": -24493.66,
+      "cvd_slope": 14795.06,
+      "imbalance": 4.8089,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.017,
+      "session_delta": 19011.89,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.017,
+      "body_vs_atr": 0.051,
+      "delta_pressure": 4.809,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %5 ATR | Delta baskı %481"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.955,
+      "atr_trail_long": 2085.6825,
+      "atr_trail_short": 2100.3075,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -3.378e-05,
+      "funding_rate_pct": -0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 825650.05,
+      "oi_prev": 830520.31,
+      "oi_change_pct": -0.586,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": 0.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 3.75
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "outcome_price": 2083.89,
+    "outcome_time": "2026-05-27T11:55:02.382574+03:00"
+  },
+  {
+    "timestamp": "2026-05-27T16:40:14.103361+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.75,
+    "entry": 2058.44,
+    "sl": 2065.8854,
+    "tp1": 2047.272,
+    "tp2": 2036.1039,
+    "tp3": 2021.2132,
+    "leverage": 10,
+    "atr": 4.9636,
+    "orderflow": {
+      "delta": -72.02,
+      "delta_pct": -20.0,
+      "cvd": -55759.8,
+      "cvd_slope": -8399.99,
+      "imbalance": 0.4,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.054,
+      "session_delta": -12975.75,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.325,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.054,
+      "body_vs_atr": 0.212,
+      "delta_pressure": 0.2,
+      "detail": "Absorption YOK | Vol 0.05x | Gövde %21 ATR | Delta baskı %20"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.9636,
+      "atr_trail_long": 2047.0911,
+      "atr_trail_short": 2070.3389,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -3.378e-05,
+      "funding_rate_pct": -0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 826700.29,
+      "oi_prev": 826588.39,
+      "oi_change_pct": 0.014,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -5.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -9.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "outcome_price": 2069.32,
+    "outcome_time": "2026-05-27T17:05:02.500417+03:00"
+  },
+  {
+    "timestamp": "2026-05-27T17:25:05.937662+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 1.75,
+    "entry": 2055.86,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 7.3957,
+    "orderflow": {
+      "delta": 10.93,
+      "delta_pct": 39.08,
+      "cvd": -66185.65,
+      "cvd_slope": -8533.84,
+      "imbalance": 1.1666,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.003,
+      "session_delta": -25279.28,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.985,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.046,
+      "delta_pressure": 0.391,
+      "detail": "Absorption YOK | Vol 0.00x | Gövde %5 ATR | Delta baskı %39"
+    },
+    "dynamic_exit": {
+      "atr_value": 7.3957,
+      "atr_trail_long": 2037.3807,
+      "atr_trail_short": 2073.7093,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -3.378e-05,
+      "funding_rate_pct": -0.0034,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 863129.99,
+      "oi_prev": 862584.89,
+      "oi_change_pct": 0.063,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "reversal_warned": true
+  },
+  {
+    "timestamp": "2026-05-28T00:30:04.433619+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.25,
+    "entry": 2054.7,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 2.25,
+    "orderflow": {
+      "delta": -52.53,
+      "delta_pct": -101.84,
+      "cvd": -45497.36,
+      "cvd_slope": -1449.67,
+      "imbalance": 0.0153,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.025,
+      "session_delta": -3330.69,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.025,
+      "body_vs_atr": 0.107,
+      "delta_pressure": 1.018,
+      "detail": "Absorption YOK | Vol 0.02x | Gövde %11 ATR | Delta baskı %102"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.25,
+      "atr_trail_long": 2049.315,
+      "atr_trail_short": 2060.325,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 9.37e-06,
+      "funding_rate_pct": 0.0009,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 857324.13,
+      "oi_prev": 857484.42,
+      "oi_change_pct": -0.019,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_4h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.25
+    },
+    "reversal_warned": true
   }
 ]

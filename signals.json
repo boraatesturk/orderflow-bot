@@ -9,7 +9,7 @@
     "delta": 170.67,
     "cvd": 148.16,
     "imbalance": 65.0,
-    "result": "❌ KAYBETTİ",
+    "result": "\u274c KAYBETT\u0130",
     "exit_price": 2378.33,
     "pnl_pct": -0.185
   },
@@ -30,7 +30,7 @@
     "tp3": null,
     "sl_pct": null,
     "risk_usd": null,
-    "result": "—",
+    "result": "\u2014",
     "exit_price": null,
     "pnl_pct": null,
     "ml_signal": "N/A",
@@ -55,9 +55,9 @@
     "tp3": 2447.59,
     "sl_pct": 0.3,
     "risk_usd": 22.5,
-    "result": null,
-    "exit_price": null,
-    "pnl_pct": null,
+    "result": "\u274c KAYBETT\u0130",
+    "exit_price": 2356.46,
+    "pnl_pct": -2.279,
     "ml_signal": "N/A",
     "ml_conf": 0,
     "ml_weighted": "N/A",
@@ -80,7 +80,7 @@
     "tp3": null,
     "sl_pct": null,
     "risk_usd": null,
-    "result": "—",
+    "result": "\u2014",
     "exit_price": null,
     "pnl_pct": null,
     "ml_signal": "SELL",
@@ -105,12 +105,5587 @@
     "tp3": null,
     "sl_pct": null,
     "risk_usd": null,
-    "result": "—",
+    "result": "\u2014",
     "exit_price": null,
     "pnl_pct": null,
     "ml_signal": "SELL",
     "ml_conf": 66.4,
     "ml_weighted": "FLAT",
     "ml_uyum": "ML_ONCU"
+  },
+  {
+    "time_utc": "2026-05-06T14:20:40.200245+00:00",
+    "time_tr": "06/05/2026 17:20",
+    "signal": "FLAT",
+    "price": 2356.46,
+    "score_buy": 0.0,
+    "score_sell": 2.25,
+    "delta": 0.0,
+    "cvd": 0.0,
+    "imbalance": 50.0,
+    "leverage": null,
+    "sl": null,
+    "tp1": null,
+    "tp2": null,
+    "tp3": null,
+    "sl_pct": null,
+    "risk_usd": null,
+    "result": "\u2014",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "FLAT",
+    "ml_conf": 53.1,
+    "ml_weighted": "UP",
+    "ml_uyum": "FLAT"
+  },
+  {
+    "time_utc": "2026-05-06T15:09:36.902385+00:00",
+    "time_tr": "06/05/2026 18:09",
+    "signal": "FLAT",
+    "price": 2360.69,
+    "score_buy": 0.5,
+    "score_sell": 2.25,
+    "delta": 0.0,
+    "cvd": 0.0,
+    "imbalance": 50.0,
+    "leverage": null,
+    "sl": null,
+    "tp1": null,
+    "tp2": null,
+    "tp3": null,
+    "sl_pct": null,
+    "risk_usd": null,
+    "result": "\u2014",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "SELL",
+    "ml_conf": 62.7,
+    "ml_weighted": "UP",
+    "ml_uyum": "ML_ONCU"
+  },
+  {
+    "time_utc": "2026-05-06T16:42:22.447597+00:00",
+    "time_tr": "06/05/2026 19:42",
+    "signal": "FLAT",
+    "price": 2356.45,
+    "score_buy": 0.5,
+    "score_sell": 2.25,
+    "delta": 0.0,
+    "cvd": 0.0,
+    "imbalance": 50.0,
+    "leverage": null,
+    "sl": null,
+    "tp1": null,
+    "tp2": null,
+    "tp3": null,
+    "sl_pct": null,
+    "risk_usd": null,
+    "result": "\u2014",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "SELL",
+    "ml_conf": 61.6,
+    "ml_weighted": "DOWN",
+    "ml_uyum": "ML_ONCU"
+  },
+  {
+    "time_utc": "2026-05-06T16:52:18.190145+00:00",
+    "time_tr": "06/05/2026 19:52",
+    "signal": "FLAT",
+    "price": 2358.11,
+    "score_buy": 0.5,
+    "score_sell": 2.25,
+    "delta": 0.0,
+    "cvd": 0.0,
+    "imbalance": 50.0,
+    "leverage": 2,
+    "sl": 2365.18,
+    "tp1": 2347.5,
+    "tp2": 2336.89,
+    "tp3": 2322.74,
+    "sl_pct": 0.3,
+    "risk_usd": 15.0,
+    "result": "\u2014",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "SELL",
+    "ml_conf": 65.8,
+    "ml_weighted": "DOWN",
+    "ml_uyum": "ML_ONCU"
+  },
+  {
+    "time_utc": "2026-05-06T17:00:59.552162+00:00",
+    "time_tr": "06/05/2026 20:00",
+    "signal": "FLAT",
+    "price": 2356.81,
+    "score_buy": 0.0,
+    "score_sell": 2.25,
+    "delta": 0.0,
+    "cvd": 0.0,
+    "imbalance": 50.0,
+    "leverage": 2,
+    "sl": 2363.88,
+    "tp1": 2346.2,
+    "tp2": 2335.6,
+    "tp3": 2321.46,
+    "sl_pct": 0.3,
+    "risk_usd": 15.0,
+    "result": "\u2014",
+    "exit_price": null,
+    "pnl_pct": null,
+    "ml_signal": "SELL",
+    "ml_conf": 67.4,
+    "ml_weighted": "UP",
+    "ml_uyum": "ML_ONCU"
+  },
+  {
+    "timestamp": "2026-05-07T20:10:02.529123+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -5.25,
+    "entry": 2290.97,
+    "sl": 2297.8429,
+    "tp1": 2280.6606,
+    "tp2": 2270.3513,
+    "tp3": 2256.6054,
+    "leverage": 7,
+    "atr": 3.9293,
+    "orderflow": {
+      "delta": -21.95,
+      "delta_pct": -60.0,
+      "cvd": -127839.28,
+      "cvd_slope": -1073.8,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.011,
+      "session_delta": -2115.08,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.011,
+      "body_vs_atr": 0.048,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | G\u00f6vde %5 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.9293,
+      "atr_trail_long": 2281.3468,
+      "atr_trail_short": 2300.7932,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2293.16,
+      "bpr_zone_bot": 2289.17
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "outcome": null,
+    "type": "SIGNAL"
+  },
+  {
+    "timestamp": "2026-05-07T20:17:23.852023+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -1.75,
+    "entry": 2289.98,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.0229,
+    "orderflow": {
+      "delta": -256.28,
+      "delta_pct": -60.0,
+      "cvd": -125615.4,
+      "cvd_slope": 69.52,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.151,
+      "session_delta": 1038.93,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.151,
+      "body_vs_atr": 0.654,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.15x | G\u00f6vde %65 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.0229,
+      "atr_trail_long": 2282.5529,
+      "atr_trail_short": 2300.0371,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2293.16,
+      "bpr_zone_bot": 2289.17
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.77e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 831657.14,
+      "oi_prev": 831359.66,
+      "oi_change_pct": 0.036,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 2,
+    "note": "ORTA",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -5.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -1.75
+    }
+  },
+  {
+    "timestamp": "2026-05-07T20:20:02.793910+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -5.25,
+    "entry": 2287.07,
+    "sl": 2293.9312,
+    "tp1": 2276.7782,
+    "tp2": 2266.4864,
+    "tp3": 2252.764,
+    "leverage": 7,
+    "atr": 3.9971,
+    "orderflow": {
+      "delta": -2.05,
+      "delta_pct": -60.0,
+      "cvd": -122358.29,
+      "cvd_slope": -1392.71,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -2464.55,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.113,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %11 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.9971,
+      "atr_trail_long": 2277.5271,
+      "atr_trail_short": 2297.0629,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.77e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 831562.71,
+      "oi_prev": 831657.14,
+      "oi_change_pct": -0.011,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -5.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -5.25
+    },
+    "outcome_price": 2276.63,
+    "outcome_time": "2026-05-12T16:50:02.337480+03:00"
+  },
+  {
+    "timestamp": "2026-05-07T20:30:03.171581+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.0,
+    "entry": 2286.8,
+    "sl": 2293.9614,
+    "tp1": 2276.0579,
+    "tp2": 2265.3157,
+    "tp3": 2250.9929,
+    "leverage": 9,
+    "atr": 4.7743,
+    "orderflow": {
+      "delta": -3.65,
+      "delta_pct": -60.0,
+      "cvd": -130780.13,
+      "cvd_slope": -13741.84,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": -15395.53,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.105,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %10 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.7743,
+      "atr_trail_long": 2275.5243,
+      "atr_trail_short": 2298.7357,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.77e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 832663.2,
+      "oi_prev": 831562.71,
+      "oi_change_pct": 0.132,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 2,
+    "note": "ORTA",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 0.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.0
+    },
+    "outcome_price": 2270.32,
+    "outcome_time": "2026-05-12T17:00:01.877423+03:00"
+  },
+  {
+    "timestamp": "2026-05-07T20:40:03.401615+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -5.25,
+    "entry": 2290.63,
+    "sl": 2297.9457,
+    "tp1": 2279.6564,
+    "tp2": 2268.6829,
+    "tp3": 2254.0514,
+    "leverage": 7,
+    "atr": 4.8771,
+    "orderflow": {
+      "delta": -0.25,
+      "delta_pct": -60.0,
+      "cvd": -129545.42,
+      "cvd_slope": -8807.3,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -9396.59,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.018,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %2 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.8771,
+      "atr_trail_long": 2278.5271,
+      "atr_trail_short": 2302.8229,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2293.16,
+      "bpr_zone_bot": 2289.17
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.77e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 828738.85,
+      "oi_prev": 829273.94,
+      "oi_change_pct": -0.065,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 2,
+    "note": "ORTA",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -5.25
+    },
+    "outcome_price": 2279.3,
+    "outcome_time": "2026-05-12T16:35:02.404879+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T01:05:02.726836+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2284.32,
+    "sl": 2291.173,
+    "tp1": 2274.0406,
+    "tp2": 2263.7611,
+    "tp3": 2250.0552,
+    "leverage": 10,
+    "atr": 3.7214,
+    "orderflow": {
+      "delta": -3.68,
+      "delta_pct": -60.0,
+      "cvd": -169073.46,
+      "cvd_slope": -5556.54,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.002,
+      "session_delta": -4616.4,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.105,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %10 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.7214,
+      "atr_trail_long": 2275.4064,
+      "atr_trail_short": 2293.6236,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.77e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 825223.19,
+      "oi_prev": 824853.29,
+      "oi_change_pct": 0.045,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2293.44,
+    "outcome_time": "2026-05-12T15:30:01.824440+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T01:15:03.106732+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.0,
+    "entry": 2286.43,
+    "sl": 2293.2893,
+    "tp1": 2276.1411,
+    "tp2": 2265.8521,
+    "tp3": 2252.1336,
+    "leverage": 9,
+    "atr": 3.8143,
+    "orderflow": {
+      "delta": -0.53,
+      "delta_pct": -60.0,
+      "cvd": -177540.12,
+      "cvd_slope": -13974.93,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -18095.35,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.039,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %4 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.8143,
+      "atr_trail_long": 2277.0443,
+      "atr_trail_short": 2295.9657,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2286.69,
+      "bpr_zone_bot": 2284.86
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.77e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 831688.94,
+      "oi_prev": 826583.35,
+      "oi_change_pct": 0.618,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.0
+    },
+    "outcome_price": 2293.44,
+    "outcome_time": "2026-05-12T15:30:01.824768+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T05:10:03.519730+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -9.0,
+    "entry": 2275.7,
+    "sl": 2282.5271,
+    "tp1": 2265.4593,
+    "tp2": 2255.2187,
+    "tp3": 2241.5645,
+    "leverage": 11,
+    "atr": 3.89,
+    "orderflow": {
+      "delta": -0.32,
+      "delta_pct": -60.0,
+      "cvd": -189550.08,
+      "cvd_slope": -23169.61,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -22463.44,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.036,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %4 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.89,
+      "atr_trail_long": 2266.115,
+      "atr_trail_short": 2285.425,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.133e-05,
+      "funding_rate_pct": 0.0051,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 849454.58,
+      "oi_prev": 848101.08,
+      "oi_change_pct": 0.16,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -9.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175489+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T05:20:03.391593+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2270.03,
+    "sl": 2276.8401,
+    "tp1": 2259.8149,
+    "tp2": 2249.5997,
+    "tp3": 2235.9796,
+    "leverage": 8,
+    "atr": 4.4429,
+    "orderflow": {
+      "delta": -24.21,
+      "delta_pct": -60.0,
+      "cvd": -201667.21,
+      "cvd_slope": -13252.42,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.008,
+      "session_delta": -36166.19,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.008,
+      "body_vs_atr": 0.131,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | G\u00f6vde %13 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.4429,
+      "atr_trail_long": 2259.7029,
+      "atr_trail_short": 2281.1371,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.133e-05,
+      "funding_rate_pct": 0.0051,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 850808.01,
+      "oi_prev": 849454.58,
+      "oi_change_pct": 0.159,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175524+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T10:15:03.505887+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2267.24,
+    "sl": 2274.0417,
+    "tp1": 2257.0374,
+    "tp2": 2246.8348,
+    "tp3": 2233.2314,
+    "leverage": 10,
+    "atr": 3.3257,
+    "orderflow": {
+      "delta": -5.21,
+      "delta_pct": -60.0,
+      "cvd": -209297.33,
+      "cvd_slope": -5292.92,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.003,
+      "session_delta": -7364.84,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.075,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %8 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.3257,
+      "atr_trail_long": 2259.1757,
+      "atr_trail_short": 2275.5543,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 5.133e-05,
+      "funding_rate_pct": 0.0051,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 824066.18,
+      "oi_prev": 824546.39,
+      "oi_change_pct": -0.058,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175538+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T19:00:03.238962+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.25,
+    "entry": 2292.99,
+    "sl": 2285.9829,
+    "tp1": 2303.5007,
+    "tp2": 2314.0114,
+    "tp3": 2328.0257,
+    "leverage": 10,
+    "atr": 4.6714,
+    "orderflow": {
+      "delta": 40.15,
+      "delta_pct": 60.0,
+      "cvd": -116262.19,
+      "cvd_slope": 6318.22,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.022,
+      "session_delta": 4486.18,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.983,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.022,
+      "body_vs_atr": 0.126,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | G\u00f6vde %13 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.6714,
+      "atr_trail_long": 2281.3214,
+      "atr_trail_short": 2304.0786,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.74e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 826896.69,
+      "oi_prev": 827378.84,
+      "oi_change_pct": -0.058,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175550+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T21:50:03.475435+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.25,
+    "entry": 2318.3,
+    "sl": 2310.6575,
+    "tp1": 2329.7638,
+    "tp2": 2341.2275,
+    "tp3": 2356.5125,
+    "leverage": 10,
+    "atr": 5.095,
+    "orderflow": {
+      "delta": 105.62,
+      "delta_pct": 60.0,
+      "cvd": -63182.78,
+      "cvd_slope": 379.75,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.023,
+      "session_delta": 11266.42,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.71,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.023,
+      "body_vs_atr": 0.086,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | G\u00f6vde %9 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.095,
+      "atr_trail_long": 2305.7425,
+      "atr_trail_short": 2330.5975,
+      "cvd_divergence": true,
+      "cvd_div_type": "bearish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.74e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 838954.08,
+      "oi_prev": 839636.14,
+      "oi_change_pct": -0.081,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175559+03:00"
+  },
+  {
+    "timestamp": "2026-05-08T21:55:03.929041+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.25,
+    "entry": 2318.46,
+    "sl": 2311.215,
+    "tp1": 2329.3275,
+    "tp2": 2340.195,
+    "tp3": 2354.685,
+    "leverage": 8,
+    "atr": 4.83,
+    "orderflow": {
+      "delta": 0.65,
+      "delta_pct": 60.0,
+      "cvd": -67438.82,
+      "cvd_slope": 7164.59,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 21669.99,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.1,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.002,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.83,
+      "atr_trail_long": 2306.475,
+      "atr_trail_short": 2330.525,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.74e-06,
+      "funding_rate_pct": 0.0003,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 838954.08,
+      "oi_prev": 839636.14,
+      "oi_change_pct": -0.081,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175569+03:00"
+  },
+  {
+    "timestamp": "2026-05-09T20:05:03.145905+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.25,
+    "entry": 2322.23,
+    "sl": 2315.2633,
+    "tp1": 2332.68,
+    "tp2": 2343.1301,
+    "tp3": 2357.0634,
+    "leverage": 8,
+    "atr": 2.9686,
+    "orderflow": {
+      "delta": 4.22,
+      "delta_pct": 60.0,
+      "cvd": 27520.39,
+      "cvd_slope": 2571.97,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": 10030.04,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.02,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %2 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.9686,
+      "atr_trail_long": 2314.8086,
+      "atr_trail_short": 2329.5914,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.766e-05,
+      "funding_rate_pct": 0.0028,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 818337.04,
+      "oi_prev": 818413.54,
+      "oi_change_pct": -0.009,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175580+03:00"
+  },
+  {
+    "timestamp": "2026-05-09T21:30:03.545782+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.75,
+    "entry": 2335.84,
+    "sl": 2328.8325,
+    "tp1": 2346.3513,
+    "tp2": 2356.8626,
+    "tp3": 2370.8776,
+    "leverage": 11,
+    "atr": 2.6664,
+    "orderflow": {
+      "delta": 58.32,
+      "delta_pct": 60.0,
+      "cvd": 20424.93,
+      "cvd_slope": 6949.63,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.022,
+      "session_delta": 4493.74,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.022,
+      "body_vs_atr": 0.101,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | G\u00f6vde %10 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.6664,
+      "atr_trail_long": 2329.1739,
+      "atr_trail_short": 2342.1961,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.766e-05,
+      "funding_rate_pct": 0.0028,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 817062.24,
+      "oi_prev": 818802.79,
+      "oi_change_pct": -0.213,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175591+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T04:05:02.991074+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -7.75,
+    "entry": 2321.56,
+    "sl": 2328.5247,
+    "tp1": 2311.113,
+    "tp2": 2300.666,
+    "tp3": 2286.7366,
+    "leverage": 10,
+    "atr": 2.3371,
+    "orderflow": {
+      "delta": -0.28,
+      "delta_pct": -60.0,
+      "cvd": 7820.81,
+      "cvd_slope": -5354.78,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -6079.91,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.004,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.3371,
+      "atr_trail_long": 2315.7271,
+      "atr_trail_short": 2327.4029,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.816e-05,
+      "funding_rate_pct": 0.0028,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 799569.59,
+      "oi_prev": 804759.44,
+      "oi_change_pct": -0.645,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "TP3",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175600+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T04:35:03.031447+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.75,
+    "entry": 2318.42,
+    "sl": 2325.3753,
+    "tp1": 2307.9871,
+    "tp2": 2297.5542,
+    "tp3": 2283.6437,
+    "leverage": 9,
+    "atr": 2.4564,
+    "orderflow": {
+      "delta": -0.16,
+      "delta_pct": -60.0,
+      "cvd": -578.53,
+      "cvd_slope": -2865.7,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.0,
+      "session_delta": -11538.61,
+      "price_vs_vwap": "at",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": 0.0,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.004,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.4564,
+      "atr_trail_long": 2312.2889,
+      "atr_trail_short": 2324.5611,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.816e-05,
+      "funding_rate_pct": 0.0028,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 795912.05,
+      "oi_prev": 796292.37,
+      "oi_change_pct": -0.048,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP2",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175624+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T14:30:03.412619+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.75,
+    "entry": 2320.89,
+    "sl": 2327.8527,
+    "tp1": 2310.446,
+    "tp2": 2300.002,
+    "tp3": 2286.0766,
+    "leverage": 9,
+    "atr": 1.8679,
+    "orderflow": {
+      "delta": -0.22,
+      "delta_pct": -60.0,
+      "cvd": 4168.73,
+      "cvd_slope": -2189.93,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -3070.08,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.005,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %1 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 1.8679,
+      "atr_trail_long": 2316.2304,
+      "atr_trail_short": 2325.5596,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.343e-05,
+      "funding_rate_pct": 0.0073,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 776800.31,
+      "oi_prev": 777786.85,
+      "oi_change_pct": -0.127,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "TP3",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -7.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175634+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T18:30:03.470248+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 1.75,
+    "entry": 2333.61,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.0893,
+    "orderflow": {
+      "delta": 9.41,
+      "delta_pct": 60.0,
+      "cvd": 15817.62,
+      "cvd_slope": -1387.82,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.01,
+      "session_delta": -3150.57,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.01,
+      "body_vs_atr": 0.071,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | G\u00f6vde %7 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.0893,
+      "atr_trail_long": 2325.8868,
+      "atr_trail_short": 2341.1132,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.343e-05,
+      "funding_rate_pct": 0.0073,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 778518.24,
+      "oi_prev": 777856.16,
+      "oi_change_pct": 0.085,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 1.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T18:35:03.646113+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.25,
+    "entry": 2335.66,
+    "sl": 2328.653,
+    "tp1": 2346.1705,
+    "tp2": 2356.6809,
+    "tp3": 2370.6949,
+    "leverage": 8,
+    "atr": 3.1629,
+    "orderflow": {
+      "delta": 0.39,
+      "delta_pct": 60.0,
+      "cvd": 19585.66,
+      "cvd_slope": 1659.37,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -1508.59,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.1629,
+      "atr_trail_long": 2327.7529,
+      "atr_trail_short": 2343.5671,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2335.66,
+      "bpr_zone_bot": 2334.49
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.343e-05,
+      "funding_rate_pct": 0.0073,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 778582.91,
+      "oi_prev": 778518.24,
+      "oi_change_pct": 0.008,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175644+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T18:40:04.196460+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 9.0,
+    "entry": 2339.44,
+    "sl": 2332.4217,
+    "tp1": 2349.9675,
+    "tp2": 2360.495,
+    "tp3": 2374.5316,
+    "leverage": 11,
+    "atr": 3.4579,
+    "orderflow": {
+      "delta": 40.1,
+      "delta_pct": 60.0,
+      "cvd": 29594.09,
+      "cvd_slope": 13404.85,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.025,
+      "session_delta": 12658.83,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.025,
+      "body_vs_atr": 0.026,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | G\u00f6vde %3 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4579,
+      "atr_trail_long": 2330.7954,
+      "atr_trail_short": 2347.8746,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.343e-05,
+      "funding_rate_pct": 0.0073,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 779411.09,
+      "oi_prev": 778582.91,
+      "oi_change_pct": 0.106,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 9.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175654+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T18:50:04.169257+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.75,
+    "entry": 2346.44,
+    "sl": 2339.4007,
+    "tp1": 2356.999,
+    "tp2": 2367.558,
+    "tp3": 2381.6366,
+    "leverage": 11,
+    "atr": 4.1507,
+    "orderflow": {
+      "delta": 139.28,
+      "delta_pct": 60.0,
+      "cvd": 43224.01,
+      "cvd_slope": 25267.58,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.062,
+      "session_delta": 27840.34,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.871,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.062,
+      "body_vs_atr": 0.149,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.06x | G\u00f6vde %15 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.1507,
+      "atr_trail_long": 2336.1832,
+      "atr_trail_short": 2356.0068,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 7.343e-05,
+      "funding_rate_pct": 0.0073,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 769158.27,
+      "oi_prev": 773260.69,
+      "oi_change_pct": -0.531,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175663+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T19:00:03.593798+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.0,
+    "entry": 2348.59,
+    "sl": 2341.5442,
+    "tp1": 2359.1587,
+    "tp2": 2369.7273,
+    "tp3": 2383.8188,
+    "leverage": 8,
+    "atr": 4.085,
+    "orderflow": {
+      "delta": 715.25,
+      "delta_pct": 60.0,
+      "cvd": 43760.32,
+      "cvd_slope": 10759.21,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.283,
+      "session_delta": 25259.32,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.994,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.283,
+      "body_vs_atr": 0.404,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.28x | G\u00f6vde %40 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.085,
+      "atr_trail_long": 2338.3875,
+      "atr_trail_short": 2357.1525,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 768860.79,
+      "oi_prev": 767888.41,
+      "oi_change_pct": 0.127,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175671+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T20:00:04.153213+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 1.75,
+    "entry": 2349.47,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.5421,
+    "orderflow": {
+      "delta": 11.47,
+      "delta_pct": 60.0,
+      "cvd": 20022.1,
+      "cvd_slope": -396.74,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.004,
+      "session_delta": -5531.21,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.004,
+      "body_vs_atr": 0.13,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %13 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.5421,
+      "atr_trail_long": 2340.6146,
+      "atr_trail_short": 2357.8654,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 776850.96,
+      "oi_prev": 776262.18,
+      "oi_change_pct": 0.076,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 1.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T20:05:03.609319+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -2.75,
+    "entry": 2350.11,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.485,
+    "orderflow": {
+      "delta": -2.67,
+      "delta_pct": -60.0,
+      "cvd": 17305.04,
+      "cvd_slope": -606.15,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": 1056.12,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.056,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.049,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %5 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.485,
+      "atr_trail_long": 2341.5675,
+      "atr_trail_short": 2358.8125,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 776850.96,
+      "oi_prev": 776262.18,
+      "oi_change_pct": 0.076,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -2.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T20:20:03.917050+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.5,
+    "entry": 2349.5,
+    "sl": 2342.4515,
+    "tp1": 2360.0728,
+    "tp2": 2370.6455,
+    "tp3": 2384.7425,
+    "leverage": 11,
+    "atr": 4.2007,
+    "orderflow": {
+      "delta": 0.11,
+      "delta_pct": 60.0,
+      "cvd": 18299.98,
+      "cvd_slope": 4991.26,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 10329.02,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.2007,
+      "atr_trail_long": 2338.9982,
+      "atr_trail_short": 2360.0018,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 775975.71,
+      "oi_prev": 773121.53,
+      "oi_change_pct": 0.369,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": 5.75
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.75
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 4.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.5
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175681+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T20:30:03.464208+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.25,
+    "entry": 2354.82,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.47,
+    "orderflow": {
+      "delta": 2.33,
+      "delta_pct": 60.0,
+      "cvd": 19613.96,
+      "cvd_slope": 8355.88,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": 10872.48,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.031,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %3 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.47,
+      "atr_trail_long": 2343.645,
+      "atr_trail_short": 2365.855,
+      "cvd_divergence": true,
+      "cvd_div_type": "bearish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 772810.23,
+      "oi_prev": 772150.7,
+      "oi_change_pct": 0.085,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.25
+    }
+  },
+  {
+    "timestamp": "2026-05-10T20:35:04.125843+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 2.75,
+    "entry": 2354.14,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.345,
+    "orderflow": {
+      "delta": 1.51,
+      "delta_pct": 60.0,
+      "cvd": 18237.16,
+      "cvd_slope": -140.18,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 6426.17,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.345,
+      "atr_trail_long": 2343.2875,
+      "atr_trail_short": 2365.0025,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 770377.04,
+      "oi_prev": 772810.23,
+      "oi_change_pct": -0.315,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 4.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 2.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T20:45:04.209460+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 2.75,
+    "entry": 2355.0,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.34,
+    "orderflow": {
+      "delta": 0.05,
+      "delta_pct": 60.0,
+      "cvd": 13993.35,
+      "cvd_slope": -4166.55,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 3540.23,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.34,
+      "atr_trail_long": 2344.15,
+      "atr_trail_short": 2365.85,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2355.0,
+      "bpr_zone_bot": 2354.7
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 771009.97,
+      "oi_prev": 770377.04,
+      "oi_change_pct": 0.082,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 2.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T20:50:03.631314+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -0.75,
+    "entry": 2354.79,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.3057,
+    "orderflow": {
+      "delta": -6.89,
+      "delta_pct": -60.0,
+      "cvd": 15718.24,
+      "cvd_slope": 228.59,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.003,
+      "session_delta": 6704.29,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.065,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %7 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.3057,
+      "atr_trail_long": 2344.3057,
+      "atr_trail_short": 2365.5543,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 770621.31,
+      "oi_prev": 771009.97,
+      "oi_change_pct": -0.05,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -0.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -0.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T20:55:04.074502+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.25,
+    "entry": 2363.93,
+    "sl": 2356.6818,
+    "tp1": 2374.8023,
+    "tp2": 2385.6746,
+    "tp3": 2400.1711,
+    "leverage": 10,
+    "atr": 4.8321,
+    "orderflow": {
+      "delta": 95.82,
+      "delta_pct": 60.0,
+      "cvd": 25989.15,
+      "cvd_slope": 11531.59,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.031,
+      "session_delta": 17984.62,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.031,
+      "body_vs_atr": 0.124,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | G\u00f6vde %12 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.8321,
+      "atr_trail_long": 2351.8496,
+      "atr_trail_short": 2375.4104,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 770356.3,
+      "oi_prev": 770621.31,
+      "oi_change_pct": -0.034,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 5,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175694+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T21:00:07.068686+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.25,
+    "entry": 2364.0,
+    "sl": 2356.8364,
+    "tp1": 2374.7454,
+    "tp2": 2385.4907,
+    "tp3": 2399.8179,
+    "leverage": 10,
+    "atr": 4.7757,
+    "orderflow": {
+      "delta": 19.66,
+      "delta_pct": 60.0,
+      "cvd": 24030.56,
+      "cvd_slope": 12605.02,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.006,
+      "session_delta": 16748.68,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.006,
+      "body_vs_atr": 0.14,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | G\u00f6vde %14 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.7757,
+      "atr_trail_long": 2352.0607,
+      "atr_trail_short": 2375.2693,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 766412.28,
+      "oi_prev": 766268.4,
+      "oi_change_pct": 0.019,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 5,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175703+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T21:15:04.009052+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.25,
+    "entry": 2364.8,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 4.2879,
+    "orderflow": {
+      "delta": 14.33,
+      "delta_pct": 60.0,
+      "cvd": 23203.31,
+      "cvd_slope": 1148.89,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.005,
+      "session_delta": 12886.76,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.005,
+      "body_vs_atr": 0.065,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %7 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.2879,
+      "atr_trail_long": 2354.0804,
+      "atr_trail_short": 2375.2396,
+      "cvd_divergence": true,
+      "cvd_div_type": "bearish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 767173.3,
+      "oi_prev": 767199.65,
+      "oi_change_pct": -0.003,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.25
+    }
+  },
+  {
+    "timestamp": "2026-05-10T22:20:03.514739+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.75,
+    "entry": 2359.79,
+    "sl": 2352.7106,
+    "tp1": 2370.4091,
+    "tp2": 2381.0281,
+    "tp3": 2395.1868,
+    "leverage": 9,
+    "atr": 3.4443,
+    "orderflow": {
+      "delta": 1.03,
+      "delta_pct": 60.0,
+      "cvd": 16330.43,
+      "cvd_slope": 3457.91,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": -4707.95,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.061,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %6 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4443,
+      "atr_trail_long": 2351.1793,
+      "atr_trail_short": 2368.1807,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2361.74,
+      "bpr_zone_bot": 2356.8
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761920.52,
+      "oi_prev": 762028.41,
+      "oi_change_pct": -0.014,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 2.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175712+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T22:25:05.048750+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.75,
+    "entry": 2363.66,
+    "sl": 2356.569,
+    "tp1": 2374.2965,
+    "tp2": 2384.9329,
+    "tp3": 2399.1149,
+    "leverage": 9,
+    "atr": 3.4157,
+    "orderflow": {
+      "delta": 0.48,
+      "delta_pct": 60.0,
+      "cvd": 11388.63,
+      "cvd_slope": 2647.39,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -1938.56,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.006,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %1 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4157,
+      "atr_trail_long": 2355.1207,
+      "atr_trail_short": 2372.1693,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761792.22,
+      "oi_prev": 761920.52,
+      "oi_change_pct": -0.017,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 3.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175721+03:00"
+  },
+  {
+    "timestamp": "2026-05-10T22:35:03.471150+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 1.75,
+    "entry": 2364.67,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.285,
+    "orderflow": {
+      "delta": 0.0,
+      "delta_pct": 0.0,
+      "cvd": 17669.66,
+      "cvd_slope": 700.45,
+      "imbalance": NaN,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 1263.02,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 0.0,
+        "cvd": 1.0,
+        "imbalance": 0.0,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %0"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.285,
+      "atr_trail_long": 2356.4575,
+      "atr_trail_short": 2372.8825,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761692.53,
+      "oi_prev": 761324.61,
+      "oi_change_pct": 0.048,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -3.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 1.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T22:40:03.890729+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -5.75,
+    "entry": 2362.17,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.15,
+    "orderflow": {
+      "delta": -2.42,
+      "delta_pct": -60.0,
+      "cvd": 16119.75,
+      "cvd_slope": -2063.48,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.002,
+      "session_delta": 489.52,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.07,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %7 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.15,
+      "atr_trail_long": 2354.515,
+      "atr_trail_short": 2370.045,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2362.83,
+      "bpr_zone_bot": 2361.99
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761692.53,
+      "oi_prev": 761324.61,
+      "oi_change_pct": 0.048,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -5.75
+    }
+  },
+  {
+    "timestamp": "2026-05-10T22:45:04.417544+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 4.0,
+    "entry": 2363.91,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.1986,
+    "orderflow": {
+      "delta": 0.57,
+      "delta_pct": 60.0,
+      "cvd": 17689.02,
+      "cvd_slope": -2844.38,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 920.16,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.016,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %2 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.1986,
+      "atr_trail_long": 2355.9136,
+      "atr_trail_short": 2371.8564,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 763327.76,
+      "oi_prev": 761692.53,
+      "oi_change_pct": 0.215,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 3.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 4.0
+    }
+  },
+  {
+    "timestamp": "2026-05-10T22:50:03.813580+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 2.5,
+    "entry": 2362.02,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.1729,
+    "orderflow": {
+      "delta": 0.01,
+      "delta_pct": 60.0,
+      "cvd": 17536.69,
+      "cvd_slope": -1548.85,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -529.52,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.003,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.1729,
+      "atr_trail_long": 2354.0879,
+      "atr_trail_short": 2369.9421,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2362.83,
+      "bpr_zone_bot": 2361.99
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 764565.22,
+      "oi_prev": 763327.76,
+      "oi_change_pct": 0.162,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 2.5
+    }
+  },
+  {
+    "timestamp": "2026-05-10T23:10:04.454642+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -1.25,
+    "entry": 2368.51,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.2471,
+    "orderflow": {
+      "delta": -5.03,
+      "delta_pct": -60.0,
+      "cvd": 15386.5,
+      "cvd_slope": 5198.39,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.003,
+      "session_delta": 21.33,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.062,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %6 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.2471,
+      "atr_trail_long": 2360.5921,
+      "atr_trail_short": 2376.6279,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2368.51,
+      "bpr_zone_bot": 2368.3
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 771837.88,
+      "oi_prev": 772852.72,
+      "oi_change_pct": -0.131,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -1.25
+    }
+  },
+  {
+    "timestamp": "2026-05-11T01:35:04.275668+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.25,
+    "entry": 2369.08,
+    "sl": 2356.5046,
+    "tp1": 2387.943,
+    "tp2": 2406.8061,
+    "tp3": 2431.9568,
+    "leverage": 10,
+    "atr": 8.3836,
+    "orderflow": {
+      "delta": 130.09,
+      "delta_pct": 60.0,
+      "cvd": 32460.97,
+      "cvd_slope": 19383.4,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.027,
+      "session_delta": 42927.74,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.616,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.027,
+      "body_vs_atr": 0.041,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.03x | G\u00f6vde %4 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 8.3836,
+      "atr_trail_long": 2348.5011,
+      "atr_trail_short": 2389.4289,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 752222.89,
+      "oi_prev": 754967.58,
+      "oi_change_pct": -0.364,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 5,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175734+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T01:45:03.589254+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.75,
+    "entry": 2366.46,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 8.3836,
+    "orderflow": {
+      "delta": 3.5,
+      "delta_pct": 60.0,
+      "cvd": 28807.26,
+      "cvd_slope": 10459.29,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": 40136.88,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.095,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %10 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 8.3836,
+      "atr_trail_long": 2345.5011,
+      "atr_trail_short": 2386.6189,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 751096.4,
+      "oi_prev": 752222.89,
+      "oi_change_pct": -0.15,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.75
+    }
+  },
+  {
+    "timestamp": "2026-05-11T01:50:04.172998+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.0,
+    "entry": 2371.68,
+    "sl": 2359.0211,
+    "tp1": 2390.6684,
+    "tp2": 2409.6568,
+    "tp3": 2434.9746,
+    "leverage": 10,
+    "atr": 8.4393,
+    "orderflow": {
+      "delta": 22.0,
+      "delta_pct": 60.0,
+      "cvd": 32061.41,
+      "cvd_slope": 1015.75,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.005,
+      "session_delta": 45859.66,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.005,
+      "body_vs_atr": 0.002,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 8.4393,
+      "atr_trail_long": 2350.5818,
+      "atr_trail_short": 2392.7582,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 752034.87,
+      "oi_prev": 751096.4,
+      "oi_change_pct": 0.125,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 5,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175745+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T02:00:03.481617+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 4.75,
+    "entry": 2373.31,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 9.0771,
+    "orderflow": {
+      "delta": 253.37,
+      "delta_pct": 60.0,
+      "cvd": 32090.09,
+      "cvd_slope": 4594.81,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.052,
+      "session_delta": 40090.26,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.398,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.052,
+      "body_vs_atr": 0.043,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.05x | G\u00f6vde %4 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 9.0771,
+      "atr_trail_long": 2351.2071,
+      "atr_trail_short": 2395.6129,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 754553.05,
+      "oi_prev": 753820.48,
+      "oi_change_pct": 0.097,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 4.75
+    }
+  },
+  {
+    "timestamp": "2026-05-11T02:05:03.635466+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 9.0,
+    "entry": 2375.64,
+    "sl": 2361.3193,
+    "tp1": 2397.1211,
+    "tp2": 2418.6021,
+    "tp3": 2447.2436,
+    "leverage": 11,
+    "atr": 9.5471,
+    "orderflow": {
+      "delta": 92.74,
+      "delta_pct": 60.0,
+      "cvd": 44052.34,
+      "cvd_slope": 12461.54,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.018,
+      "session_delta": 47931.56,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.99,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.018,
+      "body_vs_atr": 0.103,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | G\u00f6vde %10 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 9.5471,
+      "atr_trail_long": 2351.7821,
+      "atr_trail_short": 2398.5279,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 757391.28,
+      "oi_prev": 754553.05,
+      "oi_change_pct": 0.376,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 5.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 9.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175755+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T02:10:03.930166+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 8.5,
+    "entry": 2378.57,
+    "sl": 2365.3796,
+    "tp1": 2398.3555,
+    "tp2": 2418.1411,
+    "tp3": 2444.5218,
+    "leverage": 11,
+    "atr": 8.7936,
+    "orderflow": {
+      "delta": 75.9,
+      "delta_pct": 60.0,
+      "cvd": 48873.83,
+      "cvd_slope": 24188.45,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.014,
+      "session_delta": 49402.7,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.6,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.014,
+      "body_vs_atr": 0.058,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | G\u00f6vde %6 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 8.7936,
+      "atr_trail_long": 2357.0261,
+      "atr_trail_short": 2399.8939,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761473.09,
+      "oi_prev": 759003.75,
+      "oi_change_pct": 0.325,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": 0.75
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 5,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 8.5
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175763+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T02:20:03.816202+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -1.75,
+    "entry": 2373.57,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 8.6336,
+    "orderflow": {
+      "delta": -36.0,
+      "delta_pct": -60.0,
+      "cvd": 47544.32,
+      "cvd_slope": 4755.43,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.007,
+      "session_delta": 39401.42,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": 1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.007,
+      "body_vs_atr": 0.025,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.01x | G\u00f6vde %3 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 8.6336,
+      "atr_trail_long": 2352.2061,
+      "atr_trail_short": 2395.1539,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 761553.85,
+      "oi_prev": 761473.09,
+      "oi_change_pct": 0.011,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -0.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -1.75
+    }
+  },
+  {
+    "timestamp": "2026-05-11T02:30:04.242677+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 2.75,
+    "entry": 2373.35,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 8.0664,
+    "orderflow": {
+      "delta": 10.08,
+      "delta_pct": 60.0,
+      "cvd": 46045.3,
+      "cvd_slope": -3398.32,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.002,
+      "session_delta": 17175.1,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.302,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.006,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %1 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 8.0664,
+      "atr_trail_long": 2353.4839,
+      "atr_trail_short": 2393.3861,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 762327.64,
+      "oi_prev": 761812.14,
+      "oi_change_pct": 0.068,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 4.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 2.75
+    }
+  },
+  {
+    "timestamp": "2026-05-11T02:35:04.146738+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 7.75,
+    "entry": 2376.56,
+    "sl": 2365.1804,
+    "tp1": 2393.6295,
+    "tp2": 2410.6989,
+    "tp3": 2433.4582,
+    "leverage": 10,
+    "atr": 7.5864,
+    "orderflow": {
+      "delta": 4.75,
+      "delta_pct": 60.0,
+      "cvd": 54315.35,
+      "cvd_slope": 7452.35,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": 31291.37,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 7.5864,
+      "atr_trail_long": 2357.7039,
+      "atr_trail_short": 2395.5261,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 760645.57,
+      "oi_prev": 763165.43,
+      "oi_change_pct": -0.33,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": 0.5
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 4,
+    "note": "G\u00dc\u00c7L\u00dc",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 7.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175773+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T02:45:03.367538+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.25,
+    "entry": 2378.31,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 5.9607,
+    "orderflow": {
+      "delta": 2.47,
+      "delta_pct": 60.0,
+      "cvd": 55278.23,
+      "cvd_slope": 9761.94,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 25933.21,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.102,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %10 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.9607,
+      "atr_trail_long": 2363.4082,
+      "atr_trail_short": 2392.6018,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 760726.4,
+      "oi_prev": 760645.57,
+      "oi_change_pct": 0.011,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.25
+    }
+  },
+  {
+    "timestamp": "2026-05-11T02:50:03.596074+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 5.25,
+    "entry": 2374.7,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 5.8993,
+    "orderflow": {
+      "delta": 3.51,
+      "delta_pct": 60.0,
+      "cvd": 54584.21,
+      "cvd_slope": 463.66,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.001,
+      "session_delta": 31888.85,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 1.0,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.001,
+      "body_vs_atr": 0.041,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %4 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.8993,
+      "atr_trail_long": 2359.9518,
+      "atr_trail_short": 2389.2082,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2375.14,
+      "bpr_zone_bot": 2374.7
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 8.374e-05,
+      "funding_rate_pct": 0.0084,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 760622.75,
+      "oi_prev": 760726.4,
+      "oi_change_pct": -0.014,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 9.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 8.75
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 5.25
+    }
+  },
+  {
+    "timestamp": "2026-05-11T03:00:04.076343+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": 3.25,
+    "entry": 2370.39,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 5.4414,
+    "orderflow": {
+      "delta": 91.12,
+      "delta_pct": 60.0,
+      "cvd": 50868.71,
+      "cvd_slope": -4240.9,
+      "imbalance": 0.7,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.02,
+      "session_delta": 9321.04,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.821,
+      "scores": {
+        "delta": 1.5,
+        "cvd": -1.0,
+        "imbalance": 1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.02,
+      "body_vs_atr": 0.022,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | G\u00f6vde %2 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.4414,
+      "atr_trail_long": 2356.9064,
+      "atr_trail_short": 2383.4436,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.964e-05,
+      "funding_rate_pct": 0.005,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 760242.29,
+      "oi_prev": 760552.16,
+      "oi_change_pct": -0.041,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "EXPIRED",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 8.25
+    },
+    "tf_1h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_15m": {
+      "direction": "FLAT",
+      "score": 5.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": 3.25
+    }
+  },
+  {
+    "timestamp": "2026-05-11T06:30:03.372367+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.75,
+    "entry": 2324.11,
+    "sl": 2331.6111,
+    "tp1": 2312.8584,
+    "tp2": 2301.6068,
+    "tp3": 2286.6046,
+    "leverage": 11,
+    "atr": 5.0007,
+    "orderflow": {
+      "delta": -11.42,
+      "delta_pct": -60.0,
+      "cvd": -21004.84,
+      "cvd_slope": -2982.74,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.003,
+      "session_delta": -32927.92,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.003,
+      "body_vs_atr": 0.048,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %5 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 5.0007,
+      "atr_trail_long": 2311.8482,
+      "atr_trail_short": 2336.6118,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.964e-05,
+      "funding_rate_pct": 0.005,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 747355.74,
+      "oi_prev": 749035.89,
+      "oi_change_pct": -0.224,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "TP3",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -0.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175785+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T08:35:03.316724+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "LONG",
+    "score": 6.75,
+    "entry": 2338.85,
+    "sl": 2331.8334,
+    "tp1": 2349.3748,
+    "tp2": 2359.8996,
+    "tp3": 2373.9328,
+    "leverage": 9,
+    "atr": 2.9871,
+    "orderflow": {
+      "delta": 0.07,
+      "delta_pct": 60.0,
+      "cvd": -18563.53,
+      "cvd_slope": 2852.57,
+      "imbalance": 0.7,
+      "stacked_up": true,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 4223.69,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 1.5,
+        "cvd": 1.0,
+        "imbalance": 1.5,
+        "stacked": 2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 2.9871,
+      "atr_trail_long": 2331.3821,
+      "atr_trail_short": 2346.3179,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2338.85,
+      "bpr_zone_bot": 2337.86
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 4.964e-05,
+      "funding_rate_pct": 0.005,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 757533.69,
+      "oi_prev": 757733.84,
+      "oi_change_pct": -0.026,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "SL",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -0.25
+    },
+    "tf_4h": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_1h": {
+      "direction": "FLAT",
+      "score": 1.75
+    },
+    "tf_15m": {
+      "direction": "LONG",
+      "score": 6.25
+    },
+    "tf_5m": {
+      "direction": "LONG",
+      "score": 6.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175794+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T16:40:03.234100+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.25,
+    "entry": 2317.71,
+    "sl": 2324.6631,
+    "tp1": 2307.2803,
+    "tp2": 2296.8506,
+    "tp3": 2282.9444,
+    "leverage": 10,
+    "atr": 3.9664,
+    "orderflow": {
+      "delta": -57.32,
+      "delta_pct": -60.0,
+      "cvd": -56599.1,
+      "cvd_slope": -21036.45,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.024,
+      "session_delta": -22003.54,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.024,
+      "body_vs_atr": 0.033,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.02x | G\u00f6vde %3 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.9664,
+      "atr_trail_long": 2308.0239,
+      "atr_trail_short": 2327.6261,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.713e-05,
+      "funding_rate_pct": 0.0067,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 767238.95,
+      "oi_prev": 767704.31,
+      "oi_change_pct": -0.061,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP2",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -0.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175802+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T17:35:04.528420+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -8.75,
+    "entry": 2307.0,
+    "sl": 2316.8732,
+    "tp1": 2292.1902,
+    "tp2": 2277.3804,
+    "tp3": 2257.6339,
+    "leverage": 11,
+    "atr": 6.5821,
+    "orderflow": {
+      "delta": -163.99,
+      "delta_pct": -60.0,
+      "cvd": -89411.75,
+      "cvd_slope": -32111.39,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.039,
+      "session_delta": -29288.03,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.062,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.039,
+      "body_vs_atr": 0.093,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.04x | G\u00f6vde %9 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.5821,
+      "atr_trail_long": 2291.1546,
+      "atr_trail_short": 2323.4154,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.713e-05,
+      "funding_rate_pct": 0.0067,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 768692.37,
+      "oi_prev": 776462.67,
+      "oi_change_pct": -1.001,
+      "oi_trend": "FALLING",
+      "score_funding": 0.0,
+      "score_oi": -0.5
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175818+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T17:45:03.750615+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.0,
+    "entry": 2311.6,
+    "sl": 2321.1582,
+    "tp1": 2297.2627,
+    "tp2": 2282.9254,
+    "tp3": 2263.8089,
+    "leverage": 8,
+    "atr": 6.3721,
+    "orderflow": {
+      "delta": -0.26,
+      "delta_pct": -60.0,
+      "cvd": -87275.35,
+      "cvd_slope": -20005.1,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": -28506.14,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.0,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": -0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": -0.5,
+        "delta_ma": 0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.002,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 6.3721,
+      "atr_trail_long": 2295.6796,
+      "atr_trail_short": 2327.5304,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 6.713e-05,
+      "funding_rate_pct": 0.0067,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 772332.04,
+      "oi_prev": 768692.37,
+      "oi_change_pct": 0.473,
+      "oi_trend": "RISING",
+      "score_funding": 0.0,
+      "score_oi": -0.75
+    },
+    "outcome": "TP1",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -4.25
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -8.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -8.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.0
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175827+03:00"
+  },
+  {
+    "timestamp": "2026-05-11T19:45:04.204431+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "SHORT",
+    "score": -6.25,
+    "entry": 2328.27,
+    "sl": 2335.2548,
+    "tp1": 2317.7928,
+    "tp2": 2307.3156,
+    "tp3": 2293.346,
+    "leverage": 8,
+    "atr": 4.5043,
+    "orderflow": {
+      "delta": -5.88,
+      "delta_pct": -60.0,
+      "cvd": -94757.86,
+      "cvd_slope": -6109.19,
+      "imbalance": 0.3,
+      "stacked_up": false,
+      "stacked_dn": true,
+      "vol_ratio": 0.002,
+      "session_delta": 14128.63,
+      "price_vs_vwap": "below",
+      "bar_close_pos": 0.415,
+      "scores": {
+        "delta": -1.5,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": -2.0,
+        "session": 0.75,
+        "vwap": -0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.002,
+      "body_vs_atr": 0.069,
+      "delta_pressure": 0.6,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %7 ATR | Delta bask\u0131 %60"
+    },
+    "dynamic_exit": {
+      "atr_value": 4.5043,
+      "atr_trail_long": 2317.3193,
+      "atr_trail_short": 2339.3107,
+      "cvd_divergence": true,
+      "cvd_div_type": "bullish_div",
+      "bpr_zone_hit": false,
+      "bpr_zone_top": 0.0,
+      "bpr_zone_bot": 0.0
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": -8.6e-07,
+      "funding_rate_pct": -0.0001,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 764457.85,
+      "oi_prev": 763990.4,
+      "oi_change_pct": 0.061,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": "TP3",
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "FLAT",
+      "score": -1.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -3.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "SHORT",
+      "score": -6.25
+    },
+    "outcome_price": 2284.65,
+    "outcome_time": "2026-05-12T15:00:44.175836+03:00"
+  },
+  {
+    "timestamp": "2026-05-29T00:05:04.442437+03:00",
+    "symbol": "ETHUSDT",
+    "direction": "FLAT",
+    "score": -1.75,
+    "entry": 2012.81,
+    "sl": 0.0,
+    "tp1": 0.0,
+    "tp2": 0.0,
+    "tp3": 0.0,
+    "leverage": 1,
+    "atr": 3.4986,
+    "orderflow": {
+      "delta": 0.0,
+      "delta_pct": 0.0,
+      "cvd": -36340.02,
+      "cvd_slope": -787.61,
+      "imbalance": 0.0,
+      "stacked_up": false,
+      "stacked_dn": false,
+      "vol_ratio": 0.0,
+      "session_delta": 3567.18,
+      "price_vs_vwap": "above",
+      "bar_close_pos": 0.5,
+      "scores": {
+        "delta": 0.0,
+        "cvd": -1.0,
+        "imbalance": -1.5,
+        "stacked": 0.0,
+        "session": 0.75,
+        "vwap": 0.5,
+        "vol_spike": 0.0,
+        "bar_close": 0.0,
+        "delta_ma": -0.5,
+        "absorption": 0.0
+      }
+    },
+    "absorption": {
+      "bullish": false,
+      "bearish": false,
+      "bonus": 0.0,
+      "vol_ratio": 0.0,
+      "body_vs_atr": 0.0,
+      "delta_pressure": 0,
+      "detail": "Absorption YOK | Vol 0.00x | G\u00f6vde %0 ATR | Delta bask\u0131 %0"
+    },
+    "dynamic_exit": {
+      "atr_value": 3.4986,
+      "atr_trail_long": 2004.0636,
+      "atr_trail_short": 2021.5564,
+      "cvd_divergence": false,
+      "cvd_div_type": "",
+      "bpr_zone_hit": true,
+      "bpr_zone_top": 2012.81,
+      "bpr_zone_bot": 2012.24
+    },
+    "exit_signal": false,
+    "exit_reason": "",
+    "funding_oi": {
+      "funding_rate": 2.27e-05,
+      "funding_rate_pct": 0.0023,
+      "funding_bias": "NEUTRAL",
+      "oi_current": 824909.06,
+      "oi_prev": 825614.65,
+      "oi_change_pct": -0.085,
+      "oi_trend": "FLAT",
+      "score_funding": 0.0,
+      "score_oi": 0.0
+    },
+    "outcome": null,
+    "type": "MTF_SIGNAL",
+    "confluence": 3,
+    "note": "ORTA",
+    "tf_1d": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_4h": {
+      "direction": "FLAT",
+      "score": -2.75
+    },
+    "tf_1h": {
+      "direction": "SHORT",
+      "score": -6.75
+    },
+    "tf_15m": {
+      "direction": "SHORT",
+      "score": -7.25
+    },
+    "tf_5m": {
+      "direction": "FLAT",
+      "score": -1.75
+    },
+    "reversal_warned": true
   }
 ]
