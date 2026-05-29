@@ -161,7 +161,17 @@ def handle_liq(chat_id: str, bars: int = 150):
 
         sr    = find_sr_levels(df)
         pools = find_liquidity_pools(df, sr)
-        path  = plot_chart(df, sr, pools)
+
+        # GEX seviyeleri
+        gex_levels = []
+        try:
+            from gex_calculator import fetch_gex
+            gex_levels = fetch_gex("ETH", max_dte=45)
+        except Exception as ge:
+            print(f"  [GEX] Yuklenemedi: {ge}")
+
+        plot_chart._save_to_file = True
+        path  = plot_chart(df, sr, pools, gex_levels=gex_levels)
 
         if not path:
             send_message(chat_id, "❌ Grafik oluşturulamadı.")

@@ -399,6 +399,39 @@ def print_gex_report(gex_levels: list, current: float):
     print()
 
 
+def print_gex_report(gex_levels: list, current: float):
+    if not gex_levels:
+        return
+    total_gex = sum(g["net_gex"] for g in gex_levels)
+    print(Fore.CYAN + "=" * 62)
+    print(Fore.CYAN + "  GAMMA EXPOSURE (GEX) SEVİYELERİ")
+    print(Fore.CYAN + "=" * 62)
+    durum = Fore.GREEN + "POZİTİF ▲ (dar bant)" if total_gex > 0 else Fore.RED + "NEGATİF ▼ (volatil)"
+    print(f"  Piyasa: {durum}{Style.RESET_ALL}  |  Net GEX: {total_gex/1e6:.1f}M")
+    print()
+    for g in reversed(gex_levels):
+        strike  = g["strike"]
+        gtype   = g["type"]
+        net_gex = g["net_gex"]
+        dte     = g["dte"]
+        dist    = (strike - current) / current * 100
+
+        if gtype == "call_wall":
+            color = Fore.MAGENTA
+            tag   = "CALL WALL ▲"
+        elif gtype == "put_wall":
+            color = Fore.CYAN
+            tag   = "PUT  WALL ▼"
+        else:
+            color = Fore.WHITE
+            tag   = "GEX LEVEL  "
+
+        arrow = "▲" if dist > 0 else "▼"
+        print(f"  {color}{strike:>8.0f} USDT  {dist:>+7.2f}%  {tag}  {net_gex/1e6:>+7.1f}M  {dte}d {arrow}{Style.RESET_ALL}")
+    print(Fore.CYAN + "=" * 62)
+    print()
+
+
 # ═══════════════════════════════════════════════════════════════════
 #  MATPLOTLİB CHART
 # ═══════════════════════════════════════════════════════════════════
@@ -450,6 +483,34 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict, gex_levels: list = None)
     ax_candle.axhline(sr["poc"], color="#ff9800", lw=1.5, ls="-.", alpha=0.9, zorder=3)
     ax_candle.text(n + 0.5, sr["poc"], f"POC {sr['poc']:.1f}",
                    color="#ff9800", fontsize=7.5, va="center")
+
+    # ── GEX SEVİYELERİ ───────────────────────────────────────────
+    if gex_levels:
+        for g in gex_levels:
+            strike  = g["strike"]
+            gtype   = g["type"]
+            net_gex = g["net_gex"]
+            dte     = g["dte"]
+
+            if gtype == "call_wall":
+                color  = "#e040fb"   # Mor — direnç
+                label  = f"CW {strike:.0f} ({dte}d)"
+                ls     = "--"
+                lw     = 1.5
+            elif gtype == "put_wall":
+                color  = "#00bcd4"   # Cyan — destek
+                label  = f"PW {strike:.0f} ({dte}d)"
+                ls     = "--"
+                lw     = 1.5
+            else:
+                color  = "#78909c"   # Gri — nötr
+                label  = f"GEX {strike:.0f} ({dte}d)"
+                ls     = ":"
+                lw     = 1.0
+
+            ax_candle.axhline(strike, color=color, lw=lw, ls=ls, alpha=0.7, zorder=3)
+            ax_candle.text(n + 0.5, strike, label, color=color,
+                           fontsize=7, va="center", style="italic")
 
     # ── GEX SEVİYELERİ ───────────────────────────────────────────
     if gex_levels:
