@@ -1,14 +1,11 @@
 """
-gex_calculator.py — Gamma Exposure (GEX) Hesaplayıcı
-=====================================================
-Deribit ETH options verisiyle GEX seviyeleri hesaplar.
+gex_calculator.py — Gamma/Vanna/Charm Exposure Hesaplayıcı
+===========================================================
+Deribit ETH options verisiyle GEX, VEX, CEX seviyeleri hesaplar.
 
 Kullanım:
-    from gex_calculator import fetch_gex
-    gex_levels = fetch_gex(symbol="ETH")
-
-    # gex_levels listesi:
-    # [{"strike": 2000, "gex": 1234567, "type": "call_wall"}, ...]
+    from gex_calculator import fetch_greeks
+    levels = fetch_greeks(symbol="ETH")
 """
 
 import requests
@@ -18,32 +15,41 @@ from datetime import datetime, timezone
 from typing import Optional
 
 # ─── CONFIG ────────────────────────────────────────────────────────────────
-DERIBIT_BASE  = "https://www.deribit.com/api/v2/public"
-RISK_FREE_RATE = 0.05   # %5 risksiz faiz (yaklaşık)
-TOP_N_LEVELS   = 8      # Kaç seviye gösterilsin
+DERIBIT_BASE   = "https://www.deribit.com/api/v2/public"
+RISK_FREE_RATE = 0.05
+TOP_N_LEVELS   = 8
 
-# ─── BLACK-SCHOLES GAMMA ───────────────────────────────────────────────────
-def bs_gamma(S: float, K: float, T: float, r: float, sigma: float) -> float:
+# ─── BLACK-SCHOLES GREEKS ──────────────────────────────────────────────────
+def bs_greeks(S: float, K: float, T: float, r: float, sigma: float) -> dict:
     """
-    Black-Scholes Gamma hesapla.
-    S: spot fiyat
-    K: strike
-    T: vadeye kalan süre (yıl cinsinden)
-    r: risksiz faiz
-    sigma: implied volatility
+    Black-Scholes ile Gamma, Vanna, Charm hesapla.
+    S: spot, K: strike, T: süre (yıl), r: faiz, sigma: IV
     """
     if T <= 0 or sigma <= 0 or S <= 0:
-        return 0.0
+        return {"gamma": 0.0, "vanna": 0.0, "charm": 0.0}
     try:
         d1 = (np.log(S / K) + (r + 0.5 * sigma**2) * T) / (sigma * np.sqrt(T))
-        gamma = norm.pdf(d1) / (S * sigma * np.sqrt(T))
-        return gamma
+        d2 = d1 - sigma * np.sqrt(T)
+
+        pdf_d1 = norm.pdf(d1)
+        sqrt_T = np.sqrt(T)
+
+        # Gamma — delta'nın fiyata göre değişimi
+        gamma = pdf_d1 / (S * sigma * sqrt_T)
+
+        # Vanna — delta'nın IV'e göre değişimi
+        vanna = -pdf_d1 * d2 / sigma
+
+        # Charm — delta'nın zamana göre değişimi
+        charm = -pdf_d1 * (2 * r * T - d2 * sigma * sqrt_T) / (2 * T * sigma * sqrt_T)
+
+        return {"gamma": gamma, "vanna": vanna, "charm": charm}
     except Exception:
-        return 0.0
+        return {"gamma": 0.0, "vanna": 0.0, "charm": 0.0}
+
 
 # ─── DERİBİT API ───────────────────────────────────────────────────────────
 def fetch_spot_price(symbol: str = "ETH") -> float:
-    """Spot fiyatı çek."""
     try:
         r = requests.get(
             f"{DERIBIT_BASE}/get_index_price",
@@ -56,38 +62,7 @@ def fetch_spot_price(symbol: str = "ETH") -> float:
         return 0.0
 
 
-def fetch_instruments(symbol: str = "ETH") -> list:
-    """Aktif option kontratlarını çek."""
-    try:
-        r = requests.get(
-            f"{DERIBIT_BASE}/get_instruments",
-            params={"currency": symbol, "kind": "option"},
-            timeout=10
-        )
-        return r.json().get("result", [])
-    except Exception as e:
-        print(f"  [GEX] Instrument hatası: {e}")
-        return []
-
-
-def fetch_ticker(instrument_name: str) -> Optional[dict]:
-    """Tek bir option için ticker verisi çek (IV, OI, gamma)."""
-    try:
-        r = requests.get(
-            f"{DERIBIT_BASE}/get_ticker",
-            params={"instrument_name": instrument_name},
-            timeout=5
-        )
-        return r.json().get("result", None)
-    except Exception:
-        return None
-
-
 def fetch_book_summary(symbol: str = "ETH") -> list:
-    """
-    Tüm option'lar için özet veri — tek API çağrısıyla.
-    Daha hızlı ama gamma yok, sadece OI ve IV var.
-    """
     try:
         r = requests.get(
             f"{DERIBIT_BASE}/get_book_summary_by_currency",
@@ -99,153 +74,146 @@ def fetch_book_summary(symbol: str = "ETH") -> list:
         print(f"  [GEX] Book summary hatası: {e}")
         return []
 
-# ─── GEX HESAPLAMA ─────────────────────────────────────────────────────────
-def fetch_gex(symbol: str = "ETH", max_dte: int = 45) -> list:
+
+# ─── ANA HESAPLAMA ─────────────────────────────────────────────────────────
+def fetch_greeks(symbol: str = "ETH", max_dte: int = 45) -> list:
     """
-    Ana fonksiyon — GEX seviyelerini hesapla ve döndür.
+    GEX + VEX + CEX seviyelerini hesapla.
 
     Returns:
-        list of dict: [
-            {"strike": 2000, "gex": 1234567, "net_gex": 500000,
-             "call_gex": 800000, "put_gex": -300000,
-             "type": "call_wall", "dte": 7},
-            ...
-        ]
+        list of dict — her strike için GEX, Vanna, Charm exposure
     """
     print(f"  [GEX] Deribit'ten {symbol} option verisi çekiliyor...")
 
-    # Spot fiyat
     spot = fetch_spot_price(symbol)
     if spot == 0:
-        print("  [GEX] Spot fiyat alınamadı, GEX hesaplanamıyor.")
+        print("  [GEX] Spot fiyat alınamadı.")
         return []
 
     print(f"  [GEX] Spot: ${spot:,.2f}")
 
-    # Tüm option'lar için özet veri
     summaries = fetch_book_summary(symbol)
     if not summaries:
-        print("  [GEX] Veri alınamadı.")
         return []
 
-    now_utc = datetime.now(timezone.utc)
-    gex_by_strike = {}  # strike → {call_gex, put_gex}
-
-    processed = 0
-    skipped   = 0
+    now_utc     = datetime.now(timezone.utc)
+    by_strike   = {}
+    processed   = 0
+    skipped     = 0
 
     for s in summaries:
         name = s.get("instrument_name", "")
-        if not name:
-            continue
-
-        # Instrument adını parse et: ETH-29MAY26-2000-C
         parts = name.split("-")
         if len(parts) != 4:
             continue
 
         try:
-            strike     = float(parts[2])
+            strike      = float(parts[2])
             option_type = parts[3]  # C veya P
+            exp_str     = parts[1]  # 29MAY26
+            exp_date    = datetime.strptime(exp_str, "%d%b%y").replace(tzinfo=timezone.utc)
+            dte         = (exp_date - now_utc).days
         except Exception:
+            skipped += 1
             continue
 
-        # Vadeye kalan gün
-        try:
-            exp_ts = s.get("creation_timestamp", 0)  # ms
-            # Deribit'te expiration_timestamp instrument'ta var
-            # book_summary'de underlying_index'ten alıyoruz
-            # Alternatif: instrument adından tarih parse et
-            exp_str = parts[1]  # 29MAY26
-            exp_date = datetime.strptime(exp_str, "%d%b%y").replace(tzinfo=timezone.utc)
-            dte = (exp_date - now_utc).days
-        except Exception:
-            dte = 0
-
-        # Çok uzak vadeleri atla
         if dte < 0 or dte > max_dte:
             skipped += 1
             continue
 
-        # T (yıl cinsinden)
-        T = max(dte / 365.0, 1 / 365.0)
-
-        # IV ve OI
-        iv  = s.get("mark_iv", 0) / 100.0  # % → decimal
-        oi  = s.get("open_interest", 0)     # ETH cinsinden
+        T     = max(dte / 365.0, 1 / 365.0)
+        iv    = s.get("mark_iv", 0) / 100.0
+        oi    = s.get("open_interest", 0)
 
         if iv <= 0 or oi <= 0:
             skipped += 1
             continue
 
-        # Gamma hesapla
-        gamma = bs_gamma(S=spot, K=strike, T=T, r=RISK_FREE_RATE, sigma=iv)
+        g = bs_greeks(S=spot, K=strike, T=T, r=RISK_FREE_RATE, sigma=iv)
 
-        # GEX = Gamma × OI × Spot² × 100 (kontrat büyüklüğü)
-        # ETH options: 1 kontrat = 1 ETH
-        gex = gamma * oi * spot * spot
+        # Exposure = greek × OI × spot²
+        sign = 1 if option_type == "C" else -1
 
-        if strike not in gex_by_strike:
-            gex_by_strike[strike] = {"call_gex": 0.0, "put_gex": 0.0, "dte": dte}
+        gex   = g["gamma"] * oi * spot * spot * sign
+        vex   = g["vanna"] * oi * spot          * sign  # Vanna Exposure
+        cex   = g["charm"] * oi                 * sign  # Charm Exposure
+
+        if strike not in by_strike:
+            by_strike[strike] = {
+                "call_gex": 0.0, "put_gex": 0.0,
+                "vex": 0.0, "cex": 0.0, "dte": dte
+            }
 
         if option_type == "C":
-            gex_by_strike[strike]["call_gex"] += gex
+            by_strike[strike]["call_gex"] += gex
+            by_strike[strike]["vex"]      += vex
+            by_strike[strike]["cex"]      += cex
         else:
-            gex_by_strike[strike]["put_gex"] -= gex  # Put GEX negatif
+            by_strike[strike]["put_gex"]  += gex  # zaten negatif (sign=-1)
+            by_strike[strike]["vex"]      += vex
+            by_strike[strike]["cex"]      += cex
 
         processed += 1
 
-    print(f"  [GEX] İşlenen: {processed} option | Atlanan: {skipped}")
+    print(f"  [GEX] İşlenen: {processed} | Atlanan: {skipped}")
 
-    if not gex_by_strike:
-        return []
-
-    # Net GEX hesapla ve sırala
+    # Sonuçları derle
     results = []
-    for strike, data in gex_by_strike.items():
-        net_gex    = data["call_gex"] + data["put_gex"]
-        abs_gex    = abs(data["call_gex"]) + abs(data["put_gex"])
+    for strike, data in by_strike.items():
+        net_gex = data["call_gex"] + data["put_gex"]
+        abs_gex = abs(data["call_gex"]) + abs(data["put_gex"])
         results.append({
             "strike":   strike,
             "call_gex": data["call_gex"],
             "put_gex":  data["put_gex"],
             "net_gex":  net_gex,
             "abs_gex":  abs_gex,
+            "vex":      data["vex"],
+            "cex":      data["cex"],
             "dte":      data["dte"],
         })
 
-    # Toplam GEX
     total_gex = sum(r["net_gex"] for r in results)
-    print(f"  [GEX] Toplam Net GEX: {total_gex:,.0f}")
-    print(f"  [GEX] Piyasa durumu: {'POZİTİF (dar bant)' if total_gex > 0 else 'NEGATİF (volatil)'}")
+    total_vex = sum(r["vex"]     for r in results)
+    total_cex = sum(r["cex"]     for r in results)
 
-    # En büyük abs GEX seviyelerine göre sırala
+    print(f"  [GEX] Net GEX: {total_gex/1e6:.1f}M  |  VEX: {total_vex/1e6:.1f}M  |  CEX: {total_cex:.0f}")
+    print(f"  [GEX] Piyasa: {'POZ (dar bant)' if total_gex > 0 else 'NEG (volatil)'}")
+
+    # En büyük GEX seviyelerini seç
     results.sort(key=lambda x: x["abs_gex"], reverse=True)
     top = results[:TOP_N_LEVELS]
 
-    # Seviye tipi belirle
+    # Tip belirle
     for r in top:
         if r["call_gex"] > abs(r["put_gex"]) * 1.5:
-            r["type"] = "call_wall"    # Güçlü direnç
+            r["type"] = "call_wall"
         elif abs(r["put_gex"]) > r["call_gex"] * 1.5:
-            r["type"] = "put_wall"     # Güçlü destek
+            r["type"] = "put_wall"
         else:
-            r["type"] = "gex_level"    # Nötr seviye
+            r["type"] = "gex_level"
 
-    # Strike'a göre sırala (grafik için)
     top.sort(key=lambda x: x["strike"])
 
-    # Özet yazdır
-    print(f"\n  {'Strike':>8}  {'Net GEX':>12}  {'Tip':>12}  {'DTE':>5}")
-    print(f"  {'-'*8}  {'-'*12}  {'-'*12}  {'-'*5}")
+    # Özet
+    print(f"\n  {'Strike':>8}  {'Net GEX':>10}  {'VEX':>8}  {'CEX':>8}  {'Tip':>12}  DTE")
+    print(f"  {'-'*65}")
     for r in top:
         arrow = "▲" if r["net_gex"] > 0 else "▼"
-        print(f"  {r['strike']:>8.0f}  {r['net_gex']:>+12,.0f}  {r['type']:>12}  {r['dte']:>5}d  {arrow}")
+        print(f"  {r['strike']:>8.0f}  {r['net_gex']/1e6:>+9.1f}M  "
+              f"{r['vex']/1e6:>+7.1f}M  {r['cex']:>+8.1f}  "
+              f"{r['type']:>12}  {r['dte']}d {arrow}")
 
     return top
 
 
-# ─── STANDALONE TEST ────────────────────────────────────────────────────────
+# ─── GERİYE DÖNÜK UYUMLULUK ────────────────────────────────────────────────
+def fetch_gex(symbol: str = "ETH", max_dte: int = 45) -> list:
+    """Eski kod için — fetch_greeks'i çağırır."""
+    return fetch_greeks(symbol, max_dte)
+
+
+# ─── TEST ───────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    levels = fetch_gex("ETH", max_dte=45)
-    print(f"\nToplam {len(levels)} GEX seviyesi bulundu.")
+    levels = fetch_greeks("ETH", max_dte=45)
+    print(f"\nToplam {len(levels)} seviye.")

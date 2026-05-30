@@ -493,17 +493,17 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict, gex_levels: list = None)
             dte     = g["dte"]
 
             if gtype == "call_wall":
-                color  = "#e040fb"   # Mor — direnç
+                color  = "#e040fb"   # Mor — GEX direnç
                 label  = f"CW {strike:.0f} ({dte}d)"
                 ls     = "--"
                 lw     = 1.5
             elif gtype == "put_wall":
-                color  = "#00bcd4"   # Cyan — destek
+                color  = "#00bcd4"   # Cyan — GEX destek
                 label  = f"PW {strike:.0f} ({dte}d)"
                 ls     = "--"
                 lw     = 1.5
             else:
-                color  = "#78909c"   # Gri — nötr
+                color  = "#78909c"   # Gri — GEX nötr
                 label  = f"GEX {strike:.0f} ({dte}d)"
                 ls     = ":"
                 lw     = 1.0
@@ -511,6 +511,23 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict, gex_levels: list = None)
             ax_candle.axhline(strike, color=color, lw=lw, ls=ls, alpha=0.7, zorder=3)
             ax_candle.text(n + 0.5, strike, label, color=color,
                            fontsize=7, va="center", style="italic")
+
+            # Vanna seviyesi — sarı kesikli
+            vex = g.get("vex", 0)
+            if abs(vex) > 0:
+                vanna_alpha = min(0.9, abs(vex) / (max(abs(g.get("vex", 1)) for g in gex_levels) + 1e-9))
+                if vex > 0:
+                    ax_candle.axhline(strike + 0.5, color="#ffeb3b", lw=0.8,
+                                      ls=":", alpha=vanna_alpha * 0.6, zorder=2)
+                else:
+                    ax_candle.axhline(strike - 0.5, color="#ffeb3b", lw=0.8,
+                                      ls=":", alpha=vanna_alpha * 0.6, zorder=2)
+
+            # Charm seviyesi — turuncu noktalı (expiry yakınsa daha güçlü)
+            cex = g.get("cex", 0)
+            if abs(cex) > 0 and dte <= 7:
+                ax_candle.axhline(strike, color="#ff9800", lw=1.2,
+                                  ls=(0, (3, 1, 1, 1)), alpha=0.5, zorder=2)
 
     # ── GEX SEVİYELERİ ───────────────────────────────────────────
     if gex_levels:
@@ -521,17 +538,17 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict, gex_levels: list = None)
             dte     = g["dte"]
 
             if gtype == "call_wall":
-                color  = "#e040fb"   # Mor — direnç
+                color  = "#e040fb"   # Mor — GEX direnç
                 label  = f"CW {strike:.0f} ({dte}d)"
                 ls     = "--"
                 lw     = 1.5
             elif gtype == "put_wall":
-                color  = "#00bcd4"   # Cyan — destek
+                color  = "#00bcd4"   # Cyan — GEX destek
                 label  = f"PW {strike:.0f} ({dte}d)"
                 ls     = "--"
                 lw     = 1.5
             else:
-                color  = "#78909c"   # Gri — nötr
+                color  = "#78909c"   # Gri — GEX nötr
                 label  = f"GEX {strike:.0f} ({dte}d)"
                 ls     = ":"
                 lw     = 1.0
@@ -539,6 +556,23 @@ def plot_chart(df: pd.DataFrame, sr: dict, pools: dict, gex_levels: list = None)
             ax_candle.axhline(strike, color=color, lw=lw, ls=ls, alpha=0.7, zorder=3)
             ax_candle.text(n + 0.5, strike, label, color=color,
                            fontsize=7, va="center", style="italic")
+
+            # Vanna seviyesi — sarı kesikli
+            vex = g.get("vex", 0)
+            if abs(vex) > 0:
+                vanna_alpha = min(0.9, abs(vex) / (max(abs(g.get("vex", 1)) for g in gex_levels) + 1e-9))
+                if vex > 0:
+                    ax_candle.axhline(strike + 0.5, color="#ffeb3b", lw=0.8,
+                                      ls=":", alpha=vanna_alpha * 0.6, zorder=2)
+                else:
+                    ax_candle.axhline(strike - 0.5, color="#ffeb3b", lw=0.8,
+                                      ls=":", alpha=vanna_alpha * 0.6, zorder=2)
+
+            # Charm seviyesi — turuncu noktalı (expiry yakınsa daha güçlü)
+            cex = g.get("cex", 0)
+            if abs(cex) > 0 and dte <= 7:
+                ax_candle.axhline(strike, color="#ff9800", lw=1.2,
+                                  ls=(0, (3, 1, 1, 1)), alpha=0.5, zorder=2)
 
     # ── LİKİDİTE HAVUZLARI ───────────────────────────────────────
     for p in pools["bull"]:
