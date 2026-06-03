@@ -625,6 +625,11 @@ def run_once(open_position: str = None, entry_price: float = 0.0):
         print(f"  SPAM filtresi — {mtf.direction} son {SPAM_MINUTES}dk içinde atıldı")
         return
 
+    # FLAT sinyalleri kaydetme
+    if mtf.direction == 'FLAT':
+        print(f'  FLAT sinyal — kaydedilmiyor')
+        return
+
     # Telegram mesajı gönder
     msg = format_telegram_mtf(mtf)
     ok  = send_telegram(msg)
